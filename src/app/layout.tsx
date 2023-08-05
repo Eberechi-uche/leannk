@@ -1,8 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import ChakraProviders from "./chakra/providers";
-const inter = Inter({ subsets: ["latin"] });
+
+import "@fontsource/zen-tokyo-zoo";
+import "@fontsource-variable/baloo-da-2";
+import { Providers } from "../chakra/providers";
 
 export const metadata: Metadata = {
   title: "Leannk",
@@ -16,9 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ChakraProviders>
-        <body className={inter.className}>{children}</body>
-      </ChakraProviders>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

@@ -13,6 +13,8 @@
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@fontsource-variable/baloo-da-2": "^5.0.7",
+    "@fontsource/zen-tokyo-zoo": "^5.0.7",
     "@types/node": "20.4.8",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
