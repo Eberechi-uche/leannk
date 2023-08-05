@@ -1,11 +1,13 @@
 import { extendTheme } from "@chakra-ui/react";
+import { buttonTheme } from "./Button";
 
 // 2. Extend the theme to include custom colors, fonts, etc
 const colors = {
   brand: {
-    900: "#1a365d",
-    800: "#153e75",
-    700: "#2a69ac",
+    green: "#00DDB3",
+    blue: "#00B6FE",
+    yellow: "#FFBF01",
+    purple: "#BA9BFC",
   },
 };
 
@@ -14,5 +16,8 @@ export const theme = extendTheme({
   fonts: {
     heading: `"Zen Tokyo Zoo", sans-serif`,
     body: `'Baloo Da 2 Variable', sans-serif`,
+  },
+  components: {
+    Button: buttonTheme,
   },
 });
