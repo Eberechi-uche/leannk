@@ -11,7 +11,7 @@ export default function BaseLayout({
   return (
     <>
       <ChakraProvider theme={theme}>
-        <Flex width={"100%"} h={"100vh"} flexDir={"column"}>
+        <Flex width={"100%"} minH={"100vh"} flexDir={"column"}>
           <Navbar />
           {children}
         </Flex>

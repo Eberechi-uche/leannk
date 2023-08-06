@@ -5,7 +5,7 @@ export default function Navbar() {
     <>
       <Flex width={"100%"} px={"2"} py={"4"} bg={"brand.yellow"}>
         <Flex width={"100%"} align={"center"} justify={"space-between"}>
-          <Heading fontWeight={"light"}>leannk</Heading>
+          <Heading fontWeight={"light"}>LEANNK</Heading>
           <Button>Get started</Button>
         </Flex>
       </Flex>

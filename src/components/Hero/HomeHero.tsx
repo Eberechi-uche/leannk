@@ -2,7 +2,7 @@
 import { Flex, Text, Icon, Button } from "@chakra-ui/react";
 import { BsAsterisk } from "react-icons/bs";
 import { SiLinkerd } from "react-icons/si";
-
+import { GoDotFill } from "react-icons/go";
 export default function HomeHero() {
   return (
     <>
@@ -13,7 +13,8 @@ export default function HomeHero() {
               <Icon as={BsAsterisk} /> All your{" "}
               <span className="home-hero"> links </span>in one place, <br />
               yes, why not - <Icon as={SiLinkerd} /> curate the perfect
-              collection.
+              collection
+              <span className="dot"> .</span>
             </h1>
           </Flex>
           <Flex py={"4"}>
