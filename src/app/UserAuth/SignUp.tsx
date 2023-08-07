@@ -35,9 +35,16 @@ export default function SignUp(props: {
           borderRadius={"full"}
           justifyContent={"space-between"}
           borderColor={"gray.200"}
+          color={"brand.yellow"}
         >
           <Icon as={userFlow !== 0 ? GoDot : GoDotFill} />
-          <Icon as={userFlow !== 1 ? GoDot : GoDotFill} />
+          <Icon
+            as={userFlow !== 1 ? GoDot : GoDotFill}
+            color={"brand.yellow"}
+            transform={{
+              color: "",
+            }}
+          />
         </Flex>
 
         <Text fontWeight={"700"} fontSize={"4xl"}>

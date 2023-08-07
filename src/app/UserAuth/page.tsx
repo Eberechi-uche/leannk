@@ -23,6 +23,7 @@ export default function UserAuth() {
         bgImage={images[authPage]}
         bgPosition={"center"}
         bgSize={"contain"}
+        transition={"all 0.7s ease-in-out"}
       >
         <Flex
           maxW={"500px"}
