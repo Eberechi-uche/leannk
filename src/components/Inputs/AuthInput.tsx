@@ -1,8 +1,10 @@
-import { Input } from "@chakra-ui/react";
+import { Input, SlideFade } from "@chakra-ui/react";
 
 export default function AuthInput(props: {
   value: string;
   name: string;
+  type: string;
+  placeHolder: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
@@ -15,14 +17,14 @@ export default function AuthInput(props: {
           props.onChange(e);
         }}
         focusBorderColor="#fff"
-        type={props.name}
+        type={props.type}
         _focus={{
           borderBottom: "2px",
           borderColor: "brand.yellow",
         }}
         borderRadius={"none"}
         border={"0 0 0 0"}
-        placeholder={props.name}
+        placeholder={props.placeHolder}
         my={"5"}
       />
     </>

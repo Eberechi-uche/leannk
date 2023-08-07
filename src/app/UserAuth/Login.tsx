@@ -2,7 +2,9 @@ import AuthInput from "@/components/Inputs/AuthInput";
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
-export default function Login() {
+export default function Login(props: {
+  handlePageChange: (e: number) => void;
+}) {
   const [userDefails, setUserDetails] = useState({
     Email: "",
     Password: "",
@@ -16,7 +18,6 @@ export default function Login() {
       ...prev,
       [name]: value,
     }));
-    console.log(name);
   }
   return (
     <Flex h={"80vh"} p={"10"} flexDir={"column"} w={"100%"}>
@@ -28,7 +29,15 @@ export default function Login() {
       </Text>
       <Flex w={"100%"} my={"2"}>
         <Text> New user ? </Text>
-        <Text color={"brand.yellow"} mx={"2"} fontWeight={"600"}>
+        <Text
+          color={"brand.yellow"}
+          mx={"2"}
+          fontWeight={"600"}
+          cursor={"pointer"}
+          onClick={() => {
+            props.handlePageChange(1);
+          }}
+        >
           Create an account
         </Text>
       </Flex>
@@ -37,14 +46,18 @@ export default function Login() {
           value={userDefails.Email}
           name={"Email"}
           onChange={handleChange}
+          type="email"
+          placeHolder="Email"
         />
         <AuthInput
           value={userDefails.Password}
           name={"Password"}
           onChange={handleChange}
+          type="password"
+          placeHolder="Password"
         />
         <Flex mt={"3"} justifyContent={"flex-end"}>
-          <Button size={"sm"}>continue</Button>
+          <Button size={"sm"}>Log in</Button>
         </Flex>
       </form>
     </Flex>
