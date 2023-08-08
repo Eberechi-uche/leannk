@@ -14,7 +14,14 @@ export default function Navbar() {
         display={path === "/UserAuth" ? "none" : "flex"}
       >
         <Flex width={"100%"} align={"center"} justify={"space-between"}>
-          <Heading fontWeight={"light"}>LEANNK</Heading>
+          <Heading
+            fontWeight={"light"}
+            onClick={() => {
+              route.push("/");
+            }}
+          >
+            LEANNK
+          </Heading>
           <Button
             onClick={() => {
               route.push("/UserAuth");

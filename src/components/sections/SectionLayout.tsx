@@ -18,10 +18,7 @@ export default function SectionLayout() {
   };
   let observer = new IntersectionObserver(changeBackgroundColor, options);
 
-  function changeBackgroundColor(
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver
-  ) {
+  function changeBackgroundColor(entries: IntersectionObserverEntry[]) {
     entries.forEach((entry) => {
       if (entry.target.id == "sectionroot" && !entry.isIntersecting) {
         setColor("#fff");

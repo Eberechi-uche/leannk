@@ -112,7 +112,16 @@ export function StackDetailsCard({ children }: { children: React.ReactNode }) {
             </Flex>
           </Flex>
 
-          <Flex overflowX={"scroll"}>{children}</Flex>
+          <Flex
+            overflowX={"scroll"}
+            sx={{
+              "::-webkit-scrollbar": {
+                display: "none",
+              },
+            }}
+          >
+            {children}
+          </Flex>
         </Flex>
       </Flex>
     </>

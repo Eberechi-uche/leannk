@@ -1,8 +1,8 @@
-import { Flex, Icon, Text } from "@chakra-ui/react";
-import { CiShare1 } from "react-icons/ci";
-import { More, Share } from "../Icons/Icons";
-import { Delete, MakePublic, ShareToWeave } from "../Actions/MenuActions";
+import { Flex, Text } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
+
 export default function StackCard() {
+  const route = useRouter();
   return (
     <>
       <Flex
@@ -13,6 +13,9 @@ export default function StackCard() {
         flexDir={"column"}
         my={"4"}
         h={"100%"}
+        onClick={() => {
+          route.push("/User/uche/uche");
+        }}
       >
         <Flex
           px={"7"}
