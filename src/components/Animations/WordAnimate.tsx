@@ -9,7 +9,7 @@ export default function WordAnimate() {
   useEffect(() => {
     let timeOut = setInterval(() => {
       setStyle(Math.floor(Math.random() * 8));
-    }, 2000);
+    }, 1500);
 
     return () => clearInterval(timeOut);
   }, []);

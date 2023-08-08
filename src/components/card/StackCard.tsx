@@ -14,7 +14,7 @@ export default function StackCard() {
         my={"4"}
         h={"100%"}
         onClick={() => {
-          route.push("/User/uche/uche");
+          route.push("/profile/uche/uche");
         }}
       >
         <Flex

@@ -3,7 +3,7 @@ import { Flex } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import InfoCard from "../card/InfoCard";
 import { PiDotsThreeFill } from "react-icons/pi";
-import { SiWebpack } from "react-icons/si";
+
 import { HiSquare2Stack } from "react-icons/hi2";
 import { GrCommand } from "react-icons/gr";
 
@@ -16,7 +16,7 @@ export default function SectionLayout() {
   let options = {
     threshold: [0.5],
   };
-  let observer = new IntersectionObserver(changeBackgroundColor, options);
+  let observer;
 
   function changeBackgroundColor(entries: IntersectionObserverEntry[]) {
     entries.forEach((entry) => {
@@ -36,6 +36,7 @@ export default function SectionLayout() {
   }
 
   useEffect(() => {
+    observer = new IntersectionObserver(changeBackgroundColor, options);
     if (sectionroot.current != null) {
       observer.observe(sectionroot.current);
       observer.observe(section1.current!);

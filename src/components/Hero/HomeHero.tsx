@@ -2,8 +2,9 @@
 import { Flex, Text, Icon, Button } from "@chakra-ui/react";
 import { BsAsterisk } from "react-icons/bs";
 import { SiLinkerd } from "react-icons/si";
-import { GoDotFill } from "react-icons/go";
+import { useRouter } from "next/navigation";
 export default function HomeHero() {
+  const route = useRouter();
   return (
     <>
       <Flex width={"100%"} h={"fit-content"} px={"2"} py={"10"}>
@@ -18,7 +19,15 @@ export default function HomeHero() {
             </h1>
           </Flex>
           <Flex py={"4"}>
-            <Button size={"lg"}> Get Leannking</Button>
+            <Button
+              size={"lg"}
+              onClick={() => {
+                route.push("/profile/you");
+              }}
+            >
+              {" "}
+              Get Leannking
+            </Button>
           </Flex>
         </Flex>
       </Flex>
