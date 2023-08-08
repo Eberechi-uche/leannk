@@ -51,10 +51,10 @@ export default function SectionLayout() {
         h={"fit-content"}
         bg={color}
         direction={"column"}
-        mt={"4"}
+        mt={"10"}
         transition={"all 0.7s ease-in-out"}
         fontWeight={"600"}
-        py={"4"}
+        py={"10"}
       >
         <section>
           <Flex

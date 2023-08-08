@@ -15,15 +15,15 @@ export function Share() {
         _hover={{
           bg: "#F9F9F9",
         }}
-        border={"2px solid"}
+        border={"1.5px solid"}
         p={"2.5"}
         mx={"1"}
-        borderRadius={"8px"}
+        borderRadius={"full"}
         cursor={"pointer"}
         borderColor={"brand.gray"}
       >
         <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-          <Icon as={GrCommand} fontSize={"sm"} fontWeight={"bold"} />
+          <Icon as={GrCommand} fontSize={"lg"} fontWeight={"bold"} />
         </Flex>
       </Flex>
     </>
@@ -38,14 +38,14 @@ export function CreateStack() {
             bg: "#F9F9F9",
           }}
           cursor={"pointer"}
-          border={"2px solid"}
+          border={"1.5px solid"}
           p={"2.5"}
-          borderRadius={"8px"}
+          borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-            <Icon as={GrChapterAdd} fontSize={"sm"} fontWeight={"bold"} />
+            <Icon as={GrChapterAdd} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
@@ -63,9 +63,9 @@ export function More({ children }: { children: React.ReactNode }) {
           bg: "#F9F9F9",
         }}
         cursor={"pointer"}
-        border={"2px solid"}
+        border={"1.5px solid"}
         p={"2.5"}
-        borderRadius={"8px"}
+        borderRadius={"full"}
         borderColor={"brand.gray"}
         mx={"1"}
       >
@@ -80,7 +80,7 @@ export function More({ children }: { children: React.ReactNode }) {
                 >
                   <Icon
                     as={isOpen ? FaAngleUp : FaAngleDown}
-                    fontSize={"sm"}
+                    fontSize={"lg"}
                     fontWeight={"bold"}
                   />
                 </Flex>
@@ -103,16 +103,16 @@ export function Publish() {
             bg: "#F9F9F9",
           }}
           cursor={"pointer"}
-          border={"2px solid"}
+          border={"1.5px solid"}
           p={"2.5"}
-          borderRadius={"8px"}
+          borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
             <Icon
               as={BsGlobeAsiaAustralia}
-              fontSize={"sm"}
+              fontSize={"lg"}
               fontWeight={"bold"}
             />
           </Flex>
@@ -134,14 +134,14 @@ export function AddLink() {
             bg: "#F9F9F9",
           }}
           cursor={"pointer"}
-          border={"2px solid"}
+          border={"1.5px solid"}
           p={"2.5"}
-          borderRadius={"8px"}
+          borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-            <Icon as={MdAddLink} fontSize={"sm"} fontWeight={"bold"} />
+            <Icon as={MdAddLink} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
@@ -161,14 +161,14 @@ export function Comments() {
             bg: "#F9F9F9",
           }}
           cursor={"pointer"}
-          border={"2px solid"}
+          border={"1.5px solid"}
           p={"2.5"}
-          borderRadius={"8px"}
+          borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-            <Icon as={RiChat1Line} fontSize={"sm"} fontWeight={"bold"} />
+            <Icon as={RiChat1Line} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
@@ -188,14 +188,14 @@ export function Like() {
             bg: "#F9F9F9",
           }}
           cursor={"pointer"}
-          border={"2px solid"}
+          border={"1.5px solid"}
           p={"2.5"}
-          borderRadius={"8px"}
+          borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-            <Icon as={TbThumbUpFilled} fontSize={"sm"} fontWeight={"bold"} />
+            <Icon as={TbThumbUpFilled} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
@@ -214,18 +214,44 @@ export function Save() {
             bg: "#F9F9F9",
           }}
           cursor={"pointer"}
-          border={"2px solid"}
+          border={"1.5px solid"}
           p={"2.5"}
-          borderRadius={"8px"}
+          borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-            <Icon as={HiOutlineSaveAs} fontSize={"sm"} fontWeight={"bold"} />
+            <Icon as={HiOutlineSaveAs} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
           save
+        </Text>
+      </Flex>
+    </>
+  );
+}
+export function Delete() {
+  return (
+    <>
+      <Flex flexDir={"column"} align={"center"}>
+        <Flex
+          _hover={{
+            bg: "#F9F9F9",
+          }}
+          cursor={"pointer"}
+          border={"1.5px solid"}
+          p={"2.5"}
+          borderRadius={"full"}
+          borderColor={"brand.gray"}
+          mx={"1"}
+        >
+          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+            <Icon as={MdDelete} fontSize={"lg"} fontWeight={"bold"} />
+          </Flex>
+        </Flex>
+        <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
+          Delete
         </Text>
       </Flex>
     </>

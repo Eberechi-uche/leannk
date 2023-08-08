@@ -1,11 +1,18 @@
 "use client";
 import { Flex, Icon, Text, Image, Button } from "@chakra-ui/react";
-import { GrStackOverflow } from "react-icons/gr";
+import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
+import { FiPlus } from "react-icons/fi";
 export default function InfoCard(props: any) {
   const { icon, smText, lgText, image, desc } = props;
   return (
     <>
-      <Flex flexDir={"column"} px={"10"}>
+      <Flex
+        flexDir={"column"}
+        px={{
+          base: "12",
+          lg: "28",
+        }}
+      >
         <Flex align={"center"} fontSize={{ base: "lg" }} display={"flex"}>
           <Icon as={icon} />
           <Text>{smText}</Text>
@@ -36,8 +43,8 @@ export function InfoCardAbout() {
     <>
       <Flex
         width={"100%"}
-        border={"1px solid"}
-        borderColor={"blackAlpha.300"}
+        border={"1.5px solid"}
+        borderColor={"brand.lightgray"}
         borderRadius={"5px"}
         flexDir={"column"}
         my={"4"}
@@ -46,7 +53,7 @@ export function InfoCardAbout() {
         <Flex
           flexDir={"column"}
           py={"4"}
-          px={"7"}
+          px={"4"}
           borderTop={"1px solid"}
           w={"100%"}
           borderColor={"inherit"}
@@ -57,10 +64,14 @@ export function InfoCardAbout() {
             borderRadius={"5px"}
             color={"#fff"}
             p={"2"}
+            justifyContent={"space-between"}
+            align={"center"}
+            my={"5"}
           >
             <Text fontSize={"xs"}>
               Add discription of the stack for more context
             </Text>
+            <Icon as={FiPlus} />
           </Flex>
           <Text>
             This strategy states that the element that is inserted last will
@@ -72,6 +83,36 @@ export function InfoCardAbout() {
           <Flex justify={"flex-end"}>
             <Button size={"xs"}>follow Stack</Button>
           </Flex>
+        </Flex>
+      </Flex>
+    </>
+  );
+}
+
+export function StackDetailsCard({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <Flex w={"100%"} h={"fit-content"} px={"4"} align={"center"} my={"4"}>
+        <Flex
+          w={"100%"}
+          flexDir={"column"}
+          px={"4"}
+          minH={"70px"}
+          py={"10"}
+          border={"2px solid"}
+          borderColor={"brand.lightgray"}
+        >
+          <Flex w={"100%"} justifyContent={"space-between"} align={"center"}>
+            <Text fontWeight={"700"}>Contributors</Text>
+            <Flex align={"center"} fontWeight={"700"}>
+              <Text>Item list</Text>
+              <Text fontSize={"4xl"} mx={"4"} color={"brand.gray"}>
+                50
+              </Text>
+            </Flex>
+          </Flex>
+
+          <Flex overflowX={"scroll"}>{children}</Flex>
         </Flex>
       </Flex>
     </>
