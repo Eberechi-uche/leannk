@@ -8,6 +8,9 @@ const colors = {
     blue: "#00B6FE",
     yellow: "#FFBF01",
     purple: "#BA9BFC",
+    gray: "#DBDBDE",
+    darkgray: "#696969",
+    lightgray: "#F8F8F8",
   },
 };
 

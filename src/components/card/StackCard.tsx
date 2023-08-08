@@ -1,6 +1,7 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
 import { CiShare1 } from "react-icons/ci";
-import { Delete, More, Share } from "../Icons/Icons";
+import { More, Share } from "../Icons/Icons";
+import { Delete, MakePublic, ShareToWeave } from "../Actions/MenuActions";
 export default function StackCard() {
   return (
     <>
@@ -20,12 +21,15 @@ export default function StackCard() {
           py={"2"}
         >
           <Text isTruncated fontWeight={"600"}>
-            Programming for beginners everhthbbbhbb
+            Programming for beginners
           </Text>
-          <Flex>
-            <Delete />
-            <More />
-          </Flex>
+          {/* <Flex>
+            <More>
+              <Delete />
+              <MakePublic />
+              <ShareToWeave />
+            </More>
+          </Flex> */}
         </Flex>
 
         <Flex
