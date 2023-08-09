@@ -6,7 +6,7 @@ import "@fontsource-variable/baloo-da-2";
 import { Providers } from "../chakra/providers";
 
 export const metadata: Metadata = {
-  title: "Leannk",
+  title: "Lynnk",
   description: "one stop for all your bookmarks",
 };
 

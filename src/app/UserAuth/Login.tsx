@@ -21,8 +21,8 @@ export default function Login(props: {
   }
   return (
     <Flex h={"80vh"} p={"10"} flexDir={"column"} w={"100%"}>
-      <Heading fontWeight={"400"} fontSize={"sm"} mb={"5"}>
-        LEANNK
+      <Heading fontWeight={"400"} fontSize={"4xl"} mb={"5"}>
+        lynnk
       </Heading>
       <Text fontWeight={"700"} fontSize={"4xl"}>
         Sign in

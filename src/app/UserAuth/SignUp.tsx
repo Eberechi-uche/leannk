@@ -28,15 +28,15 @@ export default function SignUp(props: {
   return (
     <>
       <Flex h={"80vh"} p={"10"} flexDir={"column"} w={"100%"}>
-        <Heading fontWeight={"400"} fontSize={"sm"} mb={"5"}>
-          LEANNK
+        <Heading fontWeight={"400"} fontSize={"4xl"} mb={"5"}>
+          lynnk
         </Heading>
         <Flex
           w={"20%"}
-          border={"2px solid"}
+          border={"1px solid"}
           borderRadius={"full"}
           justifyContent={"space-between"}
-          borderColor={"gray.200"}
+          borderColor={"gray.800"}
           color={"brand.yellow"}
         >
           <Icon as={userFlow !== 0 ? GoDot : GoDotFill} />
@@ -113,7 +113,7 @@ export default function SignUp(props: {
               name={extractUserId(userDetails.Email)}
               image={`https://api.dicebear.com/6.x/thumbs/svg?seed=${userDetails.Email}`}
             />
-            <Text my={"4"}> Great! lets get you all set up.</Text>
+            <Text my={"4"}>Almost done.</Text>
             <AuthInput
               value={userDetails.displayName}
               name={"displayName"}
