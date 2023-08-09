@@ -1,5 +1,4 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
-import generateAvatar from "@/utility/generateAvatar";
 
 export default function AuthCard({
   name,
@@ -8,7 +7,13 @@ export default function AuthCard({
   name: string;
   image: string;
 }) {
-  image = generateAvatar(name);
+  // const svg = fetch(image).then((data) => {
+  //   data.blob()
+  //   let a = new FileReader()
+  //   a.onload()
+  //   console.log(data.blob());
+  // });
+
   return (
     <>
       <Flex w={"100%"} align={"center"} my={"4"} flexDir={"column"}>
