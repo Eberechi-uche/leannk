@@ -1,4 +1,6 @@
 import AuthInput from "@/components/Inputs/AuthInput";
+import AuthCard from "@/components/card/AuthCard";
+import extractUserId from "@/utility/extractUserId";
 import { Flex, Heading, Button, Text, Icon } from "@chakra-ui/react";
 import { useState } from "react";
 import { GoDot, GoDotFill } from "react-icons/go";
@@ -6,7 +8,7 @@ import { GoDot, GoDotFill } from "react-icons/go";
 export default function SignUp(props: {
   handleAuthPageChange: (e: number) => void;
 }) {
-  const [userDefails, setUserDetails] = useState({
+  const [userDetails, setUserDetails] = useState({
     Email: "",
     Password: "",
     ConfirmPassword: "",
@@ -54,6 +56,7 @@ export default function SignUp(props: {
           <>
             <Flex w={"100%"} my={"2"}>
               <Text> Already have an account ?</Text>
+
               <Text
                 color={"brand.yellow"}
                 mx={"2"}
@@ -66,24 +69,25 @@ export default function SignUp(props: {
                 Sign in
               </Text>
             </Flex>
+
             <Flex w={"100%"}>
               <form>
                 <AuthInput
-                  value={userDefails.Email}
+                  value={userDetails.Email}
                   name={"Email"}
                   type="email"
                   placeHolder="Email"
                   onChange={handleChange}
                 />
                 <AuthInput
-                  value={userDefails.Password}
+                  value={userDetails.Password}
                   name={"Password"}
                   type="password"
                   placeHolder="Password"
                   onChange={handleChange}
                 />
                 <AuthInput
-                  value={userDefails.ConfirmPassword}
+                  value={userDetails.ConfirmPassword}
                   name={"ConfirmPassword"}
                   type="password"
                   placeHolder="confirm Password"
@@ -104,15 +108,20 @@ export default function SignUp(props: {
           </>
         )}
         {userFlow === 1 && (
-          <Flex w={"100%"} mt={"20%"} align={"center"} flexDir={"column"}>
-            <Text my={"4"}> Hello there! lets know you better</Text>
+          <Flex w={"100%"} align={"center"} flexDir={"column"}>
+            <AuthCard
+              name={extractUserId(userDetails.Email)}
+              image={`https://api.dicebear.com/6.x/thumbs/svg?seed=${userDetails.Email}`}
+            />
+            <Text my={"4"}> Great! lets get you all set up.</Text>
             <AuthInput
-              value={userDefails.displayName}
+              value={userDetails.displayName}
               name={"displayName"}
               type="text"
               placeHolder="Display Name"
               onChange={handleChange}
             />
+
             <Button w={"50%"}> Done</Button>
           </Flex>
         )}

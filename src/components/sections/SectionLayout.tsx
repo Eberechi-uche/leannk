@@ -1,5 +1,5 @@
 "use client";
-import { Flex } from "@chakra-ui/react";
+import { Divider, Flex } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import InfoCard from "../card/InfoCard";
 import { PiDotsThreeFill } from "react-icons/pi";
@@ -24,13 +24,13 @@ export default function SectionLayout() {
         setColor("#fff");
       }
       if (entry.target.id == "sectionroot" && entry.isIntersecting) {
-        setColor("#DAE0E5");
+        setColor("#C7A600");
       }
       if (entry.target.id == "section1" && entry.isIntersecting) {
-        setColor("#AEA7DD");
+        setColor("#FFD700");
       }
       if (entry.target.id == "section2" && entry.isIntersecting) {
-        setColor("#FF9161");
+        setColor("#FFFF24");
       }
     });
   }
@@ -54,61 +54,68 @@ export default function SectionLayout() {
         fontWeight={"600"}
         py={"10"}
       >
-        <section>
-          <Flex
-            h={"100vh"}
-            ref={sectionroot}
-            id="sectionroot"
-            borderBottom={"2px"}
-            borderColor={"blackAlpha.200"}
-            py={"2"}
-          >
-            <InfoCard
-              icon={PiDotsThreeFill}
-              smText={"Context"}
-              lgText={"Add Meaningful Labels and descriptions"}
-              desc={
-                "Dont just save Links or Bookmarks, you can Add meaningfull description to them, helping you locate them easily "
-              }
-              image={"images/Label.png"}
-            />
-          </Flex>
-          <Flex
-            h={"100vh"}
-            ref={section1}
-            id="section1"
-            borderBottom={"2px"}
-            borderColor={"blackAlpha.300"}
-            py={"2"}
-          >
-            <InfoCard
-              icon={HiSquare2Stack}
-              smText={"Stacks"}
-              lgText={"Organise your links based on topics"}
-              desc={
-                "Keep all your links and bookmarks easily accesible and tidy by structuring in them in stacks."
-              }
-              image={"images/layers.webp"}
-            />
-          </Flex>
-          <Flex
-            h={"100vh"}
-            ref={section2}
-            id="section2"
-            borderColor={"blackAlpha.300"}
-            pt={"2"}
-          >
-            <InfoCard
-              icon={GrCommand}
-              smText={"Weave"}
-              lgText={"Create the perfect curation by links and Bookmarks"}
-              desc={
-                "Share you Stack on topics or a particular subject and have others contribute to it"
-              }
-              image={"images/weave.webp"}
-            />
-          </Flex>
-        </section>
+        <Flex
+          maxW={"1000px"}
+          w={"100%"}
+          alignSelf={"center"}
+          flexDir={"column"}
+        >
+          <section>
+            <Flex
+              h={"100vh"}
+              ref={sectionroot}
+              id="sectionroot"
+              borderBottom={"2px"}
+              borderColor={"blackAlpha.200"}
+              py={"2"}
+            >
+              <InfoCard
+                icon={PiDotsThreeFill}
+                smText={"Context"}
+                lgText={"Add Meaningful Labels and descriptions"}
+                desc={
+                  "Dont just save Links or Bookmarks, you can Add meaningfull description to them, helping you locate them easily "
+                }
+                image={"images/Label.png"}
+              />
+            </Flex>
+            <Flex
+              h={"100vh"}
+              ref={section1}
+              id="section1"
+              borderBottom={"2px"}
+              borderColor={"blackAlpha.300"}
+              py={"2"}
+            >
+              <InfoCard
+                icon={HiSquare2Stack}
+                smText={"Stacks"}
+                lgText={"Organise your links based on topics"}
+                desc={
+                  "Keep all your links and bookmarks easily accesible and tidy by structuring in them in stacks."
+                }
+                image={"images/layers.webp"}
+              />
+            </Flex>
+            <Flex
+              h={"100vh"}
+              ref={section2}
+              id="section2"
+              borderColor={"blackAlpha.300"}
+              pt={"2"}
+            >
+              <InfoCard
+                icon={GrCommand}
+                smText={"Weave"}
+                lgText={"Create the perfect curation"}
+                desc={
+                  "Share your Stack on topics or a particular subject and have others contribute to it"
+                }
+                image={"images/weave.webp"}
+              />
+            </Flex>
+          </section>
+        </Flex>
       </Flex>
     </>
   );

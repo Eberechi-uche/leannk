@@ -14,7 +14,7 @@ export default function Footer() {
       >
         <Flex width={"100%"} flexDir={"column"}>
           <Flex width={"100%"} justifyContent={"space-between"}>
-            <Heading> LEANNK</Heading>
+            <Heading fontWeight={"light"}> LYNNK</Heading>
             <Flex
               width={"50%"}
               justifyContent={"space-evenly"}

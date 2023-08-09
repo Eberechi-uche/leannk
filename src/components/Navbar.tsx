@@ -8,7 +8,7 @@ export default function Navbar() {
     <>
       <Flex
         width={"100%"}
-        px={"2"}
+        px={"4"}
         py={"4"}
         bg={"brand.yellow"}
         display={path === "/UserAuth" ? "none" : "flex"}
@@ -20,14 +20,14 @@ export default function Navbar() {
               route.push("/");
             }}
           >
-            LEANNK
+            lynnk
           </Heading>
           <Button
             onClick={() => {
               route.push("/UserAuth");
             }}
           >
-            Get started
+            Sign in
           </Button>
         </Flex>
       </Flex>
