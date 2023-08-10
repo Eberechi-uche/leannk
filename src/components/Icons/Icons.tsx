@@ -1,13 +1,16 @@
 import { Flex, Icon } from "@chakra-ui/react";
-import { MdAddLink, MdDelete } from "react-icons/md";
+import { MdDelete, MdOutlineAddCircle } from "react-icons/md";
 import { RiChat1Line } from "react-icons/ri";
 import { GrChapterAdd, GrCommand } from "react-icons/gr";
+import { BiAddToQueue } from "react-icons/bi";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
 import { BsGlobeAsiaAustralia } from "react-icons/bs";
 import { TbThumbUpFilled } from "react-icons/tb";
 import { HiOutlineSaveAs } from "react-icons/hi";
-
+import { HiPlus } from "react-icons/hi2";
+import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
+import { useDisclosure } from "@chakra-ui/react";
 export function Share() {
   return (
     <>
@@ -45,7 +48,7 @@ export function CreateStack() {
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-            <Icon as={GrChapterAdd} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon as={BiAddToQueue} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
@@ -126,6 +129,7 @@ export function Publish() {
 }
 
 export function AddLink() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
@@ -139,15 +143,19 @@ export function AddLink() {
           borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
+          onClick={onOpen}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-            <Icon as={MdAddLink} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon as={MdOutlineAddCircle} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
           Add Link
         </Text>
       </Flex>
+      {isOpen && (
+        <AddlinkModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+      )}
     </>
   );
 }
