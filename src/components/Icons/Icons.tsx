@@ -1,17 +1,18 @@
 import { Flex, Icon } from "@chakra-ui/react";
 import { MdDelete, MdOutlineAddCircle } from "react-icons/md";
 import { RiChat1Line } from "react-icons/ri";
-import { GrChapterAdd, GrCommand } from "react-icons/gr";
+import { GrCommand } from "react-icons/gr";
 import { BiAddToQueue } from "react-icons/bi";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { FaCircleCheck } from "react-icons/fa6";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
 import { BsGlobeAsiaAustralia } from "react-icons/bs";
 import { TbThumbUpFilled } from "react-icons/tb";
 import { HiOutlineSaveAs } from "react-icons/hi";
-import { HiPlus } from "react-icons/hi2";
 import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
 import { useDisclosure } from "@chakra-ui/react";
-export function Share() {
+import { CreateStackModal } from "@/chakra/Modals/CreateStackModal";
+import { PiDotsSix } from "react-icons/pi";
+export function ShareIcon() {
   return (
     <>
       <Flex
@@ -19,7 +20,7 @@ export function Share() {
           bg: "#F9F9F9",
         }}
         border={"1.5px solid"}
-        p={"2.5"}
+        p={"1.5"}
         mx={"1"}
         borderRadius={"full"}
         cursor={"pointer"}
@@ -32,7 +33,9 @@ export function Share() {
     </>
   );
 }
-export function CreateStack() {
+export function CreateStackIcon() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
@@ -42,10 +45,11 @@ export function CreateStack() {
           }}
           cursor={"pointer"}
           border={"1.5px solid"}
-          p={"2.5"}
+          p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
+          onClick={onOpen}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
             <Icon as={BiAddToQueue} fontSize={"lg"} fontWeight={"bold"} />
@@ -54,50 +58,29 @@ export function CreateStack() {
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
           Create
         </Text>
+        {isOpen && <CreateStackModal isOpen={isOpen} onClose={onClose} />}
       </Flex>
     </>
   );
 }
-export function More({ children }: { children: React.ReactNode }) {
+export function MoreIcon({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Flex
-        _hover={{
-          bg: "#F9F9F9",
-        }}
-        cursor={"pointer"}
-        border={"1.5px solid"}
-        p={"2.5"}
-        borderRadius={"full"}
-        borderColor={"brand.gray"}
-        mx={"1"}
-      >
-        <Menu isLazy>
-          {({ isOpen }) => (
-            <>
-              <MenuButton>
-                <Flex
-                  color={"blackAlpha.900"}
-                  align={"center"}
-                  justify={"center"}
-                >
-                  <Icon
-                    as={isOpen ? FaAngleUp : FaAngleDown}
-                    fontSize={"lg"}
-                    fontWeight={"bold"}
-                  />
-                </Flex>
-              </MenuButton>
-              <MenuList>{children}</MenuList>
-            </>
-          )}
+      <Flex cursor={"pointer"} p={"1.5"}>
+        <Menu isLazy id={"sbs89"}>
+          <MenuButton>
+            <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+              <Icon as={PiDotsSix} />
+            </Flex>
+          </MenuButton>
+          <MenuList>{children}</MenuList>
         </Menu>
       </Flex>
     </>
   );
 }
 
-export function Publish() {
+export function PublishIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
@@ -107,7 +90,7 @@ export function Publish() {
           }}
           cursor={"pointer"}
           border={"1.5px solid"}
-          p={"2.5"}
+          p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
@@ -128,7 +111,7 @@ export function Publish() {
   );
 }
 
-export function AddLink() {
+export function AddLinkIcon() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -139,7 +122,7 @@ export function AddLink() {
           }}
           cursor={"pointer"}
           border={"1.5px solid"}
-          p={"2.5"}
+          p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
@@ -150,7 +133,7 @@ export function AddLink() {
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
-          Add Link
+          Add
         </Text>
       </Flex>
       {isOpen && (
@@ -160,7 +143,7 @@ export function AddLink() {
   );
 }
 
-export function Comments() {
+export function CommentsIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
@@ -170,7 +153,7 @@ export function Comments() {
           }}
           cursor={"pointer"}
           border={"1.5px solid"}
-          p={"2.5"}
+          p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
@@ -187,7 +170,7 @@ export function Comments() {
   );
 }
 
-export function Like() {
+export function LikeIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
@@ -197,7 +180,7 @@ export function Like() {
           }}
           cursor={"pointer"}
           border={"1.5px solid"}
-          p={"2.5"}
+          p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
@@ -213,7 +196,7 @@ export function Like() {
     </>
   );
 }
-export function Save() {
+export function SaveIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
@@ -223,7 +206,7 @@ export function Save() {
           }}
           cursor={"pointer"}
           border={"1.5px solid"}
-          p={"2.5"}
+          p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
@@ -239,7 +222,7 @@ export function Save() {
     </>
   );
 }
-export function Delete() {
+export function DeleteIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
@@ -249,7 +232,7 @@ export function Delete() {
           }}
           cursor={"pointer"}
           border={"1.5px solid"}
-          p={"2.5"}
+          p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.gray"}
           mx={"1"}
@@ -261,6 +244,31 @@ export function Delete() {
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
           Delete
         </Text>
+      </Flex>
+    </>
+  );
+}
+
+export function SelectIcon() {
+  return (
+    <>
+      <Flex
+        flexDir={"column"}
+        align={"center"}
+        pos={"absolute"}
+        top={"20%"}
+        right={"30%"}
+      >
+        <Flex cursor={"pointer"} p={"1.5"} mx={"1"}>
+          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+            <Icon
+              as={FaCircleCheck}
+              fontSize={"4xl"}
+              fontWeight={"bold"}
+              color={"green.600"}
+            />
+          </Flex>
+        </Flex>
       </Flex>
     </>
   );

@@ -1,7 +1,14 @@
 "use client";
 
 import { Flex, Image, Text } from "@chakra-ui/react";
-import { AddLink, Comments, Delete, Like, Publish, Save } from "../Icons/Icons";
+import {
+  AddLinkIcon,
+  CommentsIcon,
+  DeleteIcon,
+  LikeIcon,
+  PublishIcon,
+  SaveIcon,
+} from "../Icons/Icons";
 
 export function ProfileCard() {
   return (
@@ -24,15 +31,15 @@ export function ProfileCard() {
           </Flex>
           {
             <Flex>
-              <Publish />
-              <AddLink />
-              <Delete />
+              <PublishIcon />
+              <AddLinkIcon />
+              <DeleteIcon />
             </Flex>
           }
           {/* <Flex>
-            <Comments />
-            <Like />
-            <Save />
+            <CommentIcon />
+            <LikeIcon />
+            <SaveIcon />
           </Flex> */}
         </Flex>
       </Flex>

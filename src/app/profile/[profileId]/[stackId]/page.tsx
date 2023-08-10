@@ -3,7 +3,7 @@ import SingPageLayout from "@/Layouts/SinglePageLayout";
 import { InfoCardAbout, StackDetailsCard } from "@/components/card/InfoCard";
 import { ProfileCard } from "@/components/card/ProfileCard";
 import StackItemCard from "@/components/card/StackItemCard";
-import { Flex, SimpleGrid, Avatar, Text } from "@chakra-ui/react";
+import { Flex, SimpleGrid, Avatar } from "@chakra-ui/react";
 
 export default function StackId() {
   return (
@@ -82,4 +82,3 @@ export default function StackId() {
     </>
   );
 }
-// bg={"#FAFAFA"}

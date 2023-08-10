@@ -2,7 +2,7 @@
 import SingPageLayout from "@/Layouts/SinglePageLayout";
 import StackCard from "@/components/card/StackCard";
 import UserCard from "@/components/card/UserCard";
-import { Flex, Grid, SimpleGrid, Text } from "@chakra-ui/react";
+import { Flex, SimpleGrid } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
 
 export default function AuthProfile() {

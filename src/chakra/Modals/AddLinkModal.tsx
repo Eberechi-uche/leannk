@@ -13,9 +13,10 @@ import {
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import { StackCardMini } from "@/components/card/StackCard";
 import { useParams } from "next/navigation";
+import UserInputText from "@/components/Inputs/UserInputText";
+import { SelectIcon } from "@/components/Icons/Icons";
 
 export function AddlinkModal({
-  stack,
   isOpen,
   onClose,
 }: {
@@ -47,22 +48,39 @@ export function AddlinkModal({
                 >
                   <Flex
                     mx={"2"}
-                    border={"5px solid "}
                     h={"fit-content"}
                     w={"50%"}
-                    borderColor={"brand.gray"}
-                    borderRadius={"10px"}
+                    position={"relative"}
                   >
+                    <SelectIcon />
                     <StackCardMini />
                   </Flex>
                   <Flex
                     mx={"2"}
-                    border={"5px solid "}
                     h={"fit-content"}
                     w={"50%"}
-                    borderColor={"brand.gray"}
-                    borderRadius={"10px"}
+                    position={"relative"}
                   >
+                    <SelectIcon />
+                    <StackCardMini />
+                  </Flex>
+
+                  <Flex
+                    mx={"2"}
+                    h={"fit-content"}
+                    w={"50%"}
+                    position={"relative"}
+                  >
+                    <SelectIcon />
+                    <StackCardMini />
+                  </Flex>
+                  <Flex
+                    mx={"2"}
+                    h={"fit-content"}
+                    w={"50%"}
+                    position={"relative"}
+                  >
+                    <SelectIcon />
                     <StackCardMini />
                   </Flex>
                 </Flex>
@@ -73,23 +91,19 @@ export function AddlinkModal({
               value=""
               name="test"
               type="details"
-              placeHolder="Enter description"
-              onChange={handleChange}
-            />
-            <UserInputs
-              value=""
-              name="test"
-              type="details"
               placeHolder="Enter Link"
               onChange={handleChange}
             />
+            <UserInputText />
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={() => {}} size={"sm"}>
+            <Button variant="outline" size={"sm"}>
+              Cancel
+            </Button>
+            <Button colorScheme="blue" ml={3} onClick={() => {}} size={"sm"}>
               Add
             </Button>
-            <Button variant="ghost">Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

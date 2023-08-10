@@ -1,5 +1,5 @@
 import { Text, Image, Flex } from "@chakra-ui/react";
-import { AddLink, CreateStack } from "../Icons/Icons";
+import { AddLinkIcon, CreateStackIcon } from "../Icons/Icons";
 
 export default function UserCard() {
   return (
@@ -20,8 +20,8 @@ export default function UserCard() {
           </Flex>
 
           <Flex align={"center"}>
-            <CreateStack />
-            <AddLink />
+            <CreateStackIcon />
+            <AddLinkIcon />
           </Flex>
         </Flex>
       </Flex>

@@ -1,5 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
+import { MakePublic, ShareToWeave } from "../Actions/MenuActions";
+import { MoreIcon } from "../Icons/Icons";
 
 export default function StackCard() {
   const route = useRouter();
@@ -7,44 +9,53 @@ export default function StackCard() {
     <>
       <Flex
         width={"100%"}
-        border={"1px solid"}
-        borderColor={"blackAlpha.300"}
         borderRadius={"5px"}
         flexDir={"column"}
         my={"4"}
-        h={"100%"}
-        onClick={() => {
-          route.push("/profile/uche/uche");
-        }}
+        h={"230px"}
+        maxH={"230px"}
+        bg={"blue.50"}
       >
-        <Flex
-          px={"7"}
-          align={"center"}
-          justifyContent={"space-between"}
-          py={"2"}
-        >
-          <Text isTruncated fontWeight={"600"}>
-            Programming for beginners
+        <Flex justify={"space-between"} px={"7"} align={"center"} py={"2"}>
+          <Text color={"blackAlpha.500"} fontSize={"sm"}>
+            date
           </Text>
-          {/* <Flex>
-            <More>
-              <Delete />
-              <MakePublic />
-              <ShareToWeave />
-            </More>
-          </Flex> */}
+          <MoreIcon>
+            <MakePublic />
+            <ShareToWeave />
+          </MoreIcon>
         </Flex>
-
         <Flex
           flexDir={"column"}
-          py={"4"}
-          px={"7"}
-          borderTop={"1px solid"}
-          w={"100%"}
-          borderColor={"inherit"}
+          onClick={() => {
+            route.push("/profile/uche/uche");
+          }}
         >
-          <Text> Programming titbits</Text>
-          <Text>Description</Text>
+          <Flex
+            px={"7"}
+            align={"center"}
+            justifyContent={"space-between"}
+            py={"2"}
+            cursor={"pointer"}
+          >
+            <Text fontWeight={"600"}>
+              Programming for beginners and somethings that never just changes
+            </Text>
+          </Flex>
+
+          <Flex
+            flexDir={"column"}
+            py={"2"}
+            px={"7"}
+            h={"70px"}
+            w={"100%"}
+            borderColor={"inherit"}
+          >
+            <Text fontSize={"xs"}>
+              short description goes ModalHeader short description goes
+              ModalHeader short description goes ModalHeader short description
+            </Text>
+          </Flex>
         </Flex>
       </Flex>
     </>
@@ -55,40 +66,23 @@ export function StackCardMini() {
     <>
       <Flex
         width={"100%"}
+        bg={"blue.50"}
         flexDir={"column"}
-        h={"100%"}
+        h={"100px"}
         fontSize={"sm"}
-        maxH={"200px"}
+        maxH={"100px"}
+        borderRadius={"7px"}
       >
         <Flex
+          h={"100%"}
           px={"7"}
           align={"center"}
           justifyContent={"space-between"}
           py={"2"}
         >
-          <Text isTruncated fontWeight={"600"}>
-            Programming for beginners
-          </Text>
-          {/* <Flex>
-            <More>
-              <Delete />
-              <MakePublic />
-              <ShareToWeave />
-            </More>
-          </Flex> */}
-        </Flex>
-
-        <Flex
-          flexDir={"column"}
-          py={"4"}
-          px={"7"}
-          borderTop={"1px solid"}
-          w={"100%"}
-          borderColor={"inherit"}
-        >
-          <Text fontSize={"xs"} noOfLines={[4, 5]}>
-            Programming titbits hfhb fhfbhsfh fhfhbf fhbafad dfhbfdhfdbd
-            fdhbdfhb
+          <Text fontWeight={"600"} noOfLines={[4, 4]}>
+            Programming for beginners something dont change hgh ghbghgb
+            ghbgfhbfghb
           </Text>
         </Flex>
       </Flex>
