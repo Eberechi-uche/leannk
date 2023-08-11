@@ -2,6 +2,8 @@
 import { Flex, Icon, Text, Image, Button } from "@chakra-ui/react";
 import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
+import UserInputText from "../Inputs/UserInputText";
+import { useState } from "react";
 export default function InfoCard(props: any) {
   const { icon, smText, lgText, image, desc } = props;
   return (
@@ -39,6 +41,12 @@ export default function InfoCard(props: any) {
 }
 
 export function InfoCardAbout() {
+  const [updateDesc, setUpdateDesc] = useState(0);
+  const [desc, setDesc] = useState("");
+
+  const handleTextAreaInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setDesc(e.target.value);
+  };
   return (
     <>
       <Flex
@@ -48,38 +56,76 @@ export function InfoCardAbout() {
         borderRadius={"5px"}
         flexDir={"column"}
         my={"4"}
+        px={"4"}
         h={"fit-content"}
       >
+        {updateDesc === 0 && (
+          <>
+            <Flex
+              bg={"blackAlpha.900"}
+              h={"40px"}
+              borderRadius={"5px"}
+              color={"#fff"}
+              p={"2"}
+              justifyContent={"space-between"}
+              align={"center"}
+              my={"5"}
+            >
+              <Text
+                fontSize={"xs"}
+                onClick={() => {
+                  setUpdateDesc(1);
+                }}
+              >
+                Add discription of the stack for more context
+              </Text>
+              <Icon as={FiPlus} />
+            </Flex>
+            <Text>
+              This strategy states that the element that is inserted last will
+              come out first. You can take a pile of plates kept on top of each
+              other as a real-life example. The plate which we put last is on
+              the top and since we remove the plate that is at the top, we can
+              say that the plate that was put last comes out first.
+            </Text>
+          </>
+        )}
         <Flex
           flexDir={"column"}
           py={"4"}
-          px={"4"}
           borderTop={"1px solid"}
           w={"100%"}
           borderColor={"inherit"}
         >
-          <Flex
-            bg={"blackAlpha.900"}
-            h={"40px"}
-            borderRadius={"5px"}
-            color={"#fff"}
-            p={"2"}
-            justifyContent={"space-between"}
-            align={"center"}
-            my={"5"}
-          >
-            <Text fontSize={"xs"}>
-              Add discription of the stack for more context
-            </Text>
-            <Icon as={FiPlus} />
-          </Flex>
-          <Text>
-            This strategy states that the element that is inserted last will
-            come out first. You can take a pile of plates kept on top of each
-            other as a real-life example. The plate which we put last is on the
-            top and since we remove the plate that is at the top, we can say
-            that the plate that was put last comes out first.
-          </Text>
+          {updateDesc === 1 && (
+            <>
+              <Flex w={"100%"} flexDir={"column"} my={"3"}>
+                <UserInputText
+                  onChange={handleTextAreaInput}
+                  value={desc}
+                  placeHolder="Enter stack description"
+                  name="desc"
+                />
+                <Flex
+                  w={{ base: "50%", lg: "20%" }}
+                  justify={"space-between"}
+                  alignSelf={"flex-end"}
+                >
+                  <Button
+                    onClick={() => {
+                      setUpdateDesc(0);
+                      setDesc("");
+                    }}
+                    variant={"outline"}
+                    size={"sm"}
+                  >
+                    cancel
+                  </Button>
+                  <Button size={"sm"}> update</Button>
+                </Flex>
+              </Flex>
+            </>
+          )}
           <Flex justify={"flex-end"}>
             <Button size={"xs"}>follow Stack</Button>
           </Flex>

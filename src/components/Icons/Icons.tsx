@@ -3,9 +3,9 @@ import { MdDelete, MdOutlineAddCircle } from "react-icons/md";
 import { RiChat1Line } from "react-icons/ri";
 import { GrCommand } from "react-icons/gr";
 import { BiAddToQueue } from "react-icons/bi";
-import { FaCircleCheck } from "react-icons/fa6";
+import { FaCircleCheck, FaShare } from "react-icons/fa6";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
-import { BsGlobeAsiaAustralia } from "react-icons/bs";
+import { BsGlobeAsiaAustralia, BsShareFill } from "react-icons/bs";
 import { TbThumbUpFilled } from "react-icons/tb";
 import { HiOutlineSaveAs } from "react-icons/hi";
 import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
@@ -15,20 +15,25 @@ import { PiDotsSix } from "react-icons/pi";
 export function ShareIcon() {
   return (
     <>
-      <Flex
-        _hover={{
-          bg: "#F9F9F9",
-        }}
-        border={"1.5px solid"}
-        p={"1.5"}
-        mx={"1"}
-        borderRadius={"full"}
-        cursor={"pointer"}
-        borderColor={"brand.gray"}
-      >
-        <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-          <Icon as={GrCommand} fontSize={"lg"} fontWeight={"bold"} />
+      <Flex flexDir={"column"} align={"center"}>
+        <Flex
+          _hover={{
+            bg: "#F9F9F9",
+          }}
+          border={"1.5px solid"}
+          p={"1.5"}
+          mx={"1"}
+          borderRadius={"full"}
+          cursor={"pointer"}
+          borderColor={"brand.gray"}
+        >
+          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+            <Icon as={FaShare} fontSize={"lg"} fontWeight={"bold"} />
+          </Flex>
         </Flex>
+        <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
+          share
+        </Text>
       </Flex>
     </>
   );

@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import UserInputText from "@/components/Inputs/UserInputText";
+import { useState } from "react";
 
 export function CreateStackModal({
   isOpen,
@@ -19,7 +20,23 @@ export function CreateStackModal({
   onClose: () => void;
   stack?: [];
 }) {
-  function handleChange() {}
+  const [newStack, setNewStackDetails] = useState({
+    stackName: "",
+    note: "",
+    color: "",
+  });
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const {
+      target: { value, name },
+    } = e;
+
+    setNewStackDetails((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={{ base: "xs", lg: "md" }}>
@@ -29,20 +46,32 @@ export function CreateStackModal({
           <ModalCloseButton />
           <ModalBody>
             <UserInputs
-              value=""
-              name="test"
-              type="details"
+              value={newStack.stackName}
+              name="stackName"
+              type="Text"
               placeHolder="stack name"
               onChange={handleChange}
             />
-            <UserInputText />
+            <UserInputText
+              name="note"
+              value={newStack.note}
+              placeHolder="short note"
+              onChange={handleChange}
+            />
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={() => {}} size={"sm"}>
+            <Button mr={3} onClick={() => {}} size={"sm"}>
               Add
             </Button>
-            <Button variant="ghost">Cancel</Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                onClose();
+              }}
+            >
+              Cancel
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

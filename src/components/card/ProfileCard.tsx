@@ -6,6 +6,7 @@ import {
   CommentsIcon,
   DeleteIcon,
   LikeIcon,
+  MoreIcon,
   PublishIcon,
   SaveIcon,
 } from "../Icons/Icons";
@@ -31,9 +32,9 @@ export function ProfileCard() {
           </Flex>
           {
             <Flex>
-              <PublishIcon />
-              <AddLinkIcon />
-              <DeleteIcon />
+              <MoreIcon>
+                <Text></Text>
+              </MoreIcon>
             </Flex>
           }
           {/* <Flex>

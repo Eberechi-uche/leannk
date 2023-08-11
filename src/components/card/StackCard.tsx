@@ -2,6 +2,7 @@ import { Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { MakePublic, ShareToWeave } from "../Actions/MenuActions";
 import { MoreIcon } from "../Icons/Icons";
+import Link from "next/link";
 
 export default function StackCard() {
   const route = useRouter();
@@ -25,38 +26,34 @@ export default function StackCard() {
             <ShareToWeave />
           </MoreIcon>
         </Flex>
-        <Flex
-          flexDir={"column"}
-          onClick={() => {
-            route.push("/profile/uche/uche");
-          }}
-        >
-          <Flex
-            px={"7"}
-            align={"center"}
-            justifyContent={"space-between"}
-            py={"2"}
-            cursor={"pointer"}
-          >
-            <Text fontWeight={"600"}>
-              Programming for beginners and somethings that never just changes
-            </Text>
-          </Flex>
+        <Link href={"/profile/uche/uche"}>
+          <Flex flexDir={"column"} cursor={"pointer"}>
+            <Flex
+              px={"7"}
+              align={"center"}
+              justifyContent={"space-between"}
+              py={"2"}
+            >
+              <Text fontWeight={"600"}>
+                Programming for beginners and somethings that never just changes
+              </Text>
+            </Flex>
 
-          <Flex
-            flexDir={"column"}
-            py={"2"}
-            px={"7"}
-            h={"70px"}
-            w={"100%"}
-            borderColor={"inherit"}
-          >
-            <Text fontSize={"xs"}>
-              short description goes ModalHeader short description goes
-              ModalHeader short description goes ModalHeader short description
-            </Text>
+            <Flex
+              flexDir={"column"}
+              py={"2"}
+              px={"7"}
+              h={"70px"}
+              w={"100%"}
+              borderColor={"inherit"}
+            >
+              <Text fontSize={"xs"}>
+                short description goes ModalHeader short description goes
+                ModalHeader short description goes ModalHeader short description
+              </Text>
+            </Flex>
           </Flex>
-        </Flex>
+        </Link>
       </Flex>
     </>
   );

@@ -2,7 +2,6 @@
 
 import { Flex, Grid, Text } from "@chakra-ui/react";
 import Login from "./Login";
-import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import SignUp from "./SignUp";
 

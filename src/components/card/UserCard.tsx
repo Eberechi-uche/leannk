@@ -18,11 +18,6 @@ export default function UserCard() {
               eberechi
             </Text>
           </Flex>
-
-          <Flex align={"center"}>
-            <CreateStackIcon />
-            <AddLinkIcon />
-          </Flex>
         </Flex>
       </Flex>
     </>

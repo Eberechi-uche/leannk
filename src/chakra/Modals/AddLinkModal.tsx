@@ -15,6 +15,7 @@ import { StackCardMini } from "@/components/card/StackCard";
 import { useParams } from "next/navigation";
 import UserInputText from "@/components/Inputs/UserInputText";
 import { SelectIcon } from "@/components/Icons/Icons";
+import { useState } from "react";
 
 export function AddlinkModal({
   isOpen,
@@ -25,8 +26,23 @@ export function AddlinkModal({
   onClose: () => void;
   stack?: [];
 }) {
+  const [newLinkDetails, setNewLinkDetails] = useState({
+    desc: "",
+    link: "",
+  });
   const { stackId } = useParams();
-  function handleChange() {}
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const {
+      target: { value, name },
+    } = e;
+
+    setNewLinkDetails((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={{ base: "xs", lg: "md" }}>
@@ -35,70 +51,29 @@ export function AddlinkModal({
           <ModalHeader>Add Link</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            {stackId === undefined && (
-              <Flex flexDir={"column"}>
-                <Text>select stack to add link</Text>
-                <Flex
-                  overflowX={"scroll"}
-                  sx={{
-                    "::-webkit-scrollbar": {
-                      display: "none",
-                    },
-                  }}
-                >
-                  <Flex
-                    mx={"2"}
-                    h={"fit-content"}
-                    w={"50%"}
-                    position={"relative"}
-                  >
-                    <SelectIcon />
-                    <StackCardMini />
-                  </Flex>
-                  <Flex
-                    mx={"2"}
-                    h={"fit-content"}
-                    w={"50%"}
-                    position={"relative"}
-                  >
-                    <SelectIcon />
-                    <StackCardMini />
-                  </Flex>
-
-                  <Flex
-                    mx={"2"}
-                    h={"fit-content"}
-                    w={"50%"}
-                    position={"relative"}
-                  >
-                    <SelectIcon />
-                    <StackCardMini />
-                  </Flex>
-                  <Flex
-                    mx={"2"}
-                    h={"fit-content"}
-                    w={"50%"}
-                    position={"relative"}
-                  >
-                    <SelectIcon />
-                    <StackCardMini />
-                  </Flex>
-                </Flex>
-              </Flex>
-            )}
-
             <UserInputs
-              value=""
-              name="test"
-              type="details"
-              placeHolder="Enter Link"
+              value={newLinkDetails.link}
+              name="link"
+              type="text"
+              placeHolder="Enter or paste link"
               onChange={handleChange}
             />
-            <UserInputText />
+            <UserInputText
+              value={newLinkDetails.desc}
+              name="desc"
+              placeHolder="enter short description"
+              onChange={handleChange}
+            />
           </ModalBody>
 
           <ModalFooter>
-            <Button variant="outline" size={"sm"}>
+            <Button
+              variant="outline"
+              size={"sm"}
+              onClick={() => {
+                onClose();
+              }}
+            >
               Cancel
             </Button>
             <Button colorScheme="blue" ml={3} onClick={() => {}} size={"sm"}>

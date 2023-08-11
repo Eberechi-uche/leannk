@@ -1,5 +1,5 @@
 import { Flex, Heading, Button } from "@chakra-ui/react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -18,7 +18,7 @@ export default function Navbar() {
           <Link href={"/"}>
             <Heading fontWeight={"light"}>lynnk</Heading>
           </Link>
-          <Link href={"/UserAuth?auth=login"}>
+          <Link href={"/UserAuth?auth=sign-in"}>
             <Button>Sign in</Button>
           </Link>
         </Flex>
