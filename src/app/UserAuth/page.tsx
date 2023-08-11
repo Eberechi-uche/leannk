@@ -3,41 +3,41 @@
 import { Flex, Grid, Text } from "@chakra-ui/react";
 import Login from "./Login";
 import { useState } from "react";
-import { SiGeant } from "react-icons/si";
+import { useSearchParams } from "next/navigation";
 import SignUp from "./SignUp";
 
-const images = ["images/weave.webp", "images/signUp.webp"];
 export default function UserAuth() {
-  const [authPage, setAuthPage] = useState(0);
+  const pageParam = useSearchParams().get("auth");
+  console.log(pageParam);
 
-  function handleAuthPageChange(value: number) {
-    setAuthPage(value);
-  }
   return (
     <>
       <Grid
         w={"100vw"}
-        h={"100vh"}
-        bg={"beige"}
+        minH={"inherit"}
         placeItems={"center"}
-        bgImage={images[authPage]}
+        bgImage={
+          pageParam === "sign-in" ? "images/weave.webp" : "images/signUp.webp"
+        }
         bgPosition={"center"}
-        bgSize={"contain"}
+        bgSize={"cover"}
+        bgRepeat={"no-repeat"}
+        pt={"50px"}
         transition={"all 0.7s ease-in-out"}
+        overflow={"scroll"}
       >
         <Flex
           maxW={"500px"}
-          h={{ base: "90vh", lg: "fit-content" }}
           bg={"#FFFFFF"}
+          minH={"max-content"}
+          overflow={"scroll"}
           width={"100%"}
           borderRadius={"5px"}
           flexDir={"column"}
-          alignSelf={{ base: "flex-end", lg: "center" }}
+          alignSelf={{ base: "flex-end", md: "center", lg: "center" }}
         >
-          {authPage === 0 && <Login handlePageChange={handleAuthPageChange} />}
-          {authPage === 1 && (
-            <SignUp handleAuthPageChange={handleAuthPageChange} />
-          )}
+          {pageParam === "sign-in" && <Login />}
+          {pageParam === "sign-up" && <SignUp />}
         </Flex>
       </Grid>
     </>

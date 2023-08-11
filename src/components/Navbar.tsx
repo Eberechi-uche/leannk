@@ -1,9 +1,10 @@
 import { Flex, Heading, Button } from "@chakra-ui/react";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Navbar() {
   const path = usePathname();
-  const route = useRouter();
+
   return (
     <>
       <Flex
@@ -14,21 +15,12 @@ export default function Navbar() {
         display={path === "/UserAuth" ? "none" : "flex"}
       >
         <Flex width={"100%"} align={"center"} justify={"space-between"}>
-          <Heading
-            fontWeight={"light"}
-            onClick={() => {
-              route.push("/");
-            }}
-          >
-            lynnk
-          </Heading>
-          <Button
-            onClick={() => {
-              route.push("/UserAuth");
-            }}
-          >
-            Sign in
-          </Button>
+          <Link href={"/"}>
+            <Heading fontWeight={"light"}>lynnk</Heading>
+          </Link>
+          <Link href={"/UserAuth?auth=login"}>
+            <Button>Sign in</Button>
+          </Link>
         </Flex>
       </Flex>
     </>

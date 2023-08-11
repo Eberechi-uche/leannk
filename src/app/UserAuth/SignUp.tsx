@@ -3,11 +3,10 @@ import AuthCard from "@/components/card/AuthCard";
 import extractUserId from "@/utility/extractUserId";
 import { Flex, Heading, Button, Text, Icon } from "@chakra-ui/react";
 import { useState } from "react";
+import Link from "next/link";
 import { GoDot, GoDotFill } from "react-icons/go";
 
-export default function SignUp(props: {
-  handleAuthPageChange: (e: number) => void;
-}) {
+export default function SignUp() {
   const [userDetails, setUserDetails] = useState({
     Email: "",
     Password: "",
@@ -27,7 +26,7 @@ export default function SignUp(props: {
   }
   return (
     <>
-      <Flex h={"80vh"} p={"10"} flexDir={"column"} w={"100%"}>
+      <Flex p={"10"} flexDir={"column"} w={"100%"} minH={"max-content"}>
         <Heading fontWeight={"400"} fontSize={"4xl"} mb={"5"}>
           lynnk
         </Heading>
@@ -56,18 +55,16 @@ export default function SignUp(props: {
           <>
             <Flex w={"100%"} my={"2"}>
               <Text> Already have an account ?</Text>
-
-              <Text
-                color={"brand.yellow"}
-                mx={"2"}
-                fontWeight={"600"}
-                cursor={"pointer"}
-                onClick={() => {
-                  props.handleAuthPageChange(0);
-                }}
-              >
-                Sign in
-              </Text>
+              <Link href={"/UserAuth?auth=sign-in"}>
+                <Text
+                  color={"brand.yellow"}
+                  mx={"2"}
+                  fontWeight={"600"}
+                  cursor={"pointer"}
+                >
+                  Sign in
+                </Text>
+              </Link>
             </Flex>
 
             <Flex w={"100%"}>

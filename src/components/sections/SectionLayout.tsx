@@ -24,13 +24,13 @@ export default function SectionLayout() {
         setColor("#fff");
       }
       if (entry.target.id == "sectionroot" && entry.isIntersecting) {
-        setColor("#C7A600");
+        setColor("#F6A21E");
       }
       if (entry.target.id == "section1" && entry.isIntersecting) {
-        setColor("#FFD700");
+        setColor("#7A871E");
       }
       if (entry.target.id == "section2" && entry.isIntersecting) {
-        setColor("#FFFF24");
+        setColor("#E55B13");
       }
     });
   }

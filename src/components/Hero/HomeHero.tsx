@@ -3,6 +3,7 @@ import { Flex, Text, Icon, Button } from "@chakra-ui/react";
 import { BsAsterisk } from "react-icons/bs";
 import { SiLinkerd } from "react-icons/si";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import WordAnimate from "../Animations/WordAnimate";
 export default function HomeHero() {
   const route = useRouter();
@@ -35,14 +36,9 @@ export default function HomeHero() {
               </h1>
             </Flex>
             <Flex py={"4"}>
-              <Button
-                size={"lg"}
-                onClick={() => {
-                  route.push("/profile/you");
-                }}
-              >
-                Get started
-              </Button>
+              <Link href={"/profile/uche"}>
+                <Button size={"lg"}>Get started</Button>
+              </Link>
             </Flex>
           </Flex>
         </Flex>

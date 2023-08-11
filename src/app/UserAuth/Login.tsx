@@ -1,10 +1,9 @@
 import AuthInput from "@/components/Inputs/AuthInput";
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import Link from "next/link";
 
-export default function Login(props: {
-  handlePageChange: (e: number) => void;
-}) {
+export default function Login() {
   const [userDefails, setUserDetails] = useState({
     Email: "",
     Password: "",
@@ -20,7 +19,7 @@ export default function Login(props: {
     }));
   }
   return (
-    <Flex h={"80vh"} p={"10"} flexDir={"column"} w={"100%"}>
+    <Flex h={"max-content"} p={"10"} flexDir={"column"} w={"100%"}>
       <Heading fontWeight={"400"} fontSize={"4xl"} mb={"5"}>
         lynnk
       </Heading>
@@ -29,17 +28,16 @@ export default function Login(props: {
       </Text>
       <Flex w={"100%"} my={"2"}>
         <Text> New user ? </Text>
-        <Text
-          color={"brand.yellow"}
-          mx={"2"}
-          fontWeight={"600"}
-          cursor={"pointer"}
-          onClick={() => {
-            props.handlePageChange(1);
-          }}
-        >
-          Create an account
-        </Text>
+        <Link href={"/UserAuth?auth=sign-up"}>
+          <Text
+            color={"brand.yellow"}
+            mx={"2"}
+            fontWeight={"600"}
+            cursor={"pointer"}
+          >
+            Create an account
+          </Text>
+        </Link>
       </Flex>
       <form>
         <AuthInput
