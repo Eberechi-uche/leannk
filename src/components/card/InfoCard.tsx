@@ -59,6 +59,7 @@ export function InfoCardAbout() {
         my={"4"}
         px={"4"}
         h={"fit-content"}
+        fontFamily={"monospace"}
       >
         {updateDesc === 0 && (
           <>

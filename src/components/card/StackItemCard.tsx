@@ -15,6 +15,7 @@ export default function StackItemCard() {
         borderLeft={"1px solid"}
         borderColor={"brand.black"}
         cursor={"pointer"}
+        fontFamily={"monospace"}
       >
         <Flex align={"flex-start"}>
           <Flex mx={"4"} align={"flex-end"} flexDir={"column"}>

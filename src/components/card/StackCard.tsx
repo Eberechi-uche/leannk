@@ -17,9 +17,11 @@ export default function StackCard() {
         border={"1px solid"}
         borderColor={"brand.black"}
         boxShadow="lg"
-        borderBottom={"5px solid"}
+        borderBottom={"10px solid"}
+        fontFamily={"monospace"}
+        borderBottomRadius={"10px"}
       >
-        <Flex justify={"space-between"} px={"7"} align={"center"} py={"2"}>
+        <Flex justify={"space-between"} px={"7"} align={"center"} py={""}>
           <Text color={"blackAlpha.500"} fontSize={"sm"}>
             date
           </Text>
@@ -36,14 +38,13 @@ export default function StackCard() {
               justifyContent={"space-between"}
               py={"2"}
             >
-              <Text fontWeight={"600"}>
+              <Text fontWeight={"900"} fontSize={"sm"}>
                 Programming for beginners and somethings that never just changes
               </Text>
             </Flex>
 
             <Flex
               flexDir={"column"}
-              py={"2"}
               px={"7"}
               h={"70px"}
               w={"100%"}

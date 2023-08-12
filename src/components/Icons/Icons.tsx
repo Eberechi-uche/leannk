@@ -17,17 +17,16 @@ export function ShareIcon() {
     <>
       <Flex flexDir={"column"} align={"center"}>
         <Flex
-          _hover={{
-            bg: "#F9F9F9",
-          }}
           border={"1.5px solid"}
           p={"1.5"}
           mx={"1"}
           borderRadius={"full"}
           cursor={"pointer"}
           borderColor={"brand.black"}
+          bg={"brand.black"}
+          color={"#fff"}
         >
-          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+          <Flex align={"center"} justify={"center"}>
             <Icon as={FaShare} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
@@ -45,18 +44,16 @@ export function CreateStackIcon() {
     <>
       <Flex flexDir={"column"} align={"center"}>
         <Flex
-          _hover={{
-            bg: "#F9F9F9",
-          }}
           cursor={"pointer"}
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.black"}
           mx={"1"}
+          bg={"brand.black"}
           onClick={onOpen}
         >
-          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+          <Flex color={"#fff"} align={"center"} justify={"center"}>
             <Icon as={BiAddToQueue} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
@@ -75,10 +72,10 @@ export function MoreIcon({ children }: { children: React.ReactNode }) {
         <Menu isLazy id={"sbs89"}>
           <MenuButton>
             <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-              <Icon as={PiDotsSix} />
+              <Icon as={PiDotsSix} fontSize={"2xl"} />
             </Flex>
           </MenuButton>
-          <MenuList>{children}</MenuList>
+          <MenuList border={"1px solid"}>{children}</MenuList>
         </Menu>
       </Flex>
     </>
@@ -100,7 +97,7 @@ export function PublishIcon() {
           borderColor={"brand.black"}
           mx={"1"}
         >
-          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+          <Flex align={"center"} justify={"center"}>
             <Icon
               as={BsGlobeAsiaAustralia}
               fontSize={"lg"}
@@ -122,9 +119,9 @@ export function AddLinkIcon() {
     <>
       <Flex flexDir={"column"} align={"center"}>
         <Flex
-          _hover={{
-            bg: "#F9F9F9",
-          }}
+          // _hover={{
+          //   bg: "#F9F9F9",
+          // }}
           cursor={"pointer"}
           border={"1.5px solid"}
           p={"1.5"}
@@ -132,8 +129,10 @@ export function AddLinkIcon() {
           borderColor={"brand.black"}
           mx={"1"}
           onClick={onOpen}
+          bg={"brand.black"}
+          color={"#fff"}
         >
-          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+          <Flex align={"center"} justify={"center"}>
             <Icon as={MdOutlineAddCircle} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
@@ -153,9 +152,11 @@ export function CommentsIcon() {
     <>
       <Flex flexDir={"column"} align={"center"}>
         <Flex
-          _hover={{
-            bg: "#F9F9F9",
-          }}
+          // _hover={{
+          //   bg: "#F9F9F9",
+          // }}
+          bg={"brand.black"}
+          color={"#fff"}
           cursor={"pointer"}
           border={"1.5px solid"}
           p={"1.5"}
@@ -163,7 +164,7 @@ export function CommentsIcon() {
           borderColor={"brand.black"}
           mx={"1"}
         >
-          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+          <Flex align={"center"} justify={"center"}>
             <Icon as={RiChat1Line} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
@@ -189,8 +190,10 @@ export function LikeIcon() {
           borderRadius={"full"}
           borderColor={"brand.black"}
           mx={"1"}
+          bg={"brand.black"}
+          color={"#fff"}
         >
-          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+          <Flex align={"center"} justify={"center"}>
             <Icon as={TbThumbUpFilled} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
@@ -206,17 +209,19 @@ export function SaveIcon() {
     <>
       <Flex flexDir={"column"} align={"center"}>
         <Flex
-          _hover={{
-            bg: "#F9F9F9",
-          }}
+          // _hover={{
+          //   bg: "#F9F9F9",
+          // }}
           cursor={"pointer"}
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.black"}
           mx={"1"}
+          bg={"brand.black"}
+          color={"#fff"}
         >
-          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+          <Flex align={"center"} justify={"center"}>
             <Icon as={HiOutlineSaveAs} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
@@ -232,17 +237,19 @@ export function DeleteIcon() {
     <>
       <Flex flexDir={"column"} align={"center"}>
         <Flex
-          _hover={{
-            bg: "#F9F9F9",
-          }}
+          // _hover={{
+          //   bg: "#F9F9F9",
+          // }}
           cursor={"pointer"}
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
           borderColor={"brand.black"}
           mx={"1"}
+          bg={"brand.black"}
+          color={"#fff"}
         >
-          <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+          <Flex align={"center"} justify={"center"}>
             <Icon as={MdDelete} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>

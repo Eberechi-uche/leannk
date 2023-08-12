@@ -13,7 +13,7 @@ export default function Navbar() {
         py={"4"}
         bg={"brand.yellow"}
         display={path === "/UserAuth" ? "none" : "flex"}
-        borderY={"1px solid"}
+        borderBottom={"1px solid"}
       >
         <Flex width={"100%"} align={"center"} justify={"space-between"}>
           <Link href={"/"}>

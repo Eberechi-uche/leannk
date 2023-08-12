@@ -14,7 +14,7 @@ export default function HomeHero() {
         maxW={"2020px"}
         alignSelf={"center"}
         w={"100%"}
-        bgColor={"brand.yellow"}
+        bgColor={"green.200"}
       >
         <Flex
           width={"100%"}
@@ -22,13 +22,13 @@ export default function HomeHero() {
           px={{ base: "7", lg: "12" }}
           py={"14"}
           borderBottom={"1px solid"}
-          borderColor={"brand.dark"}
+          borderColor={"brand.black"}
         >
           <Flex width={"100%"} align={"flex-end"} flexWrap={"wrap"}>
-            <Flex width={{ lg: "80%" }} color={"brand.dark"}>
+            <Flex width={{ lg: "80%" }} color={"brand.black"}>
               <h1>
                 <Icon as={BsAsterisk} /> All your
-                <span className="home-hero"> links, bookmarks </span>{" "}
+                <span className="home-hero"> links, bookmarks </span>
                 <span
                   style={{
                     color: "#FFA500",
