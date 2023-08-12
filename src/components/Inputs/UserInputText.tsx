@@ -15,6 +15,7 @@ export default function UserInputText(props: {
           onChange={(e) => {
             props.onChange(e);
           }}
+          borderColor={"brand.dark"}
           outline={"1px"}
           borderRadius={"none"}
           focusBorderColor="brand.yellow"

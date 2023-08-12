@@ -25,7 +25,7 @@ export function ShareIcon() {
           mx={"1"}
           borderRadius={"full"}
           cursor={"pointer"}
-          borderColor={"brand.gray"}
+          borderColor={"brand.black"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
             <Icon as={FaShare} fontSize={"lg"} fontWeight={"bold"} />
@@ -52,7 +52,7 @@ export function CreateStackIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
-          borderColor={"brand.gray"}
+          borderColor={"brand.black"}
           mx={"1"}
           onClick={onOpen}
         >
@@ -97,7 +97,7 @@ export function PublishIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
-          borderColor={"brand.gray"}
+          borderColor={"brand.black"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
@@ -129,7 +129,7 @@ export function AddLinkIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
-          borderColor={"brand.gray"}
+          borderColor={"brand.black"}
           mx={"1"}
           onClick={onOpen}
         >
@@ -160,7 +160,7 @@ export function CommentsIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
-          borderColor={"brand.gray"}
+          borderColor={"brand.black"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
@@ -187,7 +187,7 @@ export function LikeIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
-          borderColor={"brand.gray"}
+          borderColor={"brand.black"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
@@ -213,7 +213,7 @@ export function SaveIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
-          borderColor={"brand.gray"}
+          borderColor={"brand.black"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
@@ -239,7 +239,7 @@ export function DeleteIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
-          borderColor={"brand.gray"}
+          borderColor={"brand.black"}
           mx={"1"}
         >
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>

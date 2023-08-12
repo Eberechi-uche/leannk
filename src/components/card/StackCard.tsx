@@ -1,11 +1,10 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
+
 import { MakePublic, ShareToWeave } from "../Actions/MenuActions";
 import { MoreIcon } from "../Icons/Icons";
 import Link from "next/link";
 
 export default function StackCard() {
-  const route = useRouter();
   return (
     <>
       <Flex
@@ -15,7 +14,10 @@ export default function StackCard() {
         my={"4"}
         h={"230px"}
         maxH={"230px"}
-        bg={"blue.50"}
+        border={"1px solid"}
+        borderColor={"brand.black"}
+        boxShadow="lg"
+        borderBottom={"5px solid"}
       >
         <Flex justify={"space-between"} px={"7"} align={"center"} py={"2"}>
           <Text color={"blackAlpha.500"} fontSize={"sm"}>

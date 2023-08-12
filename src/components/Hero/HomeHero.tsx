@@ -9,15 +9,23 @@ export default function HomeHero() {
   const route = useRouter();
   return (
     <>
-      <Flex flexDir={"column"} maxW={"2020px"} alignSelf={"center"} w={"100%"}>
+      <Flex
+        flexDir={"column"}
+        maxW={"2020px"}
+        alignSelf={"center"}
+        w={"100%"}
+        bgColor={"brand.yellow"}
+      >
         <Flex
           width={"100%"}
           h={"fit-content"}
           px={{ base: "7", lg: "12" }}
-          py={"10"}
+          py={"14"}
+          borderBottom={"1px solid"}
+          borderColor={"brand.dark"}
         >
           <Flex width={"100%"} align={"flex-end"} flexWrap={"wrap"}>
-            <Flex width={{ lg: "80%" }}>
+            <Flex width={{ lg: "80%" }} color={"brand.dark"}>
               <h1>
                 <Icon as={BsAsterisk} /> All your
                 <span className="home-hero"> links, bookmarks </span>{" "}

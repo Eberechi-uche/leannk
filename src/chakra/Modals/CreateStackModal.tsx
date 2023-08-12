@@ -69,6 +69,7 @@ export function CreateStackModal({
               onClick={() => {
                 onClose();
               }}
+              size={"sm"}
             >
               Cancel
             </Button>

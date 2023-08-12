@@ -20,7 +20,7 @@ export default function InfoCard(props: any) {
           <Text>{smText}</Text>
         </Flex>
 
-        <Text fontSize={{ base: "2xl", md: "4xl", lg: "7xl" }}>{lgText}</Text>
+        <Text fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}>{lgText}</Text>
         <Flex
           width={"100%"}
           flexWrap={"wrap"}
@@ -32,8 +32,8 @@ export default function InfoCard(props: any) {
             <Text>{desc}</Text>
           </Flex>
 
-          <Flex mt={{ base: "20", lg: "0" }} width={{ lg: "50%" }} w={"100%"}>
-            <Image src={image} objectFit={"cover"} />
+          <Flex mt={{ base: "20", lg: "0" }} width={{ lg: "70%" }} w={"150%"}>
+            <Image src={image} objectFit={"contain"} w={"100%"} />
           </Flex>
         </Flex>
       </Flex>
@@ -52,8 +52,8 @@ export function InfoCardAbout() {
     <>
       <Flex
         width={"100%"}
-        border={"1.5px solid"}
-        borderColor={"brand.lightgray"}
+        border={"1px solid"}
+        borderColor={"#000"}
         borderRadius={"5px"}
         flexDir={"column"}
         my={"4"}
@@ -63,8 +63,10 @@ export function InfoCardAbout() {
         {updateDesc === 0 && (
           <>
             <Flex
-              bg={"blackAlpha.900"}
+              bg={"brand.yellow"}
               h={"40px"}
+              border={"1px solid"}
+              borderColor={"brand.black"}
               borderRadius={"5px"}
               color={"#fff"}
               p={"2"}
@@ -128,7 +130,7 @@ export function InfoCardAbout() {
             </>
           )}
           <Flex justify={"flex-end"}>
-            <Button size={"xs"}>follow Stack</Button>
+            <Button size={"sm"}>follow Stack</Button>
           </Flex>
         </Flex>
       </Flex>
@@ -139,15 +141,16 @@ export function InfoCardAbout() {
 export function StackDetailsCard({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Flex w={"100%"} h={"fit-content"} px={"4"} align={"center"} my={"4"}>
+      <Flex w={"100%"} h={"fit-content"} align={"center"} my={"4"}>
         <Flex
           w={"100%"}
           flexDir={"column"}
           px={"4"}
           minH={"70px"}
           py={"10"}
-          border={"2px solid"}
-          borderColor={"brand.lightgray"}
+          border={"1px solid"}
+          borderColor={"brand.black"}
+          borderRadius={"5px"}
         >
           <Flex w={"100%"} justifyContent={"space-between"} align={"center"}>
             <Text fontWeight={"700"}>Contributors</Text>

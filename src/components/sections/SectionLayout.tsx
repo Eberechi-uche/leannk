@@ -49,10 +49,9 @@ export default function SectionLayout() {
         h={"fit-content"}
         bg={color}
         direction={"column"}
-        mt={"10"}
+        // mt={"10"}
         transition={"all 0.7s ease-in-out"}
         fontWeight={"600"}
-        py={"10"}
       >
         <Flex
           maxW={"1000px"}
@@ -62,12 +61,14 @@ export default function SectionLayout() {
         >
           <section>
             <Flex
-              h={"100vh"}
+              minH={"100vh"}
+              h={"fit-content"}
               ref={sectionroot}
               id="sectionroot"
-              borderBottom={"2px"}
-              borderColor={"blackAlpha.200"}
               py={"2"}
+              border={"1px solid"}
+              align={"center"}
+              borderColor={"brand.black"}
             >
               <InfoCard
                 icon={PiDotsThreeFill}
@@ -80,12 +81,14 @@ export default function SectionLayout() {
               />
             </Flex>
             <Flex
-              h={"100vh"}
+              align={"center"}
+              minH={"100vh"}
+              h={"fit-content"}
               ref={section1}
               id="section1"
-              borderBottom={"2px"}
-              borderColor={"blackAlpha.300"}
               py={"2"}
+              border={"1px solid"}
+              borderColor={"brand.dark"}
             >
               <InfoCard
                 icon={HiSquare2Stack}
@@ -98,11 +101,14 @@ export default function SectionLayout() {
               />
             </Flex>
             <Flex
-              h={"100vh"}
+              align={"center"}
+              minH={"100vh"}
+              h={"max-content"}
               ref={section2}
               id="section2"
-              borderColor={"blackAlpha.300"}
-              pt={"2"}
+              py={"5"}
+              border={"1px solid"}
+              borderColor={"brand.dark"}
             >
               <InfoCard
                 icon={GrCommand}

@@ -14,8 +14,11 @@ export default function SingPageLayout({
         w={"100%"}
         flexDir={"column"}
         align={"center"}
-        borderX={"2px solid"}
-        borderColor={"brand.lightgray"}
+        borderX={"1px solid"}
+        borderColor={{
+          base: "#fff",
+          lg: "brand.black",
+        }}
         alignSelf={"center"}
         pt={"7"}
       >

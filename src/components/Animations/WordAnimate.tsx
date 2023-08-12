@@ -15,7 +15,7 @@ export default function WordAnimate() {
   }, []);
   return (
     <>
-      <Flex width={"100%"} h={"fit-content"} px={"7"} py={"7"}>
+      <Flex width={"100%"} h={"fit-content"} px={"7"} py={"12"}>
         <Flex
           fontSize={{ base: "37px", lg: "7xl" }}
           color={"blackAlpha.200"}

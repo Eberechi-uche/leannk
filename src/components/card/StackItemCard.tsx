@@ -11,9 +11,9 @@ export default function StackItemCard() {
         w={"100%"}
         p={"4"}
         flexDir={"column"}
-        border={"2px solid"}
-        borderLeft={"2px solid"}
-        borderColor={"brand.lightgray"}
+        border={"1px solid"}
+        borderLeft={"1px solid"}
+        borderColor={"brand.black"}
         cursor={"pointer"}
       >
         <Flex align={"flex-start"}>
