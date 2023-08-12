@@ -24,13 +24,13 @@ export default function SectionLayout() {
         setColor("#fff");
       }
       if (entry.target.id == "sectionroot" && entry.isIntersecting) {
-        setColor("#F6A21E");
+        setColor("#FFD700");
       }
       if (entry.target.id == "section1" && entry.isIntersecting) {
-        setColor("#7A871E");
+        setColor("#CAE061");
       }
       if (entry.target.id == "section2" && entry.isIntersecting) {
-        setColor("#E55B13");
+        setColor("#5DD6F4");
       }
     });
   }
@@ -76,7 +76,7 @@ export default function SectionLayout() {
                 desc={
                   "Dont just save Links or Bookmarks, you can Add meaningfull description to them, helping you locate them easily "
                 }
-                image={"images/Label.png"}
+                image={"images/label.gif"}
               />
             </Flex>
             <Flex
@@ -94,7 +94,7 @@ export default function SectionLayout() {
                 desc={
                   "Keep all your links and bookmarks easily accesible and tidy by structuring in them in stacks."
                 }
-                image={"images/layers.webp"}
+                image={"images/homeSection.gif"}
               />
             </Flex>
             <Flex
@@ -111,7 +111,7 @@ export default function SectionLayout() {
                 desc={
                   "Share your Stack on topics or a particular subject and have others contribute to it"
                 }
-                image={"images/weave.webp"}
+                image={"images/weave.png"}
               />
             </Flex>
           </section>

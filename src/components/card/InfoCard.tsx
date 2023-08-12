@@ -31,8 +31,9 @@ export default function InfoCard(props: any) {
           <Flex width={{ base: "100%", lg: "30%" }}>
             <Text>{desc}</Text>
           </Flex>
-          <Flex mt={{ base: "20", lg: "0" }} width={{ lg: "50%" }}>
-            <Image src={image} objectFit={"cover"} h={{ base: "130%" }} />
+
+          <Flex mt={{ base: "20", lg: "0" }} width={{ lg: "50%" }} w={"100%"}>
+            <Image src={image} objectFit={"cover"} />
           </Flex>
         </Flex>
       </Flex>
