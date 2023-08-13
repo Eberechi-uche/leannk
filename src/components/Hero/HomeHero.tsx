@@ -49,12 +49,9 @@ export default function HomeHero() {
                 <Image
                   src={"images/wave.svg"}
                   alt={"svg"}
-                  boxSize={{
-                    base: "60px",
-                    lg: "90px",
-                  }}
-                  mr={"2"}
-                  w={"min-content"}
+                  w={"30px"}
+                  h={"60px"}
+                  mr={"1"}
                 />
                 <Button size={"lg"} mr={"4"}>
                   Get started

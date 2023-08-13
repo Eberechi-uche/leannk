@@ -22,7 +22,7 @@ export default function UserAuth() {
         bgSize={"cover"}
         bgRepeat={"no-repeat"}
         pt={"50px"}
-        transition={"all 0.7s ease-in-out"}
+        transition={"all 0.7s ease-out"}
         overflow={"scroll"}
       >
         <Flex
