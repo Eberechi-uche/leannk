@@ -1,5 +1,5 @@
 "use client";
-import { Flex, Text, Icon, Button } from "@chakra-ui/react";
+import { Flex, Text, Icon, Button, Image } from "@chakra-ui/react";
 import { BsAsterisk } from "react-icons/bs";
 import { SiLinkerd } from "react-icons/si";
 import { useRouter } from "next/navigation";
@@ -14,7 +14,8 @@ export default function HomeHero() {
         maxW={"2020px"}
         alignSelf={"center"}
         w={"100%"}
-        bgColor={"green.200"}
+        bg={"brand.yellow"}
+        // bgGradient="linear(to-b, brand.yellow,  whiteAlpha.500 )"
       >
         <Flex
           width={"100%"}
@@ -43,11 +44,31 @@ export default function HomeHero() {
                 <span className="dot"> .</span>
               </h1>
             </Flex>
-            <Flex py={"4"}>
-              <Link href={"/profile/uche"}>
-                <Button size={"lg"}>Get started</Button>
-              </Link>
-            </Flex>
+            <Link href={"/profile/uche"}>
+              <Flex py={"4"} align={"center"} w={"100%"}>
+                <Image
+                  src={"images/wave.svg"}
+                  alt={"svg"}
+                  boxSize={{
+                    base: "60px",
+                    lg: "90px",
+                  }}
+                  mr={"2"}
+                  w={"min-content"}
+                />
+                <Button size={"lg"} mr={"4"}>
+                  Get started
+                </Button>
+                <Image
+                  src={"images/Arrow.svg"}
+                  alt={"svg"}
+                  boxSize={{
+                    base: "60px",
+                    lg: "90px",
+                  }}
+                />
+              </Flex>
+            </Link>
           </Flex>
         </Flex>
         <WordAnimate />

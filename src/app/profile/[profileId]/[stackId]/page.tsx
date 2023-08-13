@@ -69,7 +69,7 @@ export default function StackId() {
             </Flex>
           </Flex>
           <Flex h={"100vh"} w={"100%"} flexDir={"column"} mt={"12"}>
-            <SimpleGrid columns={[1, 2]}>
+            <SimpleGrid columns={[1, 2]} gap={"2"}>
               <StackItemCard />
               <StackItemCard />
               <StackItemCard />

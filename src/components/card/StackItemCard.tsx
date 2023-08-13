@@ -11,10 +11,12 @@ export default function StackItemCard() {
         w={"100%"}
         p={"4"}
         flexDir={"column"}
-        border={"1.5px solid"}
-        borderColor={"brand.black"}
+        border={"1px solid"}
+        borderLeft={"6px solid"}
+        borderLeftColor={"brand.yellow"}
         cursor={"pointer"}
         fontFamily={"monospace"}
+        my={"4"}
       >
         <Flex align={"flex-start"}>
           <Flex mx={"4"} align={"flex-end"} flexDir={"column"}>

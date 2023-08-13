@@ -17,6 +17,7 @@ export default function StackCard() {
         borderColor={"brand.black"}
         boxShadow="lg"
         borderBottom={"10px solid"}
+        borderLeft={"4px solid"}
         bg={"#0000"}
         borderBottomRadius={"4px"}
       >

@@ -27,10 +27,10 @@ export default function SectionLayout() {
         setColor("#FFD700");
       }
       if (entry.target.id == "section1" && entry.isIntersecting) {
-        setColor("#CAE061");
+        setColor("#fff");
       }
       if (entry.target.id == "section2" && entry.isIntersecting) {
-        setColor("#5DD6F4");
+        setColor("#FFFF00");
       }
     });
   }
@@ -77,7 +77,7 @@ export default function SectionLayout() {
                 desc={
                   "Dont just save Links or Bookmarks, you can Add meaningfull description to them, helping you locate them easily "
                 }
-                image={"images/label.gif"}
+                image={"images/engineer.svg"}
               />
             </Flex>
             <Flex
@@ -97,7 +97,7 @@ export default function SectionLayout() {
                 desc={
                   "Keep all your links and bookmarks easily accesible and tidy by structuring in them in stacks."
                 }
-                image={"images/homeSection.gif"}
+                image={"images/meditation-boy.svg"}
               />
             </Flex>
             <Flex
@@ -113,11 +113,13 @@ export default function SectionLayout() {
               <InfoCard
                 icon={GrCommand}
                 smText={"Weave"}
-                lgText={"Create the perfect curation"}
+                lgText={
+                  "Create the perfect curation - share with the community"
+                }
                 desc={
                   "Share your Stack on topics or a particular subject and have others contribute to it"
                 }
-                image={"images/weave.png"}
+                image={"images/communication.svg"}
               />
             </Flex>
           </section>
