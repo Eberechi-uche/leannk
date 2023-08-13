@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, MenuDivider, Text } from "@chakra-ui/react";
 
 import { MakePublic, ShareToWeave } from "../Actions/MenuActions";
 import { MoreIcon } from "../Icons/Icons";
@@ -9,7 +9,6 @@ export default function StackCard() {
     <>
       <Flex
         width={"100%"}
-        borderRadius={"5px"}
         flexDir={"column"}
         my={"4"}
         h={"230px"}
@@ -18,41 +17,36 @@ export default function StackCard() {
         borderColor={"brand.black"}
         boxShadow="lg"
         borderBottom={"10px solid"}
-        fontFamily={"monospace"}
-        borderBottomRadius={"10px"}
+        bg={"#0000"}
+        borderBottomRadius={"4px"}
       >
-        <Flex justify={"space-between"} px={"7"} align={"center"} py={""}>
+        <Flex justify={"space-between"} px={"5"} align={"center"} py={"4"}>
           <Text color={"blackAlpha.500"} fontSize={"sm"}>
             date
           </Text>
           <MoreIcon>
             <MakePublic />
+            <MenuDivider />
             <ShareToWeave />
           </MoreIcon>
         </Flex>
         <Link href={"/profile/uche/uche"}>
-          <Flex flexDir={"column"} cursor={"pointer"}>
-            <Flex
-              px={"7"}
-              align={"center"}
-              justifyContent={"space-between"}
-              py={"2"}
-            >
-              <Text fontWeight={"900"} fontSize={"sm"}>
+          <Flex flexDir={"column"} cursor={"pointer"} px={"5"} pb={"2"}>
+            <Flex align={"center"}>
+              <Text fontWeight={"900"} fontSize={"md"}>
                 Programming for beginners and somethings that never just changes
               </Text>
             </Flex>
 
             <Flex
               flexDir={"column"}
-              px={"7"}
               h={"70px"}
               w={"100%"}
               borderColor={"inherit"}
             >
               <Text fontSize={"xs"}>
-                short description goes ModalHeader short description goes
-                ModalHeader short description goes ModalHeader short description
+                short description goes ModalHeader short description short
+                description goes ModalHeader short description
               </Text>
             </Flex>
           </Flex>

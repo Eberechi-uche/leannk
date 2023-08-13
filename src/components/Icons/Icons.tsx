@@ -1,13 +1,13 @@
 import { Flex, Icon } from "@chakra-ui/react";
 import { MdDelete, MdOutlineAddCircle } from "react-icons/md";
-import { RiChat1Line } from "react-icons/ri";
+import { RiChat1Line, RiShareForward2Line } from "react-icons/ri";
 import { GrCommand } from "react-icons/gr";
 import { BiAddToQueue } from "react-icons/bi";
 import { FaCircleCheck, FaShare } from "react-icons/fa6";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
 import { BsGlobeAsiaAustralia, BsShareFill } from "react-icons/bs";
-import { TbThumbUpFilled } from "react-icons/tb";
-import { HiOutlineSaveAs } from "react-icons/hi";
+import { AiOutlineHeart } from "react-icons/ai";
+import { HiOutlineSave } from "react-icons/hi";
 import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
 import { useDisclosure } from "@chakra-ui/react";
 import { CreateStackModal } from "@/chakra/Modals/CreateStackModal";
@@ -21,13 +21,18 @@ export function ShareIcon() {
           p={"1.5"}
           mx={"1"}
           borderRadius={"full"}
+          px={"3"}
           cursor={"pointer"}
           borderColor={"brand.black"}
           bg={"brand.black"}
           color={"#fff"}
         >
           <Flex align={"center"} justify={"center"}>
-            <Icon as={FaShare} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon
+              as={RiShareForward2Line}
+              fontSize={"lg"}
+              fontWeight={"bold"}
+            />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
@@ -48,6 +53,7 @@ export function CreateStackIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
+          px={"3"}
           borderColor={"brand.black"}
           mx={"1"}
           bg={"brand.black"}
@@ -75,7 +81,9 @@ export function MoreIcon({ children }: { children: React.ReactNode }) {
               <Icon as={PiDotsSix} fontSize={"2xl"} />
             </Flex>
           </MenuButton>
-          <MenuList border={"1px solid"}>{children}</MenuList>
+          <MenuList border={"1px solid"} bg={"brand.yellow"}>
+            {children}
+          </MenuList>
         </Menu>
       </Flex>
     </>
@@ -94,6 +102,7 @@ export function PublishIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
+          px={"3"}
           borderColor={"brand.black"}
           mx={"1"}
         >
@@ -126,6 +135,7 @@ export function AddLinkIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
+          px={"3"}
           borderColor={"brand.black"}
           mx={"1"}
           onClick={onOpen}
@@ -161,6 +171,7 @@ export function CommentsIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
+          px={"3"}
           borderColor={"brand.black"}
           mx={"1"}
         >
@@ -188,13 +199,14 @@ export function LikeIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
+          px={"3"}
           borderColor={"brand.black"}
           mx={"1"}
           bg={"brand.black"}
           color={"#fff"}
         >
           <Flex align={"center"} justify={"center"}>
-            <Icon as={TbThumbUpFilled} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon as={AiOutlineHeart} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
@@ -216,13 +228,14 @@ export function SaveIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
+          px={"3"}
           borderColor={"brand.black"}
           mx={"1"}
           bg={"brand.black"}
           color={"#fff"}
         >
           <Flex align={"center"} justify={"center"}>
-            <Icon as={HiOutlineSaveAs} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon as={HiOutlineSave} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
@@ -244,6 +257,7 @@ export function DeleteIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
+          px={"3"}
           borderColor={"brand.black"}
           mx={"1"}
           bg={"brand.black"}
@@ -275,7 +289,7 @@ export function SelectIcon() {
           <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
             <Icon
               as={FaCircleCheck}
-              fontSize={"4xl"}
+              fontSize={"3xl"}
               fontWeight={"bold"}
               color={"green.600"}
             />

@@ -15,6 +15,7 @@ export default function AuthInput(props: {
         onChange={(e) => {
           props.onChange(e);
         }}
+        border={"1.5px solid"}
         borderColor={"brand.dark"}
         focusBorderColor="brand.yellow"
         type={props.type}
@@ -42,6 +43,7 @@ export function UserInputs(props: {
           props.onChange(e);
         }}
         borderColor={"brand.dark"}
+        border={"1.5px solid"}
         type={props.type}
         borderRadius={"none"}
         focusBorderColor="brand.yellow"

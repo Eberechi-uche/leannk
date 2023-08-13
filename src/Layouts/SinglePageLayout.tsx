@@ -20,7 +20,6 @@ export default function SingPageLayout({
           lg: "brand.black",
         }}
         alignSelf={"center"}
-        pt={"7"}
       >
         {children}
       </Flex>

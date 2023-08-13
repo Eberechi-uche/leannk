@@ -1,10 +1,9 @@
-import { MenuItem, Icon, Flex, Text } from "@chakra-ui/react";
-import { MdDelete } from "react-icons/md";
+import { MenuItem } from "@chakra-ui/react";
 
 export function Delete() {
   return (
     <>
-      <MenuItem>Delete</MenuItem>
+      <MenuItem bg={"inherit"}>Delete</MenuItem>
     </>
   );
 }
@@ -12,14 +11,21 @@ export function Delete() {
 export function MakePublic() {
   return (
     <>
-      <MenuItem>Make Public</MenuItem>
+      <MenuItem bg={"inherit"}>share on Weave</MenuItem>
     </>
   );
 }
 export function ShareToWeave() {
   return (
     <>
-      <MenuItem>Share</MenuItem>
+      <MenuItem bg={"inherit"}>Share</MenuItem>
+    </>
+  );
+}
+export function GivePermisions() {
+  return (
+    <>
+      <MenuItem bg={"inherit"}>set permision</MenuItem>
     </>
   );
 }

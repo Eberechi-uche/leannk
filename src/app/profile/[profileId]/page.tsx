@@ -15,11 +15,10 @@ export default function AuthProfile() {
           <UserCard />
           <Flex
             w={"100%"}
-            justify={"center"}
+            justify={"flex-start"}
             position={"sticky"}
             h={"20"}
             top={"0"}
-            bg={"#fff"}
             zIndex={"10"}
             align={"center"}
           >

@@ -30,20 +30,13 @@ export default function StackId() {
             position={"sticky"}
             h={"20"}
             top={"0"}
-            bg={"#fff"}
             zIndex={"10"}
             align={"center"}
+            px={"2"}
           >
-            <Flex w={"fit-content"} align={"center"}>
-              <CommentsIcon />
-              <LikeIcon />
-            </Flex>
             <AddLinkIcon />
-            <Flex w={"fit-content"}>
-              <SaveIcon />
-              <ShareIcon />
-            </Flex>
           </Flex>
+
           <Flex flexDir={"column"} h={"fit-content"} w={"100%"}>
             <InfoCardAbout />
           </Flex>
@@ -55,6 +48,26 @@ export default function StackId() {
               mx={"2"}
             />
           </StackDetailsCard>
+          <Flex
+            w={"100%"}
+            justify={"space-between"}
+            // position={"sticky"}
+            h={"20"}
+            top={"0"}
+            zIndex={"10"}
+            align={"center"}
+            px={"2"}
+          >
+            <Flex w={"fit-content"} align={"center"}>
+              <CommentsIcon />
+              <LikeIcon />
+            </Flex>
+
+            <Flex w={"fit-content"}>
+              <SaveIcon />
+              <ShareIcon />
+            </Flex>
+          </Flex>
           <Flex h={"100vh"} w={"100%"} flexDir={"column"} mt={"12"}>
             <SimpleGrid columns={[1, 2]}>
               <StackItemCard />

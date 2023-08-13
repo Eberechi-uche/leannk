@@ -11,6 +11,7 @@ import {
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import UserInputText from "@/components/Inputs/UserInputText";
 import { useState } from "react";
+import ColorPicker from "@/components/Inputs/ColorPicker";
 
 export function CreateStackModal({
   isOpen,
@@ -23,7 +24,7 @@ export function CreateStackModal({
   const [newStack, setNewStackDetails] = useState({
     stackName: "",
     note: "",
-    color: "",
+    stackColor: "#0000",
   });
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -37,6 +38,7 @@ export function CreateStackModal({
       [name]: value,
     }));
   }
+
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={{ base: "xs", lg: "md" }}>
@@ -45,6 +47,10 @@ export function CreateStackModal({
           <ModalHeader>Create stack</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+            <ColorPicker
+              value={newStack.stackColor}
+              setValue={setNewStackDetails}
+            />
             <UserInputs
               value={newStack.stackName}
               name="stackName"

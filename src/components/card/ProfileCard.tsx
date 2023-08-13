@@ -1,15 +1,8 @@
 "use client";
 
-import { Flex, Image, Text } from "@chakra-ui/react";
-import {
-  AddLinkIcon,
-  CommentsIcon,
-  DeleteIcon,
-  LikeIcon,
-  MoreIcon,
-  PublishIcon,
-  SaveIcon,
-} from "../Icons/Icons";
+import { Flex, Image, MenuDivider, Text } from "@chakra-ui/react";
+import { MoreIcon } from "../Icons/Icons";
+import { Delete, GivePermisions } from "../Actions/MenuActions";
 
 export function ProfileCard() {
   return (
@@ -33,7 +26,9 @@ export function ProfileCard() {
           {
             <Flex>
               <MoreIcon>
-                <Text></Text>
+                <GivePermisions />
+                <MenuDivider borderColor={"brand.black"} />
+                <Delete />
               </MoreIcon>
             </Flex>
           }

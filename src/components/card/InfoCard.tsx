@@ -4,6 +4,8 @@ import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
 import UserInputText from "../Inputs/UserInputText";
 import { useState } from "react";
+import { BiRightArrow } from "react-icons/bi";
+import { BsArrowRight } from "react-icons/bs";
 export default function InfoCard(props: any) {
   const { icon, smText, lgText, image, desc } = props;
   return (
@@ -52,38 +54,46 @@ export function InfoCardAbout() {
     <>
       <Flex
         width={"100%"}
-        border={"1px solid"}
+        border={"1.5px solid"}
         borderColor={"#000"}
-        borderRadius={"5px"}
+        // borderRadius={"5px"}
         flexDir={"column"}
         my={"4"}
         px={"4"}
         h={"fit-content"}
-        fontFamily={"monospace"}
       >
         {updateDesc === 0 && (
           <>
             <Flex
               bg={"brand.yellow"}
-              h={"40px"}
-              border={"1px solid"}
+              border={"1.5px solid"}
               borderColor={"brand.black"}
-              borderRadius={"5px"}
+              onClick={() => {
+                setUpdateDesc(1);
+              }}
+              // borderRadius={"5px"}
               color={"#fff"}
-              p={"2"}
               justifyContent={"space-between"}
               align={"center"}
               my={"5"}
+              cursor={"pointer"}
             >
-              <Text
-                fontSize={"xs"}
-                onClick={() => {
-                  setUpdateDesc(1);
-                }}
+              <Flex p={"3"} w={"70%"}>
+                <Text fontSize={"sm"}>
+                  Add discription of the stack for more context
+                </Text>
+              </Flex>
+
+              <Flex
+                bg={"brand.black"}
+                h={"100%"}
+                flexDir={"column"}
+                align={"center"}
+                justify={"center"}
+                p={"4"}
               >
-                Add discription of the stack for more context
-              </Text>
-              <Icon as={FiPlus} />
+                <Icon as={BsArrowRight} />
+              </Flex>
             </Flex>
             <Text>
               This strategy states that the element that is inserted last will
@@ -97,7 +107,7 @@ export function InfoCardAbout() {
         <Flex
           flexDir={"column"}
           py={"4"}
-          borderTop={"1px solid"}
+          // borderTop={"1px solid"}
           w={"100%"}
           borderColor={"inherit"}
         >
@@ -122,6 +132,7 @@ export function InfoCardAbout() {
                     }}
                     variant={"outline"}
                     size={"sm"}
+                    mx={"4"}
                   >
                     cancel
                   </Button>
@@ -149,9 +160,8 @@ export function StackDetailsCard({ children }: { children: React.ReactNode }) {
           px={"4"}
           minH={"70px"}
           py={"10"}
-          border={"1px solid"}
+          border={"1.5px solid"}
           borderColor={"brand.black"}
-          borderRadius={"5px"}
         >
           <Flex w={"100%"} justifyContent={"space-between"} align={"center"}>
             <Text fontWeight={"700"}>Contributors</Text>
