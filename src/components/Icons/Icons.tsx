@@ -117,7 +117,7 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
           }}
         >
           <DrawerOverlay />
-          <DrawerContent fontSize={"lg"} fontWeight={"500"}>
+          <DrawerContent fontSize={"lg"}>
             <DrawerCloseButton />
             <DrawerHeader my={"4"}></DrawerHeader>
             <ProfileCard />

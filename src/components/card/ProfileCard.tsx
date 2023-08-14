@@ -14,7 +14,7 @@ export function ProfileCard() {
         flexDir={"column"}
       >
         <Flex pos={"relative"}>
-          <Flex
+          {/* <Flex
             position={"absolute"}
             bottom={"-3px"}
             right={"-2px"}
@@ -23,13 +23,14 @@ export function ProfileCard() {
             bg={"brand.yellow"}
           >
             <Icon as={RiSettings4Fill} />
-          </Flex>
+          </Flex> */}
 
           <Image
-            src={"/images/signUp.webp"}
+            src={"/images/thumbs.svg"}
             boxSize={"45px"}
             objectFit={"cover"}
             borderRadius={"full"}
+            border={"2px solid"}
           />
         </Flex>
 

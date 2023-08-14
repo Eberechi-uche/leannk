@@ -9,6 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { BiHomeAlt2 } from "react-icons/bi";
 import { FiUser } from "react-icons/fi";
+import { GoHomeFill } from "react-icons/go";
+import { GrHomeRounded } from "react-icons/gr";
 import { HiOutlineShare } from "react-icons/hi";
 import { IoIosSettings, IoMdRemoveCircle } from "react-icons/io";
 import { PiCommandBold, PiGlobeBold } from "react-icons/pi";
@@ -78,7 +80,7 @@ export function NavMenuAction() {
           {/* <ListIcon as={MdCheckCircle} color="green.500" /> */}
         </ListItem>
         <ListItem display={"flex"} alignItems={"center"}>
-          <ListIcon as={BiHomeAlt2} />
+          <ListIcon as={GoHomeFill} />
           Home
         </ListItem>
         <ListItem display={"flex"} alignItems={"center"}>

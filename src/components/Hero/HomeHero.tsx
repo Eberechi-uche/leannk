@@ -26,17 +26,17 @@ export default function HomeHero() {
           borderColor={"brand.black"}
         >
           <Flex width={"100%"} align={"flex-end"} flexWrap={"wrap"}>
-            <Flex width={{ lg: "70%" }} color={"brand.black"}>
+            <Flex width={{ md: " 60%", lg: "70%" }} color={"brand.black"}>
               <Text
                 fontSize={{
-                  base: "17px",
-                  md: "30px",
+                  base: "23px",
+                  md: "26px",
                   lg: "50px",
                 }}
+                lineHeight={"2"}
               >
-                <Icon as={BsAsterisk} /> All your
-                <span className="home-hero"> LINKS, BOOKMARKS </span> <br />
-                and Everything else in one place <br />
+                <Icon as={BsAsterisk} /> All your links, bookmarks and
+                Everything else in one place <br />
                 <Icon as={SiLinkerd} /> curate the perfect collection .
               </Text>
             </Flex>

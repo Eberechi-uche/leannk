@@ -1,10 +1,9 @@
 "use client";
 import { Flex, Icon, Text, Image, Button } from "@chakra-ui/react";
-import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
-import { FiPlus } from "react-icons/fi";
+
 import UserInputText from "../Inputs/UserInputText";
 import { useState } from "react";
-import { BiRightArrow } from "react-icons/bi";
+
 import { BsArrowRight } from "react-icons/bs";
 export default function InfoCard(props: any) {
   const { icon, smText, lgText, image, desc } = props;
@@ -23,18 +22,12 @@ export default function InfoCard(props: any) {
         </Flex>
 
         <Text fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}>{lgText}</Text>
-        <Flex
-          width={"100%"}
-          flexWrap={"wrap"}
-          justifyContent={"space-between"}
-          mt={"10"}
-          overflow={"clip"}
-        >
-          <Flex width={{ base: "100%", lg: "30%" }}>
+        <Flex width={"100%"} flexWrap={"wrap"} justifyContent={"space-between"}>
+          <Flex width={{ base: "100%", md: "70%", lg: "30%" }}>
             <Text>{desc}</Text>
           </Flex>
 
-          <Flex mt={{ base: "20", lg: "0" }} width={{ lg: "70%" }} w={"150%"}>
+          <Flex mt={{ base: "20", lg: "0" }} width={{ md: "70%", lg: "70%" }}>
             <Image src={image} objectFit={"contain"} w={"100%"} />
           </Flex>
         </Flex>
