@@ -16,7 +16,12 @@ import { PiCommandBold, PiGlobeBold } from "react-icons/pi";
 export function Delete() {
   return (
     <>
-      <MenuItem bg={"inherit"} display={"flex"} alignItems={"center"}>
+      <MenuItem
+        bg={"inherit"}
+        display={"flex"}
+        alignItems={"center"}
+        fontWeight={"inherit"}
+      >
         <Icon as={IoMdRemoveCircle} mr={"4"} />
         delete
       </MenuItem>
@@ -27,7 +32,12 @@ export function Delete() {
 export function MakePublic() {
   return (
     <>
-      <MenuItem bg={"inherit"} display={"flex"} alignItems={"center"}>
+      <MenuItem
+        bg={"inherit"}
+        display={"flex"}
+        alignItems={"center"}
+        fontWeight={"inherit"}
+      >
         <Icon as={PiCommandBold} mr={"4"} />
         Post on weaves
         <Badge mx={"2"} colorScheme="orange" fontWeight={"900"}>
@@ -40,7 +50,12 @@ export function MakePublic() {
 export function ShareToWeave() {
   return (
     <>
-      <MenuItem bg={"inherit"} display={"flex"} alignItems={"center"}>
+      <MenuItem
+        bg={"inherit"}
+        display={"flex"}
+        alignItems={"center"}
+        fontWeight={"inherit"}
+      >
         <Icon as={HiOutlineShare} mr={"4"} />
         Share
       </MenuItem>
@@ -58,7 +73,7 @@ export function GivePermisions() {
 export function NavMenuAction() {
   return (
     <>
-      <List spacing={3}>
+      <List spacing={6}>
         <ListItem>
           {/* <ListIcon as={MdCheckCircle} color="green.500" /> */}
         </ListItem>

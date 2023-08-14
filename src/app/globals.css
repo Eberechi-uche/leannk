@@ -4,38 +4,30 @@
   margin: 0;
 }
 
-h3 {
-  font-size: 34px;
-}
-h1 {
-  font-size: 64px;
-  font-weight: 900;
-}
 @media screen and (max-width: 700px) {
-  h1 {
-    font-size: 21px;
+  .home-hero {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 900) {
+  .home-hero {
+    font-size: 1px;
   }
   .dot {
     font-size: 40px;
   }
 }
-@media screen and (min-width: 700px) {
-  h1 {
-    font-size: 40px;
+
+@media screen and (min-width: 900px) {
+  .home-hero {
+    font-size: 35px;
   }
   .dot {
     font-size: 40px;
   }
 }
+
 .home-hero {
   font-family: "Zen Tokyo Zoo", sans-serif;
-  font-weight: 500;
   letter-spacing: 2px;
-}
-.dot {
-  display: inline-flex;
-  color: #ffbf01;
-  padding: none;
-  height: none;
-  margin: none;
 }

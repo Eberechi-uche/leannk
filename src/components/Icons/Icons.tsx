@@ -83,8 +83,8 @@ export function MoreIcon({ children }: { children: React.ReactNode }) {
           </MenuButton>
           <MenuList
             border={"0px solid"}
-            fontSize={"sm"}
             borderColor={"blackAlpha.200"}
+            fontWeight={"600"}
           >
             {children}
           </MenuList>
@@ -117,7 +117,7 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
           }}
         >
           <DrawerOverlay />
-          <DrawerContent fontSize={"14px"}>
+          <DrawerContent fontSize={"lg"} fontWeight={"500"}>
             <DrawerCloseButton />
             <DrawerHeader my={"4"}></DrawerHeader>
             <ProfileCard />

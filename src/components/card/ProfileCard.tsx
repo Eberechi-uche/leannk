@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Icon, Image, MenuDivider, Text } from "@chakra-ui/react";
+import { Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { RiSettings4Fill } from "react-icons/ri";
 
 export function ProfileCard() {
@@ -34,10 +34,10 @@ export function ProfileCard() {
         </Flex>
 
         <Flex flexWrap={"wrap"} isTruncated flexDir={"column"}>
-          <Text fontWeight={"300"} mx={"1"} isTruncated>
+          <Text mx={"1"} isTruncated fontWeight={"600"}>
             @[username]
           </Text>
-          <Text fontWeight={"300"} mx={"1"} isTruncated>
+          <Text mx={"1"} isTruncated>
             user email
           </Text>
         </Flex>

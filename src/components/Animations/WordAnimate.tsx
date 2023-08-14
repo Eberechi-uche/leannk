@@ -17,7 +17,7 @@ export default function WordAnimate() {
     <>
       <Flex width={"100%"} h={"fit-content"} px={"7"} py={"7"} bg={"#000"}>
         <Flex
-          fontSize={{ base: "15px", lg: "3xl" }}
+          fontSize={{ base: "12px", lg: "3xl" }}
           color={"whiteAlpha.700"}
           width={"100%"}
           flexWrap={"wrap"}
@@ -43,7 +43,6 @@ export default function WordAnimate() {
             mx={"4"}
             color={style % 2 == 0 ? "brand.yellow" : "inherit"}
           >
-            {" "}
             Threads
           </Text>
           <Text
@@ -51,7 +50,6 @@ export default function WordAnimate() {
             mx={"4"}
             color={style % 2 !== 0 ? "brand.yellow" : "inherit"}
           >
-            {" "}
             Blog Post
           </Text>
           <Text
@@ -72,7 +70,6 @@ export default function WordAnimate() {
             color={style % 3 == 0 ? "brand.yellow" : "inherit"}
             transition={"all 1.5s ease-in-out"}
           >
-            {" "}
             substack
           </Text>
           <Text

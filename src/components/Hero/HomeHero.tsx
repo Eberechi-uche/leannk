@@ -26,17 +26,19 @@ export default function HomeHero() {
           borderColor={"brand.black"}
         >
           <Flex width={"100%"} align={"flex-end"} flexWrap={"wrap"}>
-            <Flex width={{ lg: "80%" }} color={"brand.black"}>
-              <h1
-                style={{
-                  lineHeight: "1.7",
+            <Flex width={{ lg: "70%" }} color={"brand.black"}>
+              <Text
+                fontSize={{
+                  base: "17px",
+                  md: "30px",
+                  lg: "50px",
                 }}
               >
                 <Icon as={BsAsterisk} /> All your
-                <span className="home-hero"> links, bookmarks </span> <br />
+                <span className="home-hero"> LINKS, BOOKMARKS </span> <br />
                 and Everything else in one place <br />
                 <Icon as={SiLinkerd} /> curate the perfect collection .
-              </h1>
+              </Text>
             </Flex>
             <Link href={"/profile/uche"}>
               <Flex py={"4"} align={"center"} w={"100%"}>
