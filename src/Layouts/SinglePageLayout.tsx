@@ -17,7 +17,7 @@ export default function SingPageLayout({
         borderX={"1px solid"}
         borderColor={{
           base: "#fff",
-          lg: "brand.black",
+          lg: "blackAlpha.200",
         }}
         alignSelf={"center"}
       >

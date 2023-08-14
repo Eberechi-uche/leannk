@@ -1,42 +1,45 @@
 "use client";
 
-import { Flex, Image, MenuDivider, Text } from "@chakra-ui/react";
-import { MoreIcon } from "../Icons/Icons";
-import { Delete, GivePermisions } from "../Actions/MenuActions";
+import { Flex, Icon, Image, MenuDivider, Text } from "@chakra-ui/react";
+import { RiSettings4Fill } from "react-icons/ri";
 
 export function ProfileCard() {
   return (
     <>
-      <Flex w={"100%"} p={"2"} align={"center"} my={"10"}>
-        <Flex w={"100%"} align={"flex-start"} justifyContent={"space-between"}>
-          <Flex align={"center"} isTruncated>
-            <Image
-              src={"/images/signUp.webp"}
-              boxSize={"40px"}
-              objectFit={"cover"}
-              borderRadius={"full"}
-            />
-            <Flex mx="4" flexWrap={"wrap"} isTruncated>
-              <Text mx={"1"}> Curated by </Text>
-              <Text fontWeight={"800"} mx={"1"} isTruncated>
-                Eberechi uche richard
-              </Text>
-            </Flex>
+      <Flex
+        w={"100%"}
+        align={"center"}
+        justify={"center"}
+        textAlign={"center"}
+        flexDir={"column"}
+      >
+        <Flex pos={"relative"}>
+          <Flex
+            position={"absolute"}
+            bottom={"-3px"}
+            right={"-2px"}
+            borderRadius={"full"}
+            p={"1"}
+            bg={"brand.yellow"}
+          >
+            <Icon as={RiSettings4Fill} />
           </Flex>
-          {
-            <Flex>
-              <MoreIcon>
-                <GivePermisions />
-                <MenuDivider borderColor={"brand.black"} />
-                <Delete />
-              </MoreIcon>
-            </Flex>
-          }
-          {/* <Flex>
-            <CommentIcon />
-            <LikeIcon />
-            <SaveIcon />
-          </Flex> */}
+
+          <Image
+            src={"/images/signUp.webp"}
+            boxSize={"45px"}
+            objectFit={"cover"}
+            borderRadius={"full"}
+          />
+        </Flex>
+
+        <Flex flexWrap={"wrap"} isTruncated flexDir={"column"}>
+          <Text fontWeight={"300"} mx={"1"} isTruncated>
+            @[username]
+          </Text>
+          <Text fontWeight={"300"} mx={"1"} isTruncated>
+            user email
+          </Text>
         </Flex>
       </Flex>
     </>

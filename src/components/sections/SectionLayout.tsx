@@ -66,9 +66,7 @@ export default function SectionLayout() {
               ref={sectionroot}
               id="sectionroot"
               py={"2"}
-              border={"1px solid"}
               align={"center"}
-              borderColor={"brand.black"}
             >
               <InfoCard
                 icon={PiDotsThreeFill}
@@ -87,8 +85,6 @@ export default function SectionLayout() {
               ref={section1}
               id="section1"
               py={"2"}
-              border={"1px solid"}
-              borderColor={"brand.dark"}
             >
               <InfoCard
                 icon={HiSquare2Stack}
@@ -107,8 +103,6 @@ export default function SectionLayout() {
               ref={section2}
               id="section2"
               py={"5"}
-              border={"1px solid"}
-              borderColor={"brand.dark"}
             >
               <InfoCard
                 icon={GrCommand}

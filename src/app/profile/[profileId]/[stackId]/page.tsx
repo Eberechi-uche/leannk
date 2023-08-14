@@ -10,7 +10,7 @@ import {
 import { InfoCardAbout, StackDetailsCard } from "@/components/card/InfoCard";
 import { ProfileCard } from "@/components/card/ProfileCard";
 import StackItemCard from "@/components/card/StackItemCard";
-import { Flex, SimpleGrid, Avatar } from "@chakra-ui/react";
+import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
 
 export default function StackId() {
   return (
@@ -23,32 +23,53 @@ export default function StackId() {
           h={"max-content"}
           px={"4"}
         >
-          <ProfileCard />
           <Flex
-            w={"100%"}
-            justify={"space-between"}
-            position={"sticky"}
-            h={"20"}
-            top={"0"}
-            zIndex={"10"}
+            width={"100%"}
+            flexDir={"column"}
+            my={"10"}
+            pb={"4"}
+            borderBottom={"1px solid"}
+            borderColor={"blackAlpha.200"}
+          >
+            <Text fontWeight={"800"} fontSize={"2xl"}>
+              Programming for beginners links and resourses
+            </Text>
+            <Text>
+              short description of the stack goes here short description short
+              description goes ModalHeader short description
+            </Text>
+          </Flex>
+
+          {/* <ProfileCard /> */}
+          <Flex
+            w={{
+              base: "60%",
+              lg: "30%",
+            }}
+            alignSelf={"center"}
+            my={"5"}
+            py={"1"}
             align={"center"}
-            px={"2"}
+            justify={"center"}
+            borderRadius={"5px"}
+            border={"1.5px solid"}
+            borderColor={"blackAlpha.200"}
           >
             <AddLinkIcon />
           </Flex>
 
-          <Flex flexDir={"column"} h={"fit-content"} w={"100%"}>
+          {/* <Flex flexDir={"column"} h={"fit-content"} w={"100%"}>
             <InfoCardAbout />
-          </Flex>
+          </Flex> */}
 
-          <StackDetailsCard>
+          {/* <StackDetailsCard>
             <Avatar
               size={"sm"}
               src={"https://api.dicebear.com/6.x/thumbs/svg?seed=leannk"}
               mx={"2"}
             />
-          </StackDetailsCard>
-          <Flex
+          </StackDetailsCard> */}
+          {/* <Flex
             w={"100%"}
             justify={"space-between"}
             // position={"sticky"}
@@ -67,7 +88,7 @@ export default function StackId() {
               <SaveIcon />
               <ShareIcon />
             </Flex>
-          </Flex>
+          </Flex> */}
           <Flex h={"100vh"} w={"100%"} flexDir={"column"} mt={"12"}>
             <SimpleGrid columns={[1, 2]} gap={"2"}>
               <StackItemCard />

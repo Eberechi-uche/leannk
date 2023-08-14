@@ -27,21 +27,15 @@ export default function HomeHero() {
         >
           <Flex width={"100%"} align={"flex-end"} flexWrap={"wrap"}>
             <Flex width={{ lg: "80%" }} color={"brand.black"}>
-              <h1>
+              <h1
+                style={{
+                  lineHeight: "1.7",
+                }}
+              >
                 <Icon as={BsAsterisk} /> All your
-                <span className="home-hero"> links, bookmarks </span>
-                <span
-                  style={{
-                    color: "#FFA500",
-                    margin: " 0 5px ",
-                  }}
-                >
-                  &
-                </span>
-                Everything else in one place,
-                <br />
-                - <Icon as={SiLinkerd} /> curate the perfect collection
-                <span className="dot"> .</span>
+                <span className="home-hero"> links, bookmarks </span> <br />
+                and Everything else in one place <br />
+                <Icon as={SiLinkerd} /> curate the perfect collection .
               </h1>
             </Flex>
             <Link href={"/profile/uche"}>

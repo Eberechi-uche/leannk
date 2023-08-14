@@ -1,17 +1,28 @@
-import { Flex, Icon } from "@chakra-ui/react";
-import { MdDelete, MdOutlineAddCircle } from "react-icons/md";
+import { Button, Flex, Icon } from "@chakra-ui/react";
+import { TbPlaylistAdd } from "react-icons/tb";
 import { RiChat1Line, RiShareForward2Line } from "react-icons/ri";
-import { GrCommand } from "react-icons/gr";
-import { BiAddToQueue } from "react-icons/bi";
-import { FaCircleCheck, FaShare } from "react-icons/fa6";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+} from "@chakra-ui/react";
+
+import { IoMdRemoveCircleOutline } from "react-icons/io";
+
+import { FaCircleCheck } from "react-icons/fa6";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
-import { BsGlobeAsiaAustralia, BsShareFill } from "react-icons/bs";
+import { BsGlobeAsiaAustralia } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
-import { HiOutlineSave } from "react-icons/hi";
+import { HiMenuAlt4, HiOutlineSave } from "react-icons/hi";
 import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
 import { useDisclosure } from "@chakra-ui/react";
 import { CreateStackModal } from "@/chakra/Modals/CreateStackModal";
-import { PiDotsSix } from "react-icons/pi";
+import { PiDotsSix, PiPlusLight } from "react-icons/pi";
+import { ProfileCard } from "../card/ProfileCard";
 export function ShareIcon() {
   return (
     <>
@@ -24,7 +35,6 @@ export function ShareIcon() {
           px={"3"}
           cursor={"pointer"}
           borderColor={"brand.black"}
-          bg={"brand.black"}
           color={"#fff"}
         >
           <Flex align={"center"} justify={"center"}>
@@ -48,23 +58,13 @@ export function CreateStackIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
-        <Flex
-          cursor={"pointer"}
-          border={"1.5px solid"}
-          p={"1.5"}
-          borderRadius={"full"}
-          px={"3"}
-          borderColor={"brand.black"}
-          mx={"1"}
-          bg={"brand.black"}
-          onClick={onOpen}
-        >
-          <Flex color={"#fff"} align={"center"} justify={"center"}>
-            <Icon as={BiAddToQueue} fontSize={"lg"} fontWeight={"bold"} />
+        <Flex cursor={"pointer"} p={"1.5"} px={"3"} mx={"1"} onClick={onOpen}>
+          <Flex align={"center"} justify={"center"} color={"brand.yellow"}>
+            <Icon as={PiPlusLight} fontSize={"xl"} fontWeight={"bold"} />
           </Flex>
         </Flex>
-        <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
-          Create
+        <Text fontWeight={"800"} fontSize={"sm"} color={"brand.darkgray"}>
+          Create stack
         </Text>
         {isOpen && <CreateStackModal isOpen={isOpen} onClose={onClose} />}
       </Flex>
@@ -81,10 +81,55 @@ export function MoreIcon({ children }: { children: React.ReactNode }) {
               <Icon as={PiDotsSix} fontSize={"2xl"} />
             </Flex>
           </MenuButton>
-          <MenuList border={"1px solid"} bg={"brand.yellow"}>
+          <MenuList
+            border={"0px solid"}
+            fontSize={"sm"}
+            borderColor={"blackAlpha.200"}
+          >
             {children}
           </MenuList>
         </Menu>
+      </Flex>
+    </>
+  );
+}
+export function NavDrawer({ children }: { children: React.ReactNode }) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  return (
+    <>
+      <Flex cursor={"pointer"} p={"1.5"}>
+        <Flex
+          color={"blackAlpha.900"}
+          align={"center"}
+          justify={"center"}
+          onClick={onOpen}
+        >
+          <Icon as={HiMenuAlt4} fontSize={"xl"} />
+        </Flex>
+
+        <Drawer
+          isOpen={isOpen}
+          placement="right"
+          onClose={onClose}
+          size={{
+            base: "xs",
+            lg: "xs",
+          }}
+        >
+          <DrawerOverlay />
+          <DrawerContent fontSize={"14px"}>
+            <DrawerCloseButton />
+            <DrawerHeader my={"4"}></DrawerHeader>
+            <ProfileCard />
+            <DrawerBody>{children}</DrawerBody>
+
+            <DrawerFooter>
+              <Button variant="outline" mr={3} onClick={onClose} size={"sm"}>
+                Sign out
+              </Button>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
       </Flex>
     </>
   );
@@ -132,22 +177,16 @@ export function AddLinkIcon() {
           //   bg: "#F9F9F9",
           // }}
           cursor={"pointer"}
-          border={"1.5px solid"}
           p={"1.5"}
-          borderRadius={"full"}
-          px={"3"}
-          borderColor={"brand.black"}
           mx={"1"}
           onClick={onOpen}
-          bg={"brand.black"}
-          color={"#fff"}
         >
           <Flex align={"center"} justify={"center"}>
-            <Icon as={MdOutlineAddCircle} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon as={TbPlaylistAdd} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
         <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
-          Add
+          Add link
         </Text>
       </Flex>
       {isOpen && (
@@ -254,22 +293,17 @@ export function DeleteIcon() {
           //   bg: "#F9F9F9",
           // }}
           cursor={"pointer"}
-          border={"1.5px solid"}
-          p={"1.5"}
-          borderRadius={"full"}
           px={"3"}
-          borderColor={"brand.black"}
           mx={"1"}
-          bg={"brand.black"}
-          color={"#fff"}
         >
           <Flex align={"center"} justify={"center"}>
-            <Icon as={MdDelete} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon
+              as={IoMdRemoveCircleOutline}
+              fontSize={"lg"}
+              fontWeight={"bold"}
+            />
           </Flex>
         </Flex>
-        <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
-          Delete
-        </Text>
       </Flex>
     </>
   );

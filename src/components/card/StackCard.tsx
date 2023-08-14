@@ -1,6 +1,6 @@
 import { Flex, MenuDivider, Text } from "@chakra-ui/react";
 
-import { MakePublic, ShareToWeave } from "../Actions/MenuActions";
+import { Delete, MakePublic, ShareToWeave } from "../Actions/MenuActions";
 import { MoreIcon } from "../Icons/Icons";
 import Link from "next/link";
 
@@ -13,13 +13,10 @@ export default function StackCard() {
         my={"4"}
         h={"230px"}
         maxH={"230px"}
-        border={"1px solid"}
-        borderColor={"brand.black"}
-        boxShadow="lg"
-        borderBottom={"10px solid"}
-        borderLeft={"4px solid"}
-        bg={"#0000"}
-        borderBottomRadius={"4px"}
+        border={"1.5px solid"}
+        borderColor={"blackAlpha.200"}
+        bg={""}
+        borderRadius={"5px"}
       >
         <Flex justify={"space-between"} px={"5"} align={"center"} py={"4"}>
           <Text color={"blackAlpha.500"} fontSize={"sm"}>
@@ -29,6 +26,8 @@ export default function StackCard() {
             <MakePublic />
             <MenuDivider />
             <ShareToWeave />
+            <MenuDivider />
+            <Delete />
           </MoreIcon>
         </Flex>
         <Link href={"/profile/uche/uche"}>
@@ -45,9 +44,11 @@ export default function StackCard() {
               w={"100%"}
               borderColor={"inherit"}
             >
-              <Text fontSize={"xs"}>
+              <Text fontSize={"xs"} noOfLines={[2, 3]} my={"2"}>
                 short description goes ModalHeader short description short
-                description goes ModalHeader short description
+                description goes ModalHeader short description short description
+                goes ModalHeader short description short description goes
+                ModalHeader short description
               </Text>
             </Flex>
           </Flex>

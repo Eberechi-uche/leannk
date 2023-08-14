@@ -13,7 +13,7 @@ export default function AuthProfile() {
       <SingPageLayout>
         <Flex w={"100%"} flexDir={"column"} h={"100%"} p={"4"}>
           <UserCard />
-          <Flex
+          {/* <Flex
             w={"100%"}
             justify={"flex-start"}
             position={"sticky"}
@@ -21,12 +21,24 @@ export default function AuthProfile() {
             top={"0"}
             zIndex={"10"}
             align={"center"}
+          ></Flex> */}
+          <Flex
+            w={{
+              base: "60%",
+              lg: "30%",
+            }}
+            alignSelf={"center"}
+            my={"5"}
+            py={"1"}
+            align={"center"}
+            justify={"center"}
+            borderRadius={"5px"}
+            border={"1.5px solid"}
+            borderColor={"blackAlpha.200"}
           >
-            <Flex w={"fit-content"} align={"center"}>
-              <CreateStackIcon />
-            </Flex>
+            <CreateStackIcon />
           </Flex>
-          <SimpleGrid w={"100%"} columns={[1, 2, 3]} gap={"5"}>
+          <SimpleGrid w={"100%"} columns={[1, 2, 2, 3]} gap={"5"}>
             <StackCard />
             <StackCard />
             <StackCard />
