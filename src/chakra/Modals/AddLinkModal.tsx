@@ -11,20 +11,9 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { UserInputs } from "@/components/Inputs/AuthInput";
-import StackItemCard, {
-  StackItemCardPreview,
-} from "@/components/card/StackItemCard";
+import { StackItemCardPreview } from "@/components/card/StackItemCard";
 import UserInputText from "@/components/Inputs/UserInputText";
 import { useState } from "react";
-import { unfurl } from "unfurl.js";
-
-function getLinkMetaData(url: string) {
-  const unfurlLink = unfurl(url);
-  unfurlLink.then((data) => {
-    console.log(data);
-    return data;
-  });
-}
 
 export function AddlinkModal({
   isOpen,
@@ -53,6 +42,7 @@ export function AddlinkModal({
       [name]: value,
     }));
   }
+
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={{ base: "xs", lg: "md" }}>
@@ -101,7 +91,6 @@ export function AddlinkModal({
                   ml={3}
                   onClick={() => {
                     setAddLinkView(1);
-                    getLinkMetaData(newLinkDetails.link);
                   }}
                   isDisabled={newLinkDetails.link.length < 8}
                   size={"sm"}

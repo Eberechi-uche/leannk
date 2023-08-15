@@ -37,6 +37,28 @@ export default function StackItemCard() {
             </Text>
           </Flex>
         </Flex>
+        <Flex
+          w={"100%"}
+          py={"1"}
+          border={"1.5px solid"}
+          borderColor={"blackAlpha.200"}
+          borderRadius={"5px"}
+          px={"2"}
+          justifyContent={"space-between"}
+          fontSize={"xs"}
+        >
+          <Text isTruncated textDecor={"underline"} color={"gray.500"}>
+            somelinke here and other thing lets see what happens when we have a
+            long text
+          </Text>
+          <Image
+            src={"/images/signUp.webp"}
+            alt={""}
+            boxSize={"25px"}
+            objectFit={"cover"}
+            borderRadius={"3px"}
+          />
+        </Flex>
       </Flex>
     </>
   );

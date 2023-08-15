@@ -1,12 +1,6 @@
 "use client";
 import SingPageLayout from "@/Layouts/SinglePageLayout";
-import {
-  AddLinkIcon,
-  CommentsIcon,
-  LikeIcon,
-  SaveIcon,
-  ShareIcon,
-} from "@/components/Icons/Icons";
+import { AddLinkIcon } from "@/components/Icons/Icons";
 import { InfoCardAbout, StackDetailsCard } from "@/components/card/InfoCard";
 import { ProfileCard } from "@/components/card/ProfileCard";
 import StackItemCard from "@/components/card/StackItemCard";
