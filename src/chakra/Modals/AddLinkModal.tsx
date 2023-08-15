@@ -11,10 +11,10 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { UserInputs } from "@/components/Inputs/AuthInput";
-import { StackCardMini } from "@/components/card/StackCard";
-import { useParams } from "next/navigation";
+import StackItemCard, {
+  StackItemCardPreview,
+} from "@/components/card/StackItemCard";
 import UserInputText from "@/components/Inputs/UserInputText";
-import { SelectIcon } from "@/components/Icons/Icons";
 import { useState } from "react";
 
 export function AddlinkModal({
@@ -30,7 +30,7 @@ export function AddlinkModal({
     desc: "",
     link: "",
   });
-  const { stackId } = useParams();
+  const [addLinkView, setAddLinkView] = useState(0);
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -51,34 +51,73 @@ export function AddlinkModal({
           <ModalHeader>Add Link</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <UserInputs
-              value={newLinkDetails.link}
-              name="link"
-              type="text"
-              placeHolder="Enter or paste link"
-              onChange={handleChange}
-            />
-            <UserInputText
-              value={newLinkDetails.desc}
-              name="desc"
-              placeHolder="enter short description"
-              onChange={handleChange}
-            />
+            {addLinkView === 0 ? (
+              <>
+                <UserInputs
+                  value={newLinkDetails.link}
+                  name="link"
+                  type="text"
+                  placeHolder="Enter or paste link"
+                  onChange={handleChange}
+                />
+                <UserInputText
+                  value={newLinkDetails.desc}
+                  name="desc"
+                  placeHolder="enter short description"
+                  onChange={handleChange}
+                />
+              </>
+            ) : (
+              <>
+                <StackItemCardPreview />
+              </>
+            )}
           </ModalBody>
 
           <ModalFooter>
-            <Button
-              variant="outline"
-              size={"sm"}
-              onClick={() => {
-                onClose();
-              }}
-            >
-              Cancel
-            </Button>
-            <Button colorScheme="blue" ml={3} onClick={() => {}} size={"sm"}>
-              Add
-            </Button>
+            {addLinkView === 0 ? (
+              <>
+                <Button
+                  variant="outline"
+                  size={"sm"}
+                  onClick={() => {
+                    onClose();
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  colorScheme="blue"
+                  ml={3}
+                  onClick={() => {
+                    setAddLinkView(1);
+                  }}
+                  size={"sm"}
+                >
+                  Next
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  variant="outline"
+                  size={"sm"}
+                  onClick={() => {
+                    setAddLinkView(0);
+                  }}
+                >
+                  Back
+                </Button>
+                <Button
+                  colorScheme="blue"
+                  ml={3}
+                  onClick={() => {}}
+                  size={"sm"}
+                >
+                  Add
+                </Button>
+              </>
+            )}
           </ModalFooter>
         </ModalContent>
       </Modal>
