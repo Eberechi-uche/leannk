@@ -7,12 +7,11 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-  Text,
-  Flex,
 } from "@chakra-ui/react";
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import { StackItemCardPreview } from "@/components/card/StackItemCard";
 import UserInputText from "@/components/Inputs/UserInputText";
+
 import { useState } from "react";
 
 export function AddlinkModal({
