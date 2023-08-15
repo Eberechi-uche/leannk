@@ -11,7 +11,6 @@ import {
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import { StackItemCardPreview } from "@/components/card/StackItemCard";
 import UserInputText from "@/components/Inputs/UserInputText";
-
 import { useState } from "react";
 
 export function AddlinkModal({
@@ -27,6 +26,7 @@ export function AddlinkModal({
     desc: "",
     link: "",
     metaImageLink: "",
+    metaLinkDesc: "",
   });
   const [addLinkView, setAddLinkView] = useState(0);
   function handleChange(
@@ -41,7 +41,7 @@ export function AddlinkModal({
       [name]: value,
     }));
   }
-
+  console.log(newLinkDetails);
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={{ base: "xs", lg: "md" }}>
@@ -68,7 +68,11 @@ export function AddlinkModal({
               </>
             ) : (
               <>
-                <StackItemCardPreview />
+                <StackItemCardPreview
+                  url={newLinkDetails.link}
+                  updateNewLink={setNewLinkDetails}
+                  desc={newLinkDetails.desc}
+                />
               </>
             )}
           </ModalBody>
@@ -91,7 +95,10 @@ export function AddlinkModal({
                   onClick={() => {
                     setAddLinkView(1);
                   }}
-                  isDisabled={newLinkDetails.link.length < 8}
+                  isDisabled={
+                    newLinkDetails.link.length < 8 ||
+                    newLinkDetails.desc.length < 8
+                  }
                   size={"sm"}
                 >
                   Next
@@ -104,6 +111,10 @@ export function AddlinkModal({
                   size={"sm"}
                   onClick={() => {
                     setAddLinkView(0);
+                    setNewLinkDetails((prev) => ({
+                      ...prev,
+                      link: "",
+                    }));
                   }}
                 >
                   Back
@@ -113,6 +124,7 @@ export function AddlinkModal({
                   ml={3}
                   onClick={() => {}}
                   size={"sm"}
+                  isDisabled={!newLinkDetails.metaLinkDesc}
                 >
                   Add
                 </Button>
