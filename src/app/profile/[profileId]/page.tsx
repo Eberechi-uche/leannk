@@ -25,8 +25,8 @@ export default function AuthProfile() {
           <Flex
             borderY={"1.5px solid"}
             borderColor={"blackAlpha.200"}
-            py={"3"}
-            align={"flex-start"}
+            pt={"7"}
+            pb={"2"}
           >
             <CreateStackIcon />
           </Flex>

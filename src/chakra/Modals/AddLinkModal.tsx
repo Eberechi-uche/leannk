@@ -16,6 +16,15 @@ import StackItemCard, {
 } from "@/components/card/StackItemCard";
 import UserInputText from "@/components/Inputs/UserInputText";
 import { useState } from "react";
+import { unfurl } from "unfurl.js";
+
+function getLinkMetaData(url: string) {
+  const unfurlLink = unfurl(url);
+  unfurlLink.then((data) => {
+    console.log(data);
+    return data;
+  });
+}
 
 export function AddlinkModal({
   isOpen,
@@ -29,6 +38,7 @@ export function AddlinkModal({
   const [newLinkDetails, setNewLinkDetails] = useState({
     desc: "",
     link: "",
+    metaImageLink: "",
   });
   const [addLinkView, setAddLinkView] = useState(0);
   function handleChange(
@@ -91,7 +101,9 @@ export function AddlinkModal({
                   ml={3}
                   onClick={() => {
                     setAddLinkView(1);
+                    getLinkMetaData(newLinkDetails.link);
                   }}
+                  isDisabled={newLinkDetails.link.length < 8}
                   size={"sm"}
                 >
                   Next

@@ -41,7 +41,11 @@ export default function StackId() {
           </Flex>
 
           {/* <ProfileCard /> */}
-          <Flex borderY={"1.5px solid"} borderColor={"blackAlpha.200"}>
+          <Flex
+            borderBottom={"1.5px solid"}
+            borderColor={"blackAlpha.200"}
+            pt={"7"}
+          >
             <AddLinkIcon />
           </Flex>
 
