@@ -20,7 +20,7 @@ export const theme = extendTheme({
   colors,
   fonts: {
     heading: `"Zen Tokyo Zoo", sans-serif`,
-    body: `'Baloo Da 2 Variable', sans-serif`,
+    body: `'Source Sans Pro', sans-serif`,
   },
   components: {
     Button: buttonTheme,
