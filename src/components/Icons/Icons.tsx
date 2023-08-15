@@ -17,7 +17,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
 import { BsGlobeAsiaAustralia } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
-import { HiMenuAlt4, HiOutlineSave } from "react-icons/hi";
+import { HiMenuAlt4, HiOutlineSave, HiPlus } from "react-icons/hi";
 import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
 import { useDisclosure } from "@chakra-ui/react";
 import { CreateStackModal } from "@/chakra/Modals/CreateStackModal";
@@ -58,14 +58,16 @@ export function CreateStackIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
-        <Flex cursor={"pointer"} p={"1.5"} px={"3"} mx={"1"} onClick={onOpen}>
-          <Flex align={"center"} justify={"center"} color={"brand.yellow"}>
-            <Icon as={PiPlusLight} fontSize={"xl"} fontWeight={"bold"} />
+        <Flex cursor={"pointer"} onClick={onOpen}>
+          <Flex align={"center"} justify={"center"}>
+            <Icon as={HiPlus} fontSize={"xl"} color={"blackAlpha.400"} />
+
+            <Text fontWeight={"800"} fontSize={"sm"} mx={"2"}>
+              New stack...
+            </Text>
           </Flex>
         </Flex>
-        <Text fontWeight={"800"} fontSize={"sm"} color={"brand.darkgray"}>
-          Create stack
-        </Text>
+
         {isOpen && <CreateStackModal isOpen={isOpen} onClose={onClose} />}
       </Flex>
     </>
@@ -182,12 +184,12 @@ export function AddLinkIcon() {
           onClick={onOpen}
         >
           <Flex align={"center"} justify={"center"}>
-            <Icon as={TbPlaylistAdd} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon as={TbPlaylistAdd} fontSize={"lg"} />
+            <Text fontWeight={"800"} mx={"2"}>
+              Add link...
+            </Text>
           </Flex>
         </Flex>
-        <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
-          Add link
-        </Text>
       </Flex>
       {isOpen && (
         <AddlinkModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />

@@ -3,8 +3,9 @@ import SingPageLayout from "@/Layouts/SinglePageLayout";
 import { CreateStackIcon } from "@/components/Icons/Icons";
 import StackCard from "@/components/card/StackCard";
 import UserCard from "@/components/card/UserCard";
-import { Flex, SimpleGrid } from "@chakra-ui/react";
+import { Flex, Icon, SimpleGrid, Text } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
+import { BsCollection } from "react-icons/bs";
 
 export default function AuthProfile() {
   const path = usePathname();
@@ -13,28 +14,19 @@ export default function AuthProfile() {
       <SingPageLayout>
         <Flex w={"100%"} flexDir={"column"} h={"100%"} p={"4"}>
           <UserCard />
-          {/* <Flex
-            w={"100%"}
-            justify={"flex-start"}
-            position={"sticky"}
-            h={"20"}
-            top={"0"}
-            zIndex={"10"}
-            align={"center"}
-          ></Flex> */}
+
+          <Flex w={"100%"} align={"center"} mt={"5"}>
+            <Icon as={BsCollection} mr={"3"} fontSize={"xxl"} />
+            <Text fontSize={"xl"} fontWeight={"700"}>
+              Stacks
+            </Text>
+            {/* <CreateStackIcon /> */}
+          </Flex>
           <Flex
-            w={{
-              base: "60%",
-              lg: "30%",
-            }}
-            alignSelf={"center"}
-            my={"5"}
-            py={"1"}
-            align={"center"}
-            justify={"center"}
-            borderRadius={"5px"}
-            border={"1.5px solid"}
+            borderY={"1.5px solid"}
             borderColor={"blackAlpha.200"}
+            py={"3"}
+            align={"flex-start"}
           >
             <CreateStackIcon />
           </Flex>

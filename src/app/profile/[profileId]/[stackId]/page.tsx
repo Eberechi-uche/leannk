@@ -41,20 +41,7 @@ export default function StackId() {
           </Flex>
 
           {/* <ProfileCard /> */}
-          <Flex
-            w={{
-              base: "60%",
-              lg: "30%",
-            }}
-            alignSelf={"center"}
-            my={"5"}
-            py={"1"}
-            align={"center"}
-            justify={"center"}
-            borderRadius={"5px"}
-            border={"1.5px solid"}
-            borderColor={"blackAlpha.200"}
-          >
+          <Flex borderY={"1.5px solid"} borderColor={"blackAlpha.200"}>
             <AddLinkIcon />
           </Flex>
 
