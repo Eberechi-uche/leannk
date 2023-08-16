@@ -10,24 +10,32 @@ export default function StackItemCard() {
   return (
     <>
       <Flex
-        minH={"110px"}
+        minH={"150px"}
         h={"fit-content"}
         bg={"#fff"}
         w={"100%"}
         p={"2"}
         flexDir={"column"}
-        outline={"1px solid"}
-        outlineColor={"blackAlpha.200"}
-        borderLeftColor={""}
+        border={"1px solid"}
+        borderColor={"brand.gray"}
         borderRadius={"5px"}
         cursor={"pointer"}
         my={"2"}
+        justifyContent={"space-between"}
       >
         <Flex w={"100%"} justify={"space-between"} py={"1"}>
           <Text fontSize={"sm"} color={"brand.dark"}>
             sitename
           </Text>
-          <Flex align={"center"} justify={"center"} color={"brand.dark"}>
+          <Flex
+            align={"center"}
+            justify={"space-between"}
+            color={"brand.dark"}
+            w={{
+              base: "40%",
+              lg: "30%",
+            }}
+          >
             <DeleteIcon />
             <PinIcon />
           </Flex>
@@ -43,7 +51,9 @@ export default function StackItemCard() {
             objectFit={"contain"}
             borderRadius={"full"}
           />
-          <Text mt={"0"}>some description here and there</Text>
+          <Text mt={"0"} fontWeight={"600"}>
+            link description here.
+          </Text>
         </Flex>
         <Flex
           w={"100%"}

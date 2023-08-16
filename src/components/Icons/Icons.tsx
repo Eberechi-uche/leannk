@@ -170,7 +170,7 @@ export function PinIcon() {
       <Flex flexDir={"column"} align={"center"}>
         <Flex cursor={"pointer"} mx={"1"}>
           <Flex align={"center"} justify={"center"}>
-            <Icon as={TbPinned} fontSize={"xl"} fontWeight={"bold"} />
+            <Icon as={TbPinned} fontSize={"2xl"} fontWeight={"bold"} />
           </Flex>
         </Flex>
       </Flex>
@@ -302,7 +302,7 @@ export function DeleteIcon() {
           <Flex align={"center"} justify={"center"}>
             <Icon
               as={IoMdRemoveCircleOutline}
-              fontSize={"lg"}
+              fontSize={"2xl"}
               fontWeight={"bold"}
             />
           </Flex>
