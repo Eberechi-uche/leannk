@@ -5,10 +5,8 @@ import {
   Drawer,
   DrawerBody,
   DrawerFooter,
-  DrawerHeader,
   DrawerContent,
 } from "@chakra-ui/react";
-
 import { IoMdRemoveCircleOutline } from "react-icons/io";
 
 import { FaCircleCheck } from "react-icons/fa6";
@@ -21,8 +19,12 @@ import { HiOutlineGlobeAlt, HiOutlineSave, HiPlus } from "react-icons/hi";
 import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
 import { useDisclosure } from "@chakra-ui/react";
 import { CreateStackModal } from "@/chakra/Modals/CreateStackModal";
+import { TbPinned } from "react-icons/tb";
 import { PiDotsSix } from "react-icons/pi";
 import { ProfileCard } from "../card/ProfileCard";
+import { auth } from "@/firebase/clientApp";
+import { useSignOut } from "react-firebase-hooks/auth";
+import { useRouter } from "next/navigation";
 export function ShareIcon() {
   return (
     <>
@@ -97,6 +99,9 @@ export function MoreIcon({ children }: { children: React.ReactNode }) {
 }
 export function NavDrawer({ children }: { children: React.ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [signOut, loading, error] = useSignOut(auth);
+  const route = useRouter();
+
   return (
     <>
       <Flex cursor={"pointer"} p={"1.5"}>
@@ -130,14 +135,25 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
             {/* <DrawerCloseButton /> */}
 
             {/* <ProfileCard /> */}
-            <DrawerBody px={"0"}>{children}</DrawerBody>
+            <DrawerBody px={"0"} onClick={onClose}>
+              {children}
+            </DrawerBody>
 
             <DrawerFooter
               justifyContent={"flex-start"}
               borderTop={"1px solid"}
               borderColor={"blackAlpha.200"}
             >
-              <Button variant="outline" mr={3} onClick={onClose} size={"sm"}>
+              <Button
+                variant="outline"
+                mr={3}
+                onClick={() => {
+                  signOut();
+                  route.replace("/");
+                }}
+                size={"sm"}
+                isLoading={loading}
+              >
                 Sign out
               </Button>
             </DrawerFooter>
@@ -148,7 +164,7 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function PublishIcon() {
+export function PinIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
@@ -165,16 +181,9 @@ export function PublishIcon() {
           mx={"1"}
         >
           <Flex align={"center"} justify={"center"}>
-            <Icon
-              as={BsGlobeAsiaAustralia}
-              fontSize={"lg"}
-              fontWeight={"bold"}
-            />
+            <Icon as={TbPinned} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
-        <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
-          Publish
-        </Text>
       </Flex>
     </>
   );

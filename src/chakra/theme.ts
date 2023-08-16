@@ -23,6 +23,7 @@ export const theme = extendTheme({
       "html, body": {
         fontSize: "14px",
         color: "#191919",
+        lineHeight: "tall",
       },
     },
   },

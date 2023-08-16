@@ -93,7 +93,6 @@ export function AddlinkModal({
                   Cancel
                 </Button>
                 <Button
-                  colorScheme="blue"
                   ml={3}
                   onClick={() => {
                     setAddLinkView(1);

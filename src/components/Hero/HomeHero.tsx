@@ -29,7 +29,7 @@ export default function HomeHero() {
             <Flex width={{ md: " 60%", lg: "70%" }} color={"brand.black"}>
               <Text
                 fontSize={{
-                  base: "22px",
+                  base: "20px",
                   md: "24px",
                   lg: "46px",
                 }}

@@ -1,14 +1,15 @@
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useState } from "react";
 const colors = [
-  "#47A9DA",
-  "#3cdd78",
-  "#B7C2DA",
-  "#D6BCFA",
-  "#FAF089",
-  "#FBD38D",
-  "#9AE6B4",
-  "#ECC94B",
+  "#C53030",
+  "#2F855A",
+  "#2b6cb0",
+  "#0987A0",
+  "#805AD5",
+  "#B83280",
+  "#4267B2",
+  "#179848",
+  "#718096",
 ];
 export default function ColorPicker({
   value,

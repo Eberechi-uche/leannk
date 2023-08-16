@@ -21,7 +21,8 @@ export default function AuthInput(props: {
         type={props.type}
         borderRadius={"none"}
         placeholder={props.placeHolder}
-        my={"5"}
+        my={"2"}
+        py={"5"}
       />
     </>
   );
@@ -49,6 +50,7 @@ export function UserInputs(props: {
         focusBorderColor="brand.yellow"
         placeholder={props.placeHolder}
         my={"5"}
+        py={"5"}
       />
     </>
   );

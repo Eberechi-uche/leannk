@@ -2,13 +2,19 @@ import AuthInput from "@/components/Inputs/AuthInput";
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import Link from "next/link";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "@/firebase/clientApp";
+import { useRouter } from "next/navigation";
+import { FIREBASE_ERROR } from "@/firebase/firebase-error";
 
 export default function Login() {
   const [userDefails, setUserDetails] = useState({
     Email: "",
     Password: "",
   });
-
+  const route = useRouter();
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const {
       target: { value, name },
@@ -17,6 +23,14 @@ export default function Login() {
       ...prev,
       [name]: value,
     }));
+  }
+  async function handleSignIn() {
+    const { Email, Password } = userDefails;
+    const result = await signInWithEmailAndPassword(Email, Password);
+    if (result) {
+      route.push("/profile/user");
+      return;
+    }
   }
   return (
     <Flex h={"max-content"} p={"10"} flexDir={"column"} w={"100%"}>
@@ -39,6 +53,11 @@ export default function Login() {
           </Text>
         </Link>
       </Flex>
+      {error && (
+        <Text fontSize={"xs"} color={"red.600"} fontWeight={"900"}>
+          {FIREBASE_ERROR[error.message as keyof typeof FIREBASE_ERROR]}
+        </Text>
+      )}
       <form>
         <AuthInput
           value={userDefails.Email}
@@ -55,7 +74,9 @@ export default function Login() {
           placeHolder="Password"
         />
         <Flex mt={"3"} justifyContent={"flex-end"}>
-          <Button size={"sm"}>Log in</Button>
+          <Button size={"sm"} onClick={handleSignIn} isLoading={loading}>
+            Log in
+          </Button>
         </Flex>
       </form>
     </Flex>

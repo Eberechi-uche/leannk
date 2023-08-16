@@ -18,10 +18,7 @@ export default function StackCard() {
         bg={""}
         borderRadius={"5px"}
       >
-        <Flex justify={"space-between"} px={"5"} align={"center"} pt={"4"}>
-          <Text color={"blackAlpha.500"} fontSize={"sm"}>
-            date
-          </Text>
+        <Flex justify={"flex-end"} px={"5"} align={"center"} pt={"4"}>
           <MoreIcon>
             <MakePublic />
             <MenuDivider />
@@ -39,8 +36,8 @@ export default function StackCard() {
             w={"70%"}
             justify={"center"}
           >
-            <Text fontWeight={"600"} fontSize={"md"} noOfLines={[4]}>
-              Stack name and everything else testing and all through communion
+            <Text fontWeight={"900"} fontSize={"lg"} noOfLines={[4]}>
+              Stack name
             </Text>
           </Flex>
         </Link>
