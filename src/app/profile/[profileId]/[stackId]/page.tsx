@@ -25,7 +25,7 @@ export default function StackId() {
             borderBottom={"1px solid"}
             borderColor={"blackAlpha.200"}
           >
-            <Text fontWeight={"800"} fontSize={"2xl"}>
+            <Text fontWeight={"900"} fontSize={"xl"}>
               Programming for beginners links and resourses
             </Text>
             <Text>
@@ -34,46 +34,10 @@ export default function StackId() {
             </Text>
           </Flex>
 
-          {/* <ProfileCard /> */}
-          <Flex
-            borderBottom={"1.5px solid"}
-            borderColor={"blackAlpha.200"}
-            pt={"7"}
-          >
+          <Flex>
             <AddLinkIcon />
           </Flex>
 
-          {/* <Flex flexDir={"column"} h={"fit-content"} w={"100%"}>
-            <InfoCardAbout />
-          </Flex> */}
-
-          {/* <StackDetailsCard>
-            <Avatar
-              size={"sm"}
-              src={"https://api.dicebear.com/6.x/thumbs/svg?seed=leannk"}
-              mx={"2"}
-            />
-          </StackDetailsCard> */}
-          {/* <Flex
-            w={"100%"}
-            justify={"space-between"}
-            // position={"sticky"}
-            h={"20"}
-            top={"0"}
-            zIndex={"10"}
-            align={"center"}
-            px={"2"}
-          >
-            <Flex w={"fit-content"} align={"center"}>
-              <CommentsIcon />
-              <LikeIcon />
-            </Flex>
-
-            <Flex w={"fit-content"}>
-              <SaveIcon />
-              <ShareIcon />
-            </Flex>
-          </Flex> */}
           <Flex h={"100vh"} w={"100%"} flexDir={"column"} mt={"12"}>
             <SimpleGrid columns={[1, 2]} gap={"2"}>
               <StackItemCard />

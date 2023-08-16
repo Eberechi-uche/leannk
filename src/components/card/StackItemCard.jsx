@@ -56,9 +56,8 @@ export default function StackItemCard() {
           justifyContent={"space-between"}
           fontSize={"xs"}
           align={"center"}
-          bg={"#000"}
         >
-          <Text textDecor={"underline"} color={"brand.lightgray"} noOfLines={2}>
+          <Text textDecor={"underline"} color={"brand.dark"} noOfLines={2}>
             somelinke here and other thing lets see what happens when we have a
             l
           </Text>
