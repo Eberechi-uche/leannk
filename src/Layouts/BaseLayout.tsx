@@ -1,6 +1,6 @@
 // "use client";
 
-import { Flex, Text, Button, Heading, ChakraProvider } from "@chakra-ui/react";
+import { Flex, ChakraProvider } from "@chakra-ui/react";
 import Navbar, { AuthNavbar } from "@/components/Navbar";
 import { theme } from "../chakra/theme";
 import { auth } from "@/firebase/clientApp";

@@ -75,28 +75,25 @@ export function GivePermisions() {
 export function NavMenuAction() {
   return (
     <>
-      <List spacing={6}>
-        <ListItem>
-          {/* <ListIcon as={MdCheckCircle} color="green.500" /> */}
-        </ListItem>
-        <ListItem display={"flex"} alignItems={"center"}>
+      <List spacing={6} my={"4"} fontSize={"sm"}>
+        <ListItem display={"flex"} alignItems={"center"} px={"4"}>
           <ListIcon as={GoHomeFill} />
           Home
         </ListItem>
-        <ListItem display={"flex"} alignItems={"center"}>
+        <ListItem display={"flex"} alignItems={"center"} px={"4"}>
           <ListIcon as={IoIosSettings} />
           Profile setting
         </ListItem>
         <Divider />
-        <ListItem display={"flex"} alignItems={"center"}>
+        <ListItem display={"flex"} alignItems={"center"} px={"4"}>
           <ListIcon as={PiCommandBold} />
           Your weaves
-          <Badge mx={"2"} colorScheme="orange" fontWeight={"900"}>
+          <Badge mx={"2"} colorScheme="orange" fontWeight={"900"} px={"4"}>
             coming soon
           </Badge>
         </ListItem>
 
-        <ListItem display={"flex"} alignItems={"center"}>
+        <ListItem display={"flex"} alignItems={"center"} px={"4"}>
           <ListIcon as={PiGlobeBold} />
           community
           <Badge mx={"2"} colorScheme="orange" fontWeight={"900"}>

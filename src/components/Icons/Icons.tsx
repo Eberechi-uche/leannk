@@ -6,9 +6,7 @@ import {
   DrawerBody,
   DrawerFooter,
   DrawerHeader,
-  DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
 } from "@chakra-ui/react";
 
 import { IoMdRemoveCircleOutline } from "react-icons/io";
@@ -18,11 +16,12 @@ import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
 import { BsGlobeAsiaAustralia } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { CiMenuBurger } from "react-icons/ci";
+import { VscClose } from "react-icons/vsc";
 import { HiOutlineGlobeAlt, HiOutlineSave, HiPlus } from "react-icons/hi";
 import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
 import { useDisclosure } from "@chakra-ui/react";
 import { CreateStackModal } from "@/chakra/Modals/CreateStackModal";
-import { PiDotsSix, PiPlusLight } from "react-icons/pi";
+import { PiDotsSix } from "react-icons/pi";
 import { ProfileCard } from "../card/ProfileCard";
 export function ShareIcon() {
   return (
@@ -61,9 +60,9 @@ export function CreateStackIcon() {
       <Flex flexDir={"column"} align={"center"}>
         <Flex cursor={"pointer"} onClick={onOpen}>
           <Flex align={"center"} justify={"center"}>
-            <Icon as={HiPlus} fontSize={"xl"} color={"blackAlpha.400"} />
+            <Icon as={HiPlus} fontSize={"xl"} color={"brand.gray"} />
 
-            <Text fontWeight={"800"} fontSize={"sm"} mx={"2"}>
+            <Text fontWeight={"500"} mx={"2"}>
               New stack...
             </Text>
           </Flex>
@@ -107,7 +106,11 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
           justify={"center"}
           onClick={onOpen}
         >
-          <Icon as={CiMenuBurger} fontSize={"xl"} />
+          <Icon
+            as={isOpen ? VscClose : CiMenuBurger}
+            fontSize={"xl"}
+            transition={"all 1s ease-in"}
+          />
         </Flex>
 
         <Drawer
@@ -115,19 +118,25 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
           placement="left"
           isFullHeight={false}
           onClose={onClose}
-          size={{
-            base: "xs",
-            lg: "xs",
-          }}
         >
-          <DrawerOverlay />
-          <DrawerContent fontSize={"lg"}>
-            <DrawerCloseButton />
-            <DrawerHeader my={"4"}></DrawerHeader>
-            {/* <ProfileCard /> */}
-            <DrawerBody>{children}</DrawerBody>
+          {/* <DrawerOverlay  /> */}
+          <DrawerContent
+            fontSize={"lg"}
+            marginTop={"57px"}
+            boxShadow={"none"}
+            borderRight={"1px solid"}
+            borderColor={"blackAlpha.100"}
+          >
+            {/* <DrawerCloseButton /> */}
 
-            <DrawerFooter>
+            {/* <ProfileCard /> */}
+            <DrawerBody px={"0"}>{children}</DrawerBody>
+
+            <DrawerFooter
+              justifyContent={"flex-start"}
+              borderTop={"1px solid"}
+              borderColor={"blackAlpha.200"}
+            >
               <Button variant="outline" mr={3} onClick={onClose} size={"sm"}>
                 Sign out
               </Button>
@@ -176,18 +185,10 @@ export function AddLinkIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
-        <Flex
-          // _hover={{
-          //   bg: "#F9F9F9",
-          // }}
-          cursor={"pointer"}
-          p={"1.5"}
-          mx={"1"}
-          onClick={onOpen}
-        >
+        <Flex cursor={"pointer"} onClick={onOpen}>
           <Flex align={"center"} justify={"center"}>
-            <Icon as={TbPlaylistAdd} fontSize={"lg"} />
-            <Text fontWeight={"800"} mx={"2"}>
+            <Icon as={TbPlaylistAdd} fontSize={"3xl"} color={"brand.gray"} />
+            <Text fontWeight={"500"} mx={"2"}>
               Add link...
             </Text>
           </Flex>

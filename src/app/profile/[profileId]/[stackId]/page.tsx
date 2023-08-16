@@ -26,15 +26,19 @@ export default function StackId() {
             borderColor={"blackAlpha.200"}
           >
             <Text fontWeight={"900"} fontSize={"xl"}>
-              Programming for beginners links and resourses
+              Stack name
             </Text>
-            <Text>
-              short description of the stack goes here short description short
-              description goes ModalHeader short description
-            </Text>
+            <Text>Short description of the stack goes here.</Text>
           </Flex>
 
-          <Flex>
+          <Flex
+            py={"2"}
+            px={"4"}
+            border={"1px solid"}
+            borderRadius={"5px"}
+            w={"fit-content"}
+            borderColor={"blackAlpha.200"}
+          >
             <AddLinkIcon />
           </Flex>
 

@@ -16,16 +16,17 @@ export default function StackItemCard() {
         w={"100%"}
         p={"2"}
         flexDir={"column"}
-        border={"1.5px solid"}
-        borderColor={"blackAlpha.200"}
+        outline={"1px solid"}
+        outlineColor={"blackAlpha.200"}
         borderLeft={"4px solid"}
         borderLeftColor={"brand.yellow"}
+        borderRadius={"8px"}
+        borderLeftRadius={"2px"}
         cursor={"pointer"}
-        borderRadius={"5px"}
         my={"2"}
       >
         <Flex w={"100%"} justify={"space-between"} py={"1"}>
-          <Text fontSize={"xs"} color={"brand.dark"}>
+          <Text fontSize={"sm"} color={"brand.dark"}>
             sitename
           </Text>
           <DeleteIcon />
@@ -41,9 +42,7 @@ export default function StackItemCard() {
             objectFit={"contain"}
             borderRadius={"full"}
           />
-          <Text fontSize={"sm"} mt={"0"}>
-            some description here and there
-          </Text>
+          <Text mt={"0"}>some description here and there</Text>
         </Flex>
         <Flex
           w={"100%"}
@@ -51,7 +50,7 @@ export default function StackItemCard() {
           py={"1"}
           border={"1.5px solid"}
           borderColor={"blackAlpha.200"}
-          borderRadius={"5px"}
+          borderRadius={"7px"}
           px={"2"}
           justifyContent={"space-between"}
           fontSize={"xs"}
@@ -148,15 +147,11 @@ export function StackItemCardPreview({ url, updateNewLink, desc }) {
             px={"2"}
             justifyContent={"space-between"}
             fontSize={"xs"}
-            bg={"#000"}
+            bg={"#fff"}
             my={"2"}
             align={"center"}
           >
-            <Text
-              textDecor={"underline"}
-              color={"brand.lightgray"}
-              noOfLines={2}
-            >
+            <Text textDecor={"underline"} color={"brand.dark"} noOfLines={2}>
               {unfurledLink.description || unfurledLink.title}
             </Text>
             <Image

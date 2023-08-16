@@ -11,12 +11,12 @@ export default function StackCard() {
         width={"100%"}
         flexDir={"column"}
         my={"4"}
-        h={"230px"}
+        h={"220px"}
         maxH={"230px"}
-        border={"3px solid"}
-        borderColor={"blackAlpha.300"}
-        bg={"#3cdd78"}
-        borderRadius={"3px"}
+        border={"1px solid"}
+        borderColor={"blackAlpha.200"}
+        bg={""}
+        borderRadius={"5px"}
       >
         <Flex justify={"space-between"} px={"5"} align={"center"} pt={"4"}>
           <Text color={"blackAlpha.500"} fontSize={"sm"}>
@@ -35,12 +35,12 @@ export default function StackCard() {
             flexDir={"column"}
             cursor={"pointer"}
             px={"5"}
-            h={"120px"}
+            h={"150px"}
+            w={"70%"}
             justify={"center"}
           >
-            <Text fontWeight={"900"} fontSize={"xl"} noOfLines={[3]}>
-              Programming for beginners Programming Programming for beginners
-              Programming Programming for beginners Programming
+            <Text fontWeight={"600"} fontSize={"md"} noOfLines={[4]}>
+              Stack name and everything else testing and all through communion
             </Text>
           </Flex>
         </Link>

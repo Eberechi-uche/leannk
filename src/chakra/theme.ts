@@ -18,9 +18,17 @@ const colors = {
 
 export const theme = extendTheme({
   colors,
+  styles: {
+    global: {
+      "html, body": {
+        fontSize: "14px",
+        color: "#191919",
+      },
+    },
+  },
   fonts: {
     heading: `"Zen Tokyo Zoo", sans-serif`,
-    body: `'Source Sans Pro', sans-serif`,
+    body: `'Inter Variable', sans-serif`,
   },
   components: {
     Button: buttonTheme,
