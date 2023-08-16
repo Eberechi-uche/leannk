@@ -17,7 +17,8 @@ import { FaCircleCheck } from "react-icons/fa6";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
 import { BsGlobeAsiaAustralia } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
-import { HiMenuAlt4, HiOutlineSave, HiPlus } from "react-icons/hi";
+import { CiMenuBurger } from "react-icons/ci";
+import { HiOutlineGlobeAlt, HiOutlineSave, HiPlus } from "react-icons/hi";
 import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
 import { useDisclosure } from "@chakra-ui/react";
 import { CreateStackModal } from "@/chakra/Modals/CreateStackModal";
@@ -106,12 +107,13 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
           justify={"center"}
           onClick={onOpen}
         >
-          <Icon as={HiMenuAlt4} fontSize={"xl"} />
+          <Icon as={CiMenuBurger} fontSize={"xl"} />
         </Flex>
 
         <Drawer
           isOpen={isOpen}
-          placement="right"
+          placement="left"
+          isFullHeight={false}
           onClose={onClose}
           size={{
             base: "xs",
@@ -328,6 +330,30 @@ export function SelectIcon() {
               fontSize={"3xl"}
               fontWeight={"bold"}
               color={"green.600"}
+            />
+          </Flex>
+        </Flex>
+      </Flex>
+    </>
+  );
+}
+export function Community() {
+  return (
+    <>
+      <Flex flexDir={"column"} align={"center"}>
+        <Flex
+          // _hover={{
+          //   bg: "#F9F9F9",
+          // }}
+          cursor={"pointer"}
+          px={"3"}
+          mx={"1"}
+        >
+          <Flex align={"center"} justify={"center"}>
+            <Icon
+              as={HiOutlineGlobeAlt}
+              fontSize={"25px"}
+              fontWeight={"bold"}
             />
           </Flex>
         </Flex>

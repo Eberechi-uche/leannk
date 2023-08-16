@@ -29,11 +29,11 @@ export default function HomeHero() {
             <Flex width={{ md: " 60%", lg: "70%" }} color={"brand.black"}>
               <Text
                 fontSize={{
-                  base: "23px",
-                  md: "26px",
-                  lg: "50px",
+                  base: "22px",
+                  md: "24px",
+                  lg: "46px",
                 }}
-                fontWeight={"700"}
+                fontWeight={"900"}
                 lineHeight={"2"}
               >
                 <Icon as={BsAsterisk} /> All your links, bookmarks and
@@ -41,7 +41,7 @@ export default function HomeHero() {
                 <Icon as={SiLinkerd} /> curate the perfect collection .
               </Text>
             </Flex>
-            <Link href={"/profile/uche"}>
+            <Link href={"/UserAuth?auth=sign-up"}>
               <Flex py={"4"} align={"center"} w={"100%"}>
                 <Image
                   src={"images/wave.svg"}

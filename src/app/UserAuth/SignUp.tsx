@@ -5,6 +5,11 @@ import { Flex, Heading, Button, Text, Icon } from "@chakra-ui/react";
 import { useState } from "react";
 import Link from "next/link";
 import { GoDot, GoDotFill } from "react-icons/go";
+import { auth } from "@/firebase/clientApp";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { FIREBASE_ERROR } from "@/firebase/firebase-error";
+import { useUpdateProfile } from "react-firebase-hooks/auth";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
   const [userDetails, setUserDetails] = useState({
@@ -13,7 +18,12 @@ export default function SignUp() {
     ConfirmPassword: "",
     displayName: "",
   });
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [userError, setUserError] = useState("");
   const [userFlow, setUserFlow] = useState(0);
+  const [updateProfile, updating] = useUpdateProfile(auth);
+  const route = useRouter();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const {
@@ -23,6 +33,29 @@ export default function SignUp() {
       ...prev,
       [name]: value,
     }));
+  }
+  async function handleSignUp(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setUserError("");
+    if (userDetails.Password !== userDetails.ConfirmPassword) {
+      setUserError("Passwords do not match");
+      return;
+    }
+    const result = await createUserWithEmailAndPassword(
+      userDetails.Email,
+      userDetails.Password
+    );
+    if (result) {
+      setUserFlow(1);
+    }
+  }
+  async function handleProfileUpdate() {
+    const { displayName, Email } = userDetails;
+    const profileId = extractUserId(Email);
+    const profileUpdateStatus = await updateProfile({ displayName });
+    if (profileUpdateStatus) {
+      route.push(`/profile/${profileId}`);
+    }
   }
   return (
     <>
@@ -66,9 +99,23 @@ export default function SignUp() {
                 </Text>
               </Link>
             </Flex>
+            {(userError || error) && (
+              <Flex fontSize={"xs"} color={"red.600"} fontWeight={"900"}>
+                {error && (
+                  <Text>
+                    {
+                      FIREBASE_ERROR[
+                        error.message as keyof typeof FIREBASE_ERROR
+                      ]
+                    }
+                  </Text>
+                )}
+                {userError && <Text>{userError}</Text>}
+              </Flex>
+            )}
 
             <Flex w={"100%"}>
-              <form>
+              <form onSubmit={handleSignUp}>
                 <AuthInput
                   value={userDetails.Email}
                   name={"Email"}
@@ -91,12 +138,7 @@ export default function SignUp() {
                   onChange={handleChange}
                 />
                 <Flex mt={"3"} justifyContent={"flex-end"}>
-                  <Button
-                    size={"sm"}
-                    onClick={() => {
-                      setUserFlow(1);
-                    }}
-                  >
+                  <Button size={"sm"} type={"submit"} isLoading={loading}>
                     continue
                   </Button>
                 </Flex>
@@ -119,7 +161,14 @@ export default function SignUp() {
               onChange={handleChange}
             />
 
-            <Button w={"50%"}> Done</Button>
+            <Button
+              w={"50%"}
+              onClick={handleProfileUpdate}
+              isLoading={updating}
+              isDisabled={userDetails.displayName.length < 4}
+            >
+              Done
+            </Button>
           </Flex>
         )}
       </Flex>

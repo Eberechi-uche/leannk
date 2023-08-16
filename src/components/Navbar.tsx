@@ -1,12 +1,14 @@
-import { Flex, Heading, Button, Text } from "@chakra-ui/react";
+import { Flex, Heading, Button, Text, Image } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { NavDrawer } from "./Icons/Icons";
+import { Community, NavDrawer } from "./Icons/Icons";
 import { NavMenuAction } from "./Actions/MenuActions";
+import { auth } from "@/firebase/clientApp";
+import { useIdToken } from "react-firebase-hooks/auth";
 
 export default function Navbar() {
+  const [user, loading, error] = useIdToken(auth);
   const path = usePathname();
-  const state = 0;
 
   return (
     <>
@@ -21,16 +23,48 @@ export default function Navbar() {
           <Link href={"/"}>
             <Heading fontWeight={"light"}>lynnk</Heading>
           </Link>
-          {state !== 0 && (
+
+          <>
             <Link href={"/UserAuth?auth=sign-in"}>
               <Button>Sign in</Button>
             </Link>
-          )}
-          {state == 0 && (
-            <NavDrawer>
-              <NavMenuAction />
-            </NavDrawer>
-          )}
+          </>
+        </Flex>
+      </Flex>
+    </>
+  );
+}
+
+export function AuthNavbar() {
+  return (
+    <>
+      <Flex
+        width={"100%"}
+        px={"4"}
+        py={"4"}
+        borderBottom={"1.5px solid"}
+        borderColor={"blackAlpha.200"}
+        position={"sticky"}
+        top={"0"}
+        zIndex={"10"}
+        bg={"#fff"}
+      >
+        <Flex width={"100%"} align={"center"} justify={"space-between"}>
+          <NavDrawer>
+            <NavMenuAction />
+          </NavDrawer>
+          <Link href={"/community"}>
+            <Community />
+          </Link>
+
+          <Image
+            src={"/images/thumbs.svg"}
+            alt={"profile picture"}
+            boxSize={"25px"}
+            borderRadius={"full"}
+          />
+
+          <></>
         </Flex>
       </Flex>
     </>
