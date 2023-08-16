@@ -27,6 +27,9 @@ export function AddlinkModal({
     link: "",
     metaImageLink: "",
     metaLinkDesc: "",
+    metaFavicon: "",
+    metaTitle: "",
+    metaDomain: "",
   });
   const [addLinkView, setAddLinkView] = useState(0);
   function handleChange(
@@ -41,7 +44,7 @@ export function AddlinkModal({
       [name]: value,
     }));
   }
-  console.log(newLinkDetails);
+
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={{ base: "xs", lg: "md" }}>
@@ -124,7 +127,7 @@ export function AddlinkModal({
                   ml={3}
                   onClick={() => {}}
                   size={"sm"}
-                  isDisabled={!newLinkDetails.metaLinkDesc}
+                  isDisabled={newLinkDetails.metaDomain === ""}
                 >
                   Add
                 </Button>

@@ -2,9 +2,9 @@
 import { Flex, Text, Image, Icon } from "@chakra-ui/react";
 import { DeleteIcon } from "../Icons/Icons";
 import { useLinkPreview } from "get-link-preview";
-import { useEffect } from "react";
-import { BiLink } from "react-icons/bi";
-import { Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+
+import { Skeleton } from "@chakra-ui/react";
 
 export default function StackItemCard() {
   return (
@@ -24,25 +24,30 @@ export default function StackItemCard() {
         borderRadius={"5px"}
         my={"2"}
       >
-        <Flex w={"100%"} justify={"flex-end"} py={"1"}>
+        <Flex w={"100%"} justify={"space-between"} py={"1"}>
+          <Text fontSize={"xs"} color={"brand.dark"}>
+            sitename
+          </Text>
           <DeleteIcon />
         </Flex>
-        <Flex align={"flex-start"}>
-          <Flex mx={"2"} align={"flex-end"} flexDir={"column"}>
-            <Text fontSize={"2xl"} fontWeight={"800"} color={"brand.gray"}>
-              1
-            </Text>
-          </Flex>
-
-          <Flex>
-            <Text fontSize={"sm"}>
-              Link here and some other text we can also unfurl them there Link
-              here and some other text we can also unfurl them there Link here
-            </Text>
-          </Flex>
+        <Flex>
+          <Image
+            src={""}
+            alt={""}
+            boxSize={"15px"}
+            mr={"4"}
+            mt={"1"}
+            fallbackSrc="/images/image-placeholder.png"
+            objectFit={"contain"}
+            borderRadius={"full"}
+          />
+          <Text fontSize={"sm"} mt={"0"}>
+            some description here and there
+          </Text>
         </Flex>
         <Flex
           w={"100%"}
+          my={"2"}
           py={"1"}
           border={"1.5px solid"}
           borderColor={"blackAlpha.200"}
@@ -51,17 +56,17 @@ export default function StackItemCard() {
           justifyContent={"space-between"}
           fontSize={"xs"}
           align={"center"}
+          bg={"#000"}
         >
-          <Text textDecor={"underline"} color={"gray.500"} noOfLines={2}>
+          <Text textDecor={"underline"} color={"brand.lightgray"} noOfLines={2}>
             somelinke here and other thing lets see what happens when we have a
-            long text omelinke here and other thing lets see what happens when
-            we have a long text
+            l
           </Text>
           <Image
             ml={"1"}
             src={"/images/signUp.webp"}
             alt={""}
-            boxSize={"30px"}
+            boxSize={"35px"}
             objectFit={"cover"}
             borderRadius={"3px"}
           />
@@ -72,16 +77,20 @@ export default function StackItemCard() {
 }
 export function StackItemCardPreview({ url, updateNewLink, desc }) {
   const { getLinkPreviewData, loading, error, data } = useLinkPreview(url);
+  const [unfurledLink, setUnfurlLink] = useState({});
 
   useEffect(() => {
-    if (data && data.success !== false) {
+    if (data && data.success === true) {
+      setUnfurlLink(data);
       updateNewLink((prev) => ({
         ...prev,
-        metaImageLink: data.image,
-        metaLinkDesc: data.description,
+        metaImageLink: data.image || "",
+        metaLinkDesc: data.description || "",
+        metaFavicon: data.favicon || "",
+        metaTitle: data.title || "",
+        metaDomain: data.domain || "",
       }));
     }
-    console.log(error, data);
   }, [data]);
 
   return (
@@ -98,17 +107,28 @@ export function StackItemCardPreview({ url, updateNewLink, desc }) {
       borderRadius={"5px"}
       my={"2"}
     >
-      <Flex align={"flex-start"}>
-        <Flex mx={"2"} align={"flex-end"} flexDir={"column"}>
-          <Icon as={BiLink} fontSize={"2xl"} color={"brand.dark"} />
-        </Flex>
-
-        <Flex>
-          <Text fontSize={"sm"}>{desc}</Text>
-        </Flex>
+      <Flex>
+        <Text fontSize={"xs"} color={"brand.dark"}>
+          {unfurledLink && unfurledLink.domain}
+        </Text>
       </Flex>
-      {loading && <Skeleton height="20px" />}
-      {!loading && data && data.success == false && (
+      <Flex>
+        <Image
+          src={unfurledLink && unfurledLink.favicon}
+          alt={""}
+          boxSize={"15px"}
+          mr={"4"}
+          mt={"1"}
+          fallbackSrc="/images/image-placeholder.png"
+          objectFit={"contain"}
+          borderRadius={"full"}
+        />
+        <Text fontSize={"sm"} mt={"0"}>
+          {desc}
+        </Text>
+      </Flex>
+      {loading && <Skeleton height="50px" my={"2"} />}
+      {!loading && data && data.sucess == false && (
         <>
           <Flex width={"100%"} justify={"center"}>
             <Text color={"red.200"} fontSize={"xs"} fontWeight={"800"}>
@@ -117,7 +137,7 @@ export function StackItemCardPreview({ url, updateNewLink, desc }) {
           </Flex>
         </>
       )}
-      {!loading && data && data.description && data.sucess !== false && (
+      {!loading && Object.keys(unfurledLink).length > 0 && (
         <>
           <Flex
             w={"100%"}
@@ -129,17 +149,26 @@ export function StackItemCardPreview({ url, updateNewLink, desc }) {
             px={"2"}
             justifyContent={"space-between"}
             fontSize={"xs"}
+            bg={"#000"}
+            my={"2"}
             align={"center"}
           >
-            <Text textDecor={"underline"} color={"gray.500"} noOfLines={2}>
-              {data.description}
+            <Text
+              textDecor={"underline"}
+              color={"brand.lightgray"}
+              noOfLines={2}
+            >
+              {unfurledLink.description || unfurledLink.title}
             </Text>
             <Image
-              src={data.image}
+              src={unfurledLink.image}
               alt={""}
-              boxSize={"30px"}
+              boxSize={"35px"}
               objectFit={"cover"}
               borderRadius={"3px"}
+              fontSize={"xs"}
+              ml={"2"}
+              fallbackSrc="/images/drum.svg"
             />
           </Flex>
         </>

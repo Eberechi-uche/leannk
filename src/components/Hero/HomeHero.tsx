@@ -33,6 +33,7 @@ export default function HomeHero() {
                   md: "26px",
                   lg: "50px",
                 }}
+                fontWeight={"700"}
                 lineHeight={"2"}
               >
                 <Icon as={BsAsterisk} /> All your links, bookmarks and

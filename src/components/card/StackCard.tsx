@@ -13,12 +13,12 @@ export default function StackCard() {
         my={"4"}
         h={"230px"}
         maxH={"230px"}
-        border={"1.5px solid"}
-        borderColor={"blackAlpha.200"}
-        bg={""}
-        borderRadius={"5px"}
+        border={"3px solid"}
+        borderColor={"blackAlpha.300"}
+        bg={"#3cdd78"}
+        borderRadius={"3px"}
       >
-        <Flex justify={"space-between"} px={"5"} align={"center"} py={"4"}>
+        <Flex justify={"space-between"} px={"5"} align={"center"} pt={"4"}>
           <Text color={"blackAlpha.500"} fontSize={"sm"}>
             date
           </Text>
@@ -31,26 +31,17 @@ export default function StackCard() {
           </MoreIcon>
         </Flex>
         <Link href={"/profile/uche/uche"}>
-          <Flex flexDir={"column"} cursor={"pointer"} px={"5"} pb={"2"}>
-            <Flex align={"center"}>
-              <Text fontWeight={"900"} fontSize={"md"}>
-                Programming for beginners and somethings that never just changes
-              </Text>
-            </Flex>
-
-            <Flex
-              flexDir={"column"}
-              h={"70px"}
-              w={"100%"}
-              borderColor={"inherit"}
-            >
-              <Text fontSize={"xs"} noOfLines={[2, 3]} my={"2"}>
-                short description goes ModalHeader short description short
-                description goes ModalHeader short description short description
-                goes ModalHeader short description short description goes
-                ModalHeader short description
-              </Text>
-            </Flex>
+          <Flex
+            flexDir={"column"}
+            cursor={"pointer"}
+            px={"5"}
+            h={"120px"}
+            justify={"center"}
+          >
+            <Text fontWeight={"900"} fontSize={"xl"} noOfLines={[3]}>
+              Programming for beginners Programming Programming for beginners
+              Programming Programming for beginners Programming
+            </Text>
           </Flex>
         </Link>
       </Flex>
@@ -76,7 +67,7 @@ export function StackCardMini() {
           justifyContent={"space-between"}
           py={"2"}
         >
-          <Text fontWeight={"600"} noOfLines={[4, 4]}>
+          <Text fontWeight={"400"} noOfLines={[4, 4]}>
             Programming for beginners something dont change hgh ghbghgb
             ghbgfhbfghb
           </Text>
