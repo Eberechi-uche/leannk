@@ -124,7 +124,7 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
           <DrawerContent fontSize={"lg"}>
             <DrawerCloseButton />
             <DrawerHeader my={"4"}></DrawerHeader>
-            <ProfileCard />
+            {/* <ProfileCard /> */}
             <DrawerBody>{children}</DrawerBody>
 
             <DrawerFooter>

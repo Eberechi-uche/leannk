@@ -6,31 +6,13 @@ import { RiSettings4Fill } from "react-icons/ri";
 export function ProfileCard() {
   return (
     <>
-      <Flex
-        w={"100%"}
-        align={"center"}
-        justify={"center"}
-        textAlign={"center"}
-        flexDir={"column"}
-      >
+      <Flex w={"100%"} flexDir={"column"} px={"2"}>
         <Flex pos={"relative"}>
-          {/* <Flex
-            position={"absolute"}
-            bottom={"-3px"}
-            right={"-2px"}
-            borderRadius={"full"}
-            p={"1"}
-            bg={"brand.yellow"}
-          >
-            <Icon as={RiSettings4Fill} />
-          </Flex> */}
-
           <Image
             src={"/images/thumbs.svg"}
-            boxSize={"45px"}
+            boxSize={"25px"}
             objectFit={"cover"}
             borderRadius={"full"}
-            border={"2px solid"}
           />
         </Flex>
 
