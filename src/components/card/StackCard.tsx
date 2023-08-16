@@ -11,10 +11,10 @@ export default function StackCard() {
         width={"100%"}
         flexDir={"column"}
         my={"4"}
-        h={"220px"}
+        h={"180px"}
         maxH={"230px"}
         border={"1px solid"}
-        borderColor={"blackAlpha.200"}
+        borderColor={"brand.gray"}
         bg={""}
         borderRadius={"5px"}
       >
@@ -32,12 +32,20 @@ export default function StackCard() {
             flexDir={"column"}
             cursor={"pointer"}
             px={"5"}
-            h={"150px"}
-            w={"70%"}
+            w={"75%"}
             justify={"center"}
           >
-            <Text fontWeight={"900"} fontSize={"lg"} noOfLines={[4]}>
-              Stack name
+            <Text
+              fontWeight={"800"}
+              fontSize={{
+                base: "lg",
+                lg: "md",
+              }}
+              noOfLines={[4]}
+              color={"gray.700"}
+            >
+              Stack name this is a test to know how the card scale with text
+              Stack name this is a test to know how the card scale with text
             </Text>
           </Flex>
         </Link>

@@ -41,9 +41,9 @@ export function CreateStackModal({
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} size={{ base: "xs", lg: "md" }}>
-        <ModalOverlay />
-        <ModalContent borderRadius={"none"}>
+      <Modal isOpen={isOpen} onClose={onClose} size={{ base: "sm", lg: "md" }}>
+        {/* <ModalOverlay /> */}
+        <ModalContent borderRadius={"none"} boxShadow={"none"}>
           <ModalHeader>Create stack</ModalHeader>
           <ModalCloseButton />
           <ModalBody>

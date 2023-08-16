@@ -127,7 +127,7 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
           {/* <DrawerOverlay  /> */}
           <DrawerContent
             fontSize={"lg"}
-            marginTop={"57px"}
+            marginTop={"65px"}
             boxShadow={"none"}
             borderRight={"1px solid"}
             borderColor={"blackAlpha.100"}

@@ -21,7 +21,7 @@ export const theme = extendTheme({
   styles: {
     global: {
       "html, body": {
-        fontSize: "14px",
+        fontSize: "16px",
         color: "#191919",
         lineHeight: "tall",
       },
