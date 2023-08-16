@@ -1,6 +1,6 @@
 "use client";
 import { Flex, Text, Image, Icon } from "@chakra-ui/react";
-import { DeleteIcon } from "../Icons/Icons";
+import { DeleteIcon, PinIcon } from "../Icons/Icons";
 import { useLinkPreview } from "get-link-preview";
 import { useEffect, useState } from "react";
 
@@ -18,10 +18,8 @@ export default function StackItemCard() {
         flexDir={"column"}
         outline={"1px solid"}
         outlineColor={"blackAlpha.200"}
-        borderLeft={"4px solid"}
-        borderLeftColor={"brand.yellow"}
-        borderRadius={"8px"}
-        borderLeftRadius={"2px"}
+        borderLeftColor={""}
+        borderRadius={"5px"}
         cursor={"pointer"}
         my={"2"}
       >
@@ -29,7 +27,10 @@ export default function StackItemCard() {
           <Text fontSize={"sm"} color={"brand.dark"}>
             sitename
           </Text>
-          <DeleteIcon />
+          <Flex align={"center"} justify={"center"} color={"brand.dark"}>
+            <DeleteIcon />
+            <PinIcon />
+          </Flex>
         </Flex>
         <Flex>
           <Image
@@ -48,9 +49,9 @@ export default function StackItemCard() {
           w={"100%"}
           my={"2"}
           py={"1"}
-          border={"1.5px solid"}
-          borderColor={"blackAlpha.200"}
-          borderRadius={"7px"}
+          border={"0.5px solid"}
+          borderColor={"#805AD5"}
+          borderRadius={"4px"}
           px={"2"}
           justifyContent={"space-between"}
           fontSize={"xs"}

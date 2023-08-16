@@ -168,20 +168,9 @@ export function PinIcon() {
   return (
     <>
       <Flex flexDir={"column"} align={"center"}>
-        <Flex
-          _hover={{
-            bg: "#F9F9F9",
-          }}
-          cursor={"pointer"}
-          border={"1.5px solid"}
-          p={"1.5"}
-          borderRadius={"full"}
-          px={"3"}
-          borderColor={"brand.black"}
-          mx={"1"}
-        >
+        <Flex cursor={"pointer"} mx={"1"}>
           <Flex align={"center"} justify={"center"}>
-            <Icon as={TbPinned} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon as={TbPinned} fontSize={"xl"} fontWeight={"bold"} />
           </Flex>
         </Flex>
       </Flex>
