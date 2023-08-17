@@ -6,26 +6,39 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
+  Text,
 } from "@chakra-ui/react";
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import UserInputText from "@/components/Inputs/UserInputText";
-import { useState } from "react";
-import { createDoc } from "@/utility/createDoc";
+import { Dispatch, SetStateAction, useState } from "react";
+import { useCreateDoc } from "@/Hooks/useCreateDoc";
 import ColorPicker from "@/components/Inputs/ColorPicker";
+
+export type StackType = {
+  stackId: string;
+  stackName: string;
+  note: string;
+  stackColor: string;
+};
 
 export function CreateStackModal({
   isOpen,
   onClose,
+  setStacK,
+  stack,
 }: {
   isOpen: boolean;
   onClose: () => void;
-  stack?: [];
+  stack: StackType[];
+  setStacK: Dispatch<SetStateAction<StackType[]>>;
 }) {
   const [newStack, setNewStackDetails] = useState({
     stackName: "",
     note: "",
-    stackColor: "#0000",
+    stackColor: "#fff",
   });
+  const { createDoc, error, loading, doc } = useCreateDoc(["Stacks"]);
+
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -38,7 +51,19 @@ export function CreateStackModal({
       [name]: value,
     }));
   }
-
+  async function handleCreateNewStack() {
+    const Doc = await createDoc(newStack);
+    if (error) return;
+    if (!loading && Doc) {
+      setStacK((prev) => [{ stackId: Doc.id, ...newStack }, ...prev]);
+      setNewStackDetails({
+        note: "",
+        stackColor: "#fff",
+        stackName: "",
+      });
+      onClose();
+    }
+  }
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={{ base: "sm", lg: "md" }}>
@@ -56,6 +81,13 @@ export function CreateStackModal({
               value={newStack.stackColor}
               setValue={setNewStackDetails}
             />
+            {error && (
+              <>
+                <Text color={"red.800"} fontSize={"xs"} fontWeight={"900"}>
+                  {error}
+                </Text>
+              </>
+            )}
             <UserInputs
               value={newStack.stackName}
               name="stackName"
@@ -74,11 +106,10 @@ export function CreateStackModal({
           <ModalFooter>
             <Button
               mr={3}
-              onClick={() => {
-                createDoc(newStack, "Stacks");
-              }}
+              onClick={handleCreateNewStack}
               size={"sm"}
               isDisabled={newStack.stackName.length < 4}
+              isLoading={loading}
             >
               Add
             </Button>

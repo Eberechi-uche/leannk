@@ -11,16 +11,29 @@ import {
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import { StackItemCardPreview } from "@/components/card/StackItemCard";
 import UserInputText from "@/components/Inputs/UserInputText";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
+import { useCreateDoc } from "@/Hooks/useCreateDoc";
+import { useParams } from "next/navigation";
 
+export type LinkType = {
+  desc: string;
+  link: string;
+  metaImageLink: string;
+  metaLinkDesc: string;
+  metaFavicon: string;
+  metaTitle: string;
+  metaDomain: string;
+  linkId: string;
+};
 export function AddlinkModal({
   isOpen,
   onClose,
+  updateLink,
 }: {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
-  stack?: [];
+  updateLink: Dispatch<SetStateAction<LinkType[]>>;
 }) {
   const [newLinkDetails, setNewLinkDetails] = useState({
     desc: "",
@@ -32,6 +45,14 @@ export function AddlinkModal({
     metaDomain: "",
   });
   const [addLinkView, setAddLinkView] = useState(0);
+
+  const { stackId } = useParams();
+  console.log(stackId);
+  const { createDoc, loading, error, doc } = useCreateDoc([
+    "Stacks",
+    stackId as string,
+    "Links",
+  ]);
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -43,6 +64,16 @@ export function AddlinkModal({
       ...prev,
       [name]: value,
     }));
+  }
+  async function handleAddLink() {
+    const newLink = await createDoc(newLinkDetails);
+    if (!loading && newLink) {
+      updateLink((prev) => [
+        { ...newLinkDetails, linkId: newLink.id } as LinkType,
+        ...prev,
+      ]);
+      onClose();
+    }
   }
 
   return (
@@ -127,11 +158,11 @@ export function AddlinkModal({
                   Back
                 </Button>
                 <Button
-                  colorScheme="blue"
                   ml={3}
-                  onClick={() => {}}
+                  onClick={handleAddLink}
                   size={"sm"}
                   isDisabled={newLinkDetails.metaDomain === ""}
+                  isLoading={loading}
                 >
                   Add
                 </Button>

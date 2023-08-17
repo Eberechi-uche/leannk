@@ -3,8 +3,9 @@ import { Flex, MenuDivider, Text } from "@chakra-ui/react";
 import { Delete, MakePublic, ShareToWeave } from "../Actions/MenuActions";
 import { MoreIcon } from "../Icons/Icons";
 import Link from "next/link";
+import { StackType } from "@/chakra/Modals/CreateStackModal";
 
-export default function StackCard() {
+export default function StackCard(props: StackType) {
   return (
     <>
       <Flex
@@ -15,8 +16,9 @@ export default function StackCard() {
         maxH={"230px"}
         border={"1px solid"}
         borderColor={"brand.gray"}
-        bg={""}
+        bg={props.stackColor}
         borderRadius={"5px"}
+        key={props.stackId}
       >
         <Flex justify={"flex-end"} px={"5"} align={"center"} pt={"4"}>
           <MoreIcon>
@@ -27,7 +29,7 @@ export default function StackCard() {
             <Delete />
           </MoreIcon>
         </Flex>
-        <Link href={"/profile/uche/uche"}>
+        <Link href={`/stack/${props.stackId}`}>
           <Flex
             flexDir={"column"}
             cursor={"pointer"}
@@ -44,7 +46,7 @@ export default function StackCard() {
               noOfLines={[4]}
               color={"gray.700"}
             >
-              Stack name
+              {props.stackName}
             </Text>
           </Flex>
         </Link>

@@ -16,15 +16,16 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { CiMenuBurger } from "react-icons/ci";
 import { VscClose } from "react-icons/vsc";
 import { HiOutlineGlobeAlt, HiOutlineSave, HiPlus } from "react-icons/hi";
-import { AddlinkModal } from "@/chakra/Modals/AddLinkModal";
+import { AddlinkModal, LinkType } from "@/chakra/Modals/AddLinkModal";
 import { useDisclosure } from "@chakra-ui/react";
-import { CreateStackModal } from "@/chakra/Modals/CreateStackModal";
+import { CreateStackModal, StackType } from "@/chakra/Modals/CreateStackModal";
 import { TbPinned } from "react-icons/tb";
 import { PiDotsSix } from "react-icons/pi";
 import { ProfileCard } from "../card/ProfileCard";
 import { auth } from "@/firebase/clientApp";
 import { useSignOut } from "react-firebase-hooks/auth";
 import { useRouter } from "next/navigation";
+import { Dispatch, SetStateAction } from "react";
 export function ShareIcon() {
   return (
     <>
@@ -54,7 +55,10 @@ export function ShareIcon() {
     </>
   );
 }
-export function CreateStackIcon() {
+export function CreateStackIcon(props: {
+  stack: StackType[];
+  setStack: Dispatch<SetStateAction<StackType[]>>;
+}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -70,7 +74,14 @@ export function CreateStackIcon() {
           </Flex>
         </Flex>
 
-        {isOpen && <CreateStackModal isOpen={isOpen} onClose={onClose} />}
+        {isOpen && (
+          <CreateStackModal
+            isOpen={isOpen}
+            onClose={onClose}
+            stack={props.stack}
+            setStacK={props.setStack}
+          />
+        )}
       </Flex>
     </>
   );
@@ -178,7 +189,9 @@ export function PinIcon() {
   );
 }
 
-export function AddLinkIcon() {
+export function AddLinkIcon(props: {
+  updateLink: Dispatch<SetStateAction<LinkType[]>>;
+}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -193,7 +206,12 @@ export function AddLinkIcon() {
         </Flex>
       </Flex>
       {isOpen && (
-        <AddlinkModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+        <AddlinkModal
+          isOpen={isOpen}
+          onClose={onClose}
+          onOpen={onOpen}
+          updateLink={props.updateLink}
+        />
       )}
     </>
   );

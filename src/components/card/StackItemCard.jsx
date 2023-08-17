@@ -3,10 +3,21 @@ import { Flex, Text, Image, Icon } from "@chakra-ui/react";
 import { DeleteIcon, PinIcon } from "../Icons/Icons";
 import { useLinkPreview } from "get-link-preview";
 import { useEffect, useState } from "react";
-
+import { LinkType } from "@/chakra/Modals/AddLinkModal";
 import { Skeleton } from "@chakra-ui/react";
+import Link from "next/link";
 
-export default function StackItemCard() {
+export default function StackItemCard({
+  desc,
+  link,
+  metaImageLink,
+  metaLinkDesc,
+  metaFavicon,
+  metaTitle,
+  metaDomain,
+  linkId,
+  colorCode,
+}) {
   return (
     <>
       <Flex
@@ -24,8 +35,8 @@ export default function StackItemCard() {
         justifyContent={"space-between"}
       >
         <Flex w={"100%"} justify={"space-between"} py={"1"}>
-          <Text fontSize={"sm"} color={"brand.dark"}>
-            sitename
+          <Text fontSize={"xs"} color={"brand.dark"} fontWeight={"800"}>
+            {metaDomain}
           </Text>
           <Flex
             align={"center"}
@@ -42,44 +53,50 @@ export default function StackItemCard() {
         </Flex>
         <Flex>
           <Image
-            src={""}
+            src={metaFavicon}
             alt={""}
             boxSize={"15px"}
             mr={"4"}
             mt={"1"}
             fallbackSrc="/images/image-placeholder.png"
             objectFit={"contain"}
-            borderRadius={"full"}
           />
           <Text mt={"0"} fontWeight={"600"}>
-            link description here.
+            {desc}
           </Text>
         </Flex>
-        <Flex
-          w={"100%"}
-          my={"2"}
-          py={"1"}
-          border={"0.5px solid"}
-          borderColor={"#805AD5"}
-          borderRadius={"4px"}
-          px={"2"}
-          justifyContent={"space-between"}
-          fontSize={"xs"}
-          align={"center"}
-        >
-          <Text textDecor={"underline"} color={"brand.dark"} noOfLines={2}>
-            somelinke here and other thing lets see what happens when we have a
-            l
-          </Text>
-          <Image
-            ml={"1"}
-            src={"/images/signUp.webp"}
-            alt={""}
-            boxSize={"35px"}
-            objectFit={"cover"}
-            borderRadius={"3px"}
-          />
-        </Flex>
+        <a href={link} target="_blank">
+          <Flex
+            w={"100%"}
+            my={"2"}
+            borderRadius={"4px"}
+            border={"1px solid"}
+            borderColor={colorCode === "#fff" ? "brand.gray" : colorCode}
+            pl={"2"}
+            bg={colorCode}
+            justifyContent={"space-between"}
+            fontSize={"xs"}
+            align={"center"}
+          >
+            <Text
+              textDecor={"underline"}
+              color={colorCode === "#fff" ? "" : colorCode}
+              noOfLines={2}
+              fontWeight={"900"}
+            >
+              {metaLinkDesc || metaTitle}
+            </Text>
+            <Image
+              ml={"1"}
+              src={metaImageLink}
+              alt={""}
+              boxSize={"50px"}
+              objectFit={"cover"}
+              fallbackSrc="/images/drum.svg"
+              borderRightRadius={"3px"}
+            />
+          </Flex>
+        </a>
       </Flex>
     </>
   );
@@ -130,7 +147,6 @@ export function StackItemCardPreview({ url, updateNewLink, desc }) {
           mt={"1"}
           fallbackSrc="/images/image-placeholder.png"
           objectFit={"contain"}
-          borderRadius={"full"}
         />
         <Text fontSize={"sm"} mt={"0"}>
           {desc}
