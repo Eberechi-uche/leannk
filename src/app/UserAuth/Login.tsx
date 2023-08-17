@@ -28,7 +28,7 @@ export default function Login() {
     const { Email, Password } = userDefails;
     const result = await signInWithEmailAndPassword(Email, Password);
     if (result) {
-      route.push("/profile/user");
+      route.push("/");
       return;
     }
   }

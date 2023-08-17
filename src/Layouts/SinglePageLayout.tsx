@@ -1,5 +1,4 @@
 import { Flex } from "@chakra-ui/react";
-import { Children } from "react";
 
 export default function SingPageLayout({
   children,

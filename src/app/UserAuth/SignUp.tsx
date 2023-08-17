@@ -54,7 +54,7 @@ export default function SignUp() {
     const profileId = extractUserId(Email);
     const profileUpdateStatus = await updateProfile({ displayName });
     if (profileUpdateStatus) {
-      route.push(`/profile/${profileId}`);
+      route.push(`/`);
     }
   }
   return (

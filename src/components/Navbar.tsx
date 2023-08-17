@@ -12,12 +12,6 @@ export default function Navbar() {
   const [user, loading, error] = useIdToken(auth);
   const path = usePathname();
   const route = useRouter();
-  useEffect(() => {
-    if (user?.email) {
-      const profileId = extractUserId(user.email);
-      route.replace(`/profile/${profileId}`);
-    }
-  }, [user]);
 
   return (
     <>

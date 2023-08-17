@@ -1,18 +1,20 @@
 "use client";
-import HomeHero from "@/components/Hero/HomeHero";
-import Footer from "@/components/sections/Footer";
-import SectionLayout from "@/components/sections/SectionLayout";
+
+import AuthHomePage from "@/components/Home/AuthHomePage";
+import HomePage from "@/components/Home/HomePage";
+
+import { auth } from "@/firebase/clientApp";
 import { usePathname } from "next/navigation";
+import { useIdToken } from "react-firebase-hooks/auth";
 
 export default function Home() {
+  const [user, loading, error] = useIdToken(auth);
   const path = usePathname();
 
-  console.log(path);
   return (
     <>
-      <HomeHero />
-      <SectionLayout />
-      <Footer />
+      {user && <AuthHomePage />}
+      {!user && <HomePage />}
     </>
   );
 }
