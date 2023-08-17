@@ -1,8 +1,6 @@
 "use client";
 import SingPageLayout from "@/Layouts/SinglePageLayout";
 import { AddLinkIcon } from "@/components/Icons/Icons";
-import { InfoCardAbout, StackDetailsCard } from "@/components/card/InfoCard";
-import { ProfileCard } from "@/components/card/ProfileCard";
 import StackItemCard from "@/components/card/StackItemCard";
 import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
 

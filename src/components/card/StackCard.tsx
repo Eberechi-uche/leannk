@@ -44,8 +44,7 @@ export default function StackCard() {
               noOfLines={[4]}
               color={"gray.700"}
             >
-              Stack name this is a test to know how the card scale with text
-              Stack name this is a test to know how the card scale with text
+              Stack name
             </Text>
           </Flex>
         </Link>

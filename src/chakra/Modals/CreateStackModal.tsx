@@ -1,6 +1,5 @@
 import {
   Modal,
-  ModalOverlay,
   ModalContent,
   ModalHeader,
   ModalFooter,
@@ -11,6 +10,7 @@ import {
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import UserInputText from "@/components/Inputs/UserInputText";
 import { useState } from "react";
+import { createDoc } from "@/utility/createDoc";
 import ColorPicker from "@/components/Inputs/ColorPicker";
 
 export function CreateStackModal({
@@ -43,7 +43,12 @@ export function CreateStackModal({
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={{ base: "sm", lg: "md" }}>
         {/* <ModalOverlay /> */}
-        <ModalContent borderRadius={"none"} boxShadow={"none"}>
+        <ModalContent
+          borderRadius={"none"}
+          boxShadow={"none"}
+          border={"1px solid"}
+          borderColor={"brand.gray"}
+        >
           <ModalHeader>Create stack</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -61,13 +66,20 @@ export function CreateStackModal({
             <UserInputText
               name="note"
               value={newStack.note}
-              placeHolder="short note"
+              placeHolder="short note (optional)"
               onChange={handleChange}
             />
           </ModalBody>
 
           <ModalFooter>
-            <Button mr={3} onClick={() => {}} size={"sm"}>
+            <Button
+              mr={3}
+              onClick={() => {
+                createDoc(newStack, "Stacks");
+              }}
+              size={"sm"}
+              isDisabled={newStack.stackName.length < 4}
+            >
               Add
             </Button>
             <Button

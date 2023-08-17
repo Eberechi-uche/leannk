@@ -49,7 +49,12 @@ export function AddlinkModal({
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={{ base: "sm", lg: "md" }}>
         {/* <ModalOverlay /> */}
-        <ModalContent borderRadius={"none"} boxShadow={"none"}>
+        <ModalContent
+          borderRadius={"none"}
+          boxShadow={"none"}
+          border={"1px solid"}
+          borderColor={"brand.gray"}
+        >
           <ModalHeader>Add Link</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
