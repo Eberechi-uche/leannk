@@ -71,16 +71,17 @@ export default function StackItemCard({
             my={"2"}
             borderRadius={"4px"}
             border={"1px solid"}
-            borderColor={colorCode === "#fff" ? "brand.gray" : colorCode}
+            borderColor={colorCode === "#fff" ? "brand.gray" : "inherit"}
             pl={"2"}
             bg={colorCode}
             justifyContent={"space-between"}
             fontSize={"xs"}
             align={"center"}
+            h={"fit-content"}
           >
             <Text
               textDecor={"underline"}
-              color={colorCode === "#fff" ? "" : colorCode}
+              color={colorCode === "#fff" ? "#000" : "#fff"}
               noOfLines={2}
               fontWeight={"900"}
             >
@@ -90,7 +91,7 @@ export default function StackItemCard({
               ml={"1"}
               src={metaImageLink}
               alt={""}
-              boxSize={"50px"}
+              boxSize={"60px"}
               objectFit={"cover"}
               fallbackSrc="/images/drum.svg"
               borderRightRadius={"3px"}
