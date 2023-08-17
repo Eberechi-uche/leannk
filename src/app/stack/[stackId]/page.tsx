@@ -3,7 +3,7 @@ import SingPageLayout from "@/Layouts/SinglePageLayout";
 import { AddLinkIcon } from "@/components/Icons/Icons";
 import StackItemCard from "@/components/card/StackItemCard";
 import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
-import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { useIdToken } from "react-firebase-hooks/auth";
 
@@ -117,8 +117,13 @@ export default function StackId() {
               ))}
               {loading && <LoadingAnimation />}
               {!loading && links.length === 0 && (
-                <Text textAlign={"center"} my={"30%"} fontSize={"sm"}>
-                  You haven't added any links...
+                <Text
+                  textAlign={"center"}
+                  my={"30%"}
+                  fontSize={"sm"}
+                  fontWeight={"900"}
+                >
+                  No links.
                 </Text>
               )}
             </SimpleGrid>

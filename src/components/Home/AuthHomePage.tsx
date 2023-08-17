@@ -65,7 +65,12 @@ export default function AuthHomePage() {
             ))}
             {fetchingStacks && <LoadingAnimation />}
             {!fetchingStacks && stacks.length === 0 && (
-              <Text textAlign={"center"} my={"30%"} fontSize={"sm"}>
+              <Text
+                textAlign={"center"}
+                my={"30%"}
+                fontSize={"sm"}
+                fontWeight={"900"}
+              >
                 You do not have any stacks...
               </Text>
             )}
