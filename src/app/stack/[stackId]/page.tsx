@@ -80,7 +80,15 @@ export default function StackId() {
             borderColor={"blackAlpha.200"}
           >
             <>
-              <Text fontWeight={"900"} fontSize={"xl"}>
+              <Text
+                fontWeight={"900"}
+                fontSize={"xl"}
+                color={
+                  stack?.stackColor === "#F6F5F4"
+                    ? "blackAlpha.700"
+                    : stack?.stackColor
+                }
+              >
                 {stack?.stackName}
               </Text>
               <Text>{stack?.note}</Text>

@@ -35,7 +35,7 @@ export function CreateStackModal({
   const [newStack, setNewStackDetails] = useState({
     stackName: "",
     note: "",
-    stackColor: "#fff",
+    stackColor: "#F6F5F4",
   });
   const { createDoc, error, loading, doc } = useCreateDoc(["Stacks"]);
 

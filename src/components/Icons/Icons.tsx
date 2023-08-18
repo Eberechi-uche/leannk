@@ -11,7 +11,7 @@ import { IoMdRemoveCircleOutline } from "react-icons/io";
 
 import { FaCircleCheck } from "react-icons/fa6";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
-import { BsGlobeAsiaAustralia } from "react-icons/bs";
+import { BsGlobeAsiaAustralia, BsThreeDots } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { CiMenuBurger } from "react-icons/ci";
 import { VscClose } from "react-icons/vsc";
@@ -93,7 +93,7 @@ export function MoreIcon({ children }: { children: React.ReactNode }) {
         <Menu isLazy id={"sbs89"}>
           <MenuButton>
             <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
-              <Icon as={PiDotsSix} fontSize={"2xl"} />
+              <Icon as={BsThreeDots} fontSize={"2xl"} />
             </Flex>
           </MenuButton>
           <MenuList
@@ -167,6 +167,9 @@ export function NavDrawer({ children }: { children: React.ReactNode }) {
               >
                 Sign out
               </Button>
+              <Text fontSize={"xs"} fontWeight={"900"}>
+                {auth.currentUser?.email}
+              </Text>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>

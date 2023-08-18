@@ -14,10 +14,8 @@ export default function StackCard(props: StackType) {
         my={"4"}
         h={"180px"}
         maxH={"230px"}
-        border={"1px solid"}
-        borderColor={"brand.gray"}
         bg={props.stackColor}
-        borderRadius={"5px"}
+        borderRadius={"10px"}
         key={props.stackId}
       >
         <Flex justify={"flex-end"} px={"5"} align={"center"} pt={"4"}>
@@ -38,13 +36,13 @@ export default function StackCard(props: StackType) {
             justify={"center"}
           >
             <Text
-              fontWeight={"800"}
+              fontWeight={"900"}
               fontSize={{
                 base: "lg",
                 lg: "md",
               }}
               noOfLines={[4]}
-              color={"gray.700"}
+              color={"blackAlpha.600"}
             >
               {props.stackName}
             </Text>

@@ -7,13 +7,13 @@ import {
   ListItem,
   MenuItem,
 } from "@chakra-ui/react";
-import { BiHomeAlt2 } from "react-icons/bi";
-import { FiUser } from "react-icons/fi";
+
+import { LuSettings2 } from "react-icons/lu";
 import { GoHomeFill } from "react-icons/go";
-import { GrHomeRounded } from "react-icons/gr";
+
 import { HiOutlineShare } from "react-icons/hi";
-import { IoIosSettings, IoMdRemoveCircle } from "react-icons/io";
-import { PiCommandBold, PiGlobeBold } from "react-icons/pi";
+import { IoMdRemoveCircle } from "react-icons/io";
+import { PiCommandBold, PiGlobeBold, PiHouseBold } from "react-icons/pi";
 
 export function Delete() {
   return (
@@ -76,29 +76,23 @@ export function NavMenuAction() {
   return (
     <>
       <List spacing={6} my={"4"} fontSize={"sm"}>
-        <ListItem display={"flex"} alignItems={"center"} px={"4"}>
-          <ListIcon as={GoHomeFill} />
+        <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
+          <ListIcon as={PiHouseBold} />
           Home
         </ListItem>
-        <ListItem display={"flex"} alignItems={"center"} px={"4"}>
-          <ListIcon as={IoIosSettings} />
+        <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
+          <ListIcon as={LuSettings2} />
           Profile setting
         </ListItem>
         <Divider />
-        <ListItem display={"flex"} alignItems={"center"} px={"4"}>
+        <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
           <ListIcon as={PiCommandBold} />
           Your weaves
-          <Badge mx={"2"} colorScheme="orange" fontWeight={"900"} px={"4"}>
-            coming soon
-          </Badge>
         </ListItem>
 
-        <ListItem display={"flex"} alignItems={"center"} px={"4"}>
+        <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
           <ListIcon as={PiGlobeBold} />
-          community
-          <Badge mx={"2"} colorScheme="orange" fontWeight={"900"}>
-            coming soon
-          </Badge>
+          Community
         </ListItem>
       </List>
     </>

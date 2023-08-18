@@ -59,10 +59,11 @@ export default function Navbar() {
               </Link>
 
               <Image
-                src={"/images/thumbs.svg"}
+                src={user.photoURL!}
                 alt={"profile picture"}
                 boxSize={"25px"}
                 borderRadius={"full"}
+                fallbackSrc={"/images/profileImage.jpg"}
               />
 
               <></>

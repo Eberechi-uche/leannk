@@ -1,11 +1,12 @@
 "use client";
 import { Flex, Text, Image, Icon } from "@chakra-ui/react";
-import { DeleteIcon, PinIcon } from "../Icons/Icons";
+import { DeleteIcon, MoreIcon, PinIcon } from "../Icons/Icons";
 import { useLinkPreview } from "get-link-preview";
 import { useEffect, useState } from "react";
 import { LinkType } from "@/chakra/Modals/AddLinkModal";
 import { Skeleton } from "@chakra-ui/react";
 import Link from "next/link";
+import { Delete } from "../Actions/MenuActions";
 
 export default function StackItemCard({
   desc,
@@ -23,33 +24,22 @@ export default function StackItemCard({
       <Flex
         minH={"150px"}
         h={"fit-content"}
-        bg={"#fff"}
+        bg={"#F6F5F4"}
         w={"100%"}
         p={"2"}
         flexDir={"column"}
-        border={"1px solid"}
-        borderColor={"brand.gray"}
-        borderRadius={"5px"}
+        borderRadius={"7px"}
         cursor={"pointer"}
         my={"2"}
         justifyContent={"space-between"}
       >
-        <Flex w={"100%"} justify={"space-between"} py={"1"}>
+        <Flex w={"100%"} justify={"space-between"} py={"1"} align={"center"}>
           <Text fontSize={"xs"} color={"brand.dark"} fontWeight={"800"}>
             {metaDomain}
           </Text>
-          <Flex
-            align={"center"}
-            justify={"space-between"}
-            color={"brand.dark"}
-            w={{
-              base: "40%",
-              lg: "30%",
-            }}
-          >
-            <DeleteIcon />
-            <PinIcon />
-          </Flex>
+          <MoreIcon>
+            <Delete />
+          </MoreIcon>
         </Flex>
         <Flex>
           <Image
@@ -70,10 +60,9 @@ export default function StackItemCard({
             w={"100%"}
             my={"2"}
             borderRadius={"4px"}
-            border={"1px solid"}
-            borderColor={colorCode === "#fff" ? "brand.gray" : "inherit"}
+            borderColor={colorCode === "#F6F5F4" ? "brand.gray" : colorCode}
             pl={"2"}
-            bg={colorCode}
+            bg={colorCode === "#F6F5F4" ? "blackAlpha.200" : colorCode}
             justifyContent={"space-between"}
             fontSize={"xs"}
             align={"center"}
@@ -81,7 +70,7 @@ export default function StackItemCard({
           >
             <Text
               textDecor={"underline"}
-              color={colorCode === "#fff" ? "#000" : "#fff"}
+              color={colorCode === "#F6F5F4" ? "#000" : "#fff"}
               noOfLines={2}
               fontWeight={"900"}
             >
@@ -91,7 +80,7 @@ export default function StackItemCard({
               ml={"1"}
               src={metaImageLink}
               alt={""}
-              boxSize={"60px"}
+              boxSize={"90px"}
               objectFit={"cover"}
               fallbackSrc="/images/drum.svg"
               borderRightRadius={"3px"}
