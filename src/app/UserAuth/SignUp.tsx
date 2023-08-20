@@ -81,7 +81,7 @@ export default function SignUp() {
           />
         </Flex>
 
-        <Text fontWeight={"700"} fontSize={"4xl"}>
+        <Text fontWeight={"700"} fontSize={"3xl"}>
           Create an account
         </Text>
         {userFlow === 0 && (

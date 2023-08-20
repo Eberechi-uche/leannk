@@ -15,7 +15,7 @@ import { Providers } from "../chakra/providers";
 
 export const metadata: Metadata = {
   title: "Lynnk",
-  description: "one stop for all your bookmarks",
+  description: "one stop for all your bookmarks and links",
 };
 
 export default function RootLayout({

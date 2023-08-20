@@ -54,7 +54,7 @@ export default function AuthHomePage() {
           >
             <CreateStackIcon stack={stacks} setStack={setStacks} />
           </Flex>
-          <SimpleGrid w={"100%"} columns={[2, 2, 2, 3]} gap={"5"}>
+          <SimpleGrid w={"100%"} columns={[2, 2, 2, 3]} gap={"2"}>
             {stacks.map((stack) => (
               <Flex key={stack.stackId}>
                 <StackCard

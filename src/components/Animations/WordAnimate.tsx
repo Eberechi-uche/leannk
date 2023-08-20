@@ -15,13 +15,20 @@ export default function WordAnimate() {
   }, []);
   return (
     <>
-      <Flex width={"100%"} h={"fit-content"} px={"7"} py={"7"} bg={"#000"}>
+      <Flex
+        width={"100%"}
+        h={"fit-content"}
+        py={"7"}
+        bg={"#000"}
+        justify={"center"}
+      >
         <Flex
-          fontSize={{ base: "12px", lg: "3xl" }}
+          fontSize={{ base: "10px", lg: "3xl" }}
           color={"whiteAlpha.700"}
           width={"100%"}
           flexWrap={"wrap"}
           fontWeight={"900"}
+          maxW={"1020px"}
           justify={"space-around"}
         >
           <Text

@@ -73,7 +73,7 @@ export default function SectionLayout() {
                 smText={"Context"}
                 lgText={"Add Meaningful Labels and descriptions"}
                 desc={
-                  "Dont just save Links or Bookmarks, you can Add meaningfull description to them, helping you locate them easily "
+                  "Dont just save Links or Bookmarks, you can Add meaningfull description to them, helping you locate them in a whim. "
                 }
                 image={"images/engineer.svg"}
               />
