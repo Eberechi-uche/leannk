@@ -1,5 +1,4 @@
 import {
-  Badge,
   Divider,
   Icon,
   List,
@@ -9,12 +8,10 @@ import {
 } from "@chakra-ui/react";
 
 import { LuSettings2 } from "react-icons/lu";
-import { GoHomeFill } from "react-icons/go";
-
 import { HiOutlineShare } from "react-icons/hi";
 import { IoMdRemoveCircle } from "react-icons/io";
 import { PiCommandBold, PiGlobeBold, PiHouseBold } from "react-icons/pi";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function Delete() {
   return (
@@ -43,9 +40,6 @@ export function MakePublic() {
       >
         <Icon as={PiCommandBold} mr={"4"} />
         Post on weaves
-        <Badge mx={"2"} colorScheme="orange" fontWeight={"900"}>
-          coming soon
-        </Badge>
       </MenuItem>
     </>
   );
@@ -74,15 +68,22 @@ export function GivePermisions() {
 }
 
 export function NavMenuAction() {
+  const route = useRouter();
   return (
     <>
       <List spacing={6} my={"4"} fontSize={"sm"}>
-        <Link href={"/"}>
-          <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
-            <ListIcon as={PiHouseBold} />
-            Home
-          </ListItem>
-        </Link>
+        <ListItem
+          display={"flex"}
+          alignItems={"center"}
+          pl={"4"}
+          onClick={() => {
+            route.push("/");
+          }}
+        >
+          <ListIcon as={PiHouseBold} />
+          Home
+        </ListItem>
+
         <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
           <ListIcon as={LuSettings2} />
           Profile setting

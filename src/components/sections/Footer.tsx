@@ -7,7 +7,7 @@ export default function Footer() {
     <>
       <Flex
         width={"100%"}
-        height={"50vh"}
+        height={"30vh"}
         bg={"#000"}
         color={"whiteAlpha.900"}
         p={"4"}
