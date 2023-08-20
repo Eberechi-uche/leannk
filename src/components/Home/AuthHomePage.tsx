@@ -49,10 +49,12 @@ export default function AuthHomePage() {
             borderRadius={"5px"}
             w={"fit-content"}
             borderColor={"blackAlpha.200"}
+            bg={"#000"}
+            color={"#fff"}
           >
             <CreateStackIcon stack={stacks} setStack={setStacks} />
           </Flex>
-          <SimpleGrid w={"100%"} columns={[1, 2, 2, 3]} gap={"5"}>
+          <SimpleGrid w={"100%"} columns={[2, 2, 2, 3]} gap={"5"}>
             {stacks.map((stack) => (
               <Flex key={stack.stackId}>
                 <StackCard
@@ -63,18 +65,18 @@ export default function AuthHomePage() {
                 />
               </Flex>
             ))}
-            {fetchingStacks && <LoadingAnimation />}
-            {!fetchingStacks && stacks.length === 0 && (
-              <Text
-                textAlign={"center"}
-                my={"30%"}
-                fontSize={"sm"}
-                fontWeight={"900"}
-              >
-                You do not have any stacks...
-              </Text>
-            )}
           </SimpleGrid>
+          {fetchingStacks && <LoadingAnimation />}
+          {!fetchingStacks && stacks.length === 0 && (
+            <Text
+              textAlign={"center"}
+              my={"30%"}
+              fontSize={"sm"}
+              fontWeight={"900"}
+            >
+              You do not have any stacks...
+            </Text>
+          )}
         </Flex>
       </SingPageLayout>
     </>

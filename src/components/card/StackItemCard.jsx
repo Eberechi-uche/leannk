@@ -28,7 +28,7 @@ export default function StackItemCard({
         w={"100%"}
         p={"2"}
         flexDir={"column"}
-        borderRadius={"7px"}
+        borderRadius={"10px"}
         cursor={"pointer"}
         my={"2"}
         justifyContent={"space-between"}
@@ -59,7 +59,7 @@ export default function StackItemCard({
           <Flex
             w={"100%"}
             my={"2"}
-            borderRadius={"4px"}
+            borderRadius={"6px"}
             borderColor={colorCode === "#F6F5F4" ? "brand.gray" : colorCode}
             pl={"2"}
             bg={colorCode === "#F6F5F4" ? "blackAlpha.200" : colorCode}
@@ -111,17 +111,16 @@ export function StackItemCardPreview({ url, updateNewLink, desc }) {
 
   return (
     <Flex
-      minH={"110px"}
+      minH={"150px"}
       h={"fit-content"}
-      bg={"#fff"}
+      bg={"#F6F5F4"}
       w={"100%"}
       p={"2"}
       flexDir={"column"}
-      border={"1.5px solid"}
-      borderColor={"blackAlpha.200"}
+      borderRadius={"7px"}
       cursor={"pointer"}
-      borderRadius={"5px"}
       my={"2"}
+      justifyContent={"space-between"}
     >
       <Flex>
         <Text fontSize={"xs"} color={"brand.dark"}>

@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import { BsArrowRight } from "react-icons/bs";
 export default function InfoCard(props: any) {
-  const { icon, smText, lgText, image, desc } = props;
+  const { icon, smText, lgText, image, desc, color } = props;
   return (
     <>
       <Flex
@@ -15,6 +15,7 @@ export default function InfoCard(props: any) {
           base: "12",
           lg: "28",
         }}
+        color={color ? color : ""}
       >
         <Flex align={"center"} fontSize={{ base: "lg" }} display={"flex"}>
           <Icon as={icon} />

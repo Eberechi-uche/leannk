@@ -69,7 +69,7 @@ export function CreateStackIcon(props: {
             <Icon as={HiPlus} fontSize={"xl"} color={"brand.gray"} />
 
             <Text fontWeight={"500"} mx={"2"}>
-              New stack...
+              New stack
             </Text>
           </Flex>
         </Flex>
@@ -92,7 +92,7 @@ export function MoreIcon({ children }: { children: React.ReactNode }) {
       <Flex cursor={"pointer"} p={"1.5"}>
         <Menu isLazy id={"sbs89"}>
           <MenuButton>
-            <Flex color={"blackAlpha.900"} align={"center"} justify={"center"}>
+            <Flex color={"blackAlpha.600"} align={"center"} justify={"center"}>
               <Icon as={BsThreeDots} fontSize={"2xl"} />
             </Flex>
           </MenuButton>
@@ -203,7 +203,7 @@ export function AddLinkIcon(props: {
           <Flex align={"center"} justify={"center"}>
             <Icon as={TbPlaylistAdd} fontSize={"3xl"} color={"brand.gray"} />
             <Text fontWeight={"500"} mx={"2"}>
-              Add link...
+              Add link
             </Text>
           </Flex>
         </Flex>

@@ -2,7 +2,7 @@
 import SingPageLayout from "@/Layouts/SinglePageLayout";
 import { AddLinkIcon } from "@/components/Icons/Icons";
 import StackItemCard from "@/components/card/StackItemCard";
-import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import { Flex, SimpleGrid, Text, Image } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { useIdToken } from "react-firebase-hooks/auth";
@@ -67,7 +67,6 @@ export default function StackId() {
           flexDir={"column"}
           w={"100%"}
           position={"relative"}
-          minH={"100vh"}
           h={"fit-content"}
           px={"4"}
         >
@@ -102,11 +101,13 @@ export default function StackId() {
             borderRadius={"5px"}
             w={"fit-content"}
             borderColor={"blackAlpha.200"}
+            bg={"#000"}
+            color={"#fff"}
           >
             <AddLinkIcon updateLink={setLinks} />
           </Flex>
 
-          <Flex h={"100vh"} w={"100%"} flexDir={"column"} mt={"12"}>
+          <Flex w={"100%"} flexDir={"column"} mt={"12"}>
             <SimpleGrid columns={[1, 2]} gap={"2"}>
               {links.map((link) => (
                 <Flex key={link.linkId}>
@@ -123,8 +124,10 @@ export default function StackId() {
                   />
                 </Flex>
               ))}
-              {loading && <LoadingAnimation />}
-              {!loading && links.length === 0 && (
+            </SimpleGrid>
+            {loading && <LoadingAnimation />}
+            {!loading && links.length === 0 && (
+              <Flex flexDir={"column"}>
                 <Text
                   textAlign={"center"}
                   my={"30%"}
@@ -133,8 +136,8 @@ export default function StackId() {
                 >
                   No links.
                 </Text>
-              )}
-            </SimpleGrid>
+              </Flex>
+            )}
           </Flex>
         </Flex>
       </SingPageLayout>

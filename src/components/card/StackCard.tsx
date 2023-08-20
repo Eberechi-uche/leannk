@@ -32,13 +32,16 @@ export default function StackCard(props: StackType) {
             flexDir={"column"}
             cursor={"pointer"}
             px={"5"}
-            w={"75%"}
+            w={{
+              base: "90%",
+              lg: "70%",
+            }}
             justify={"center"}
           >
             <Text
               fontWeight={"900"}
               fontSize={{
-                base: "lg",
+                base: "sm",
                 lg: "md",
               }}
               noOfLines={[4]}

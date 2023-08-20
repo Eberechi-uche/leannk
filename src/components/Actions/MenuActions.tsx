@@ -14,6 +14,7 @@ import { GoHomeFill } from "react-icons/go";
 import { HiOutlineShare } from "react-icons/hi";
 import { IoMdRemoveCircle } from "react-icons/io";
 import { PiCommandBold, PiGlobeBold, PiHouseBold } from "react-icons/pi";
+import Link from "next/link";
 
 export function Delete() {
   return (
@@ -76,10 +77,12 @@ export function NavMenuAction() {
   return (
     <>
       <List spacing={6} my={"4"} fontSize={"sm"}>
-        <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
-          <ListIcon as={PiHouseBold} />
-          Home
-        </ListItem>
+        <Link href={"/"}>
+          <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
+            <ListIcon as={PiHouseBold} />
+            Home
+          </ListItem>
+        </Link>
         <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
           <ListIcon as={LuSettings2} />
           Profile setting

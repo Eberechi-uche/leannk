@@ -27,10 +27,10 @@ export default function SectionLayout() {
         setColor("#FFD700");
       }
       if (entry.target.id == "section1" && entry.isIntersecting) {
-        setColor("#fff");
+        setColor("#1B2C3B");
       }
       if (entry.target.id == "section2" && entry.isIntersecting) {
-        setColor("#FFFF00");
+        setColor("#0177B0");
       }
     });
   }
@@ -94,6 +94,7 @@ export default function SectionLayout() {
                   "Keep all your links and bookmarks easily accesible and tidy by structuring in them in stacks."
                 }
                 image={"images/meditation-boy.svg"}
+                color={"#fff"}
               />
             </Flex>
             <Flex
