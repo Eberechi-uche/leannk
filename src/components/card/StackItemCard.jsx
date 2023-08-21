@@ -120,6 +120,7 @@ export function StackItemCardPreview({ url, updateNewLink, desc }) {
       borderRadius={"7px"}
       cursor={"pointer"}
       my={"2"}
+      color={"#000"}
       justifyContent={"space-between"}
     >
       <Flex>
@@ -155,12 +156,10 @@ export function StackItemCardPreview({ url, updateNewLink, desc }) {
         <>
           <Flex
             w={"100%"}
-            h={"50px"}
-            py={"1"}
             border={"1.5px solid"}
             borderColor={"blackAlpha.200"}
             borderRadius={"5px"}
-            px={"2"}
+            pl={"2"}
             justifyContent={"space-between"}
             fontSize={"xs"}
             bg={"#fff"}
@@ -173,9 +172,9 @@ export function StackItemCardPreview({ url, updateNewLink, desc }) {
             <Image
               src={unfurledLink.image}
               alt={""}
-              boxSize={"35px"}
+              boxSize={"70px"}
               objectFit={"cover"}
-              borderRadius={"3px"}
+              borderRightRadius={"3px"}
               fontSize={"xs"}
               ml={"2"}
               fallbackSrc="/images/drum.svg"

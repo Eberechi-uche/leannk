@@ -66,13 +66,18 @@ export function CreateStackModal({
   }
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} size={{ base: "sm", lg: "md" }}>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size={{ base: "sm", lg: "md" }}
+        motionPreset="slideInBottom"
+      >
         {/* <ModalOverlay /> */}
         <ModalContent
           borderRadius={"none"}
           boxShadow={"none"}
-          border={"1px solid"}
-          borderColor={"brand.gray"}
+          bg={"black"}
+          color={"#fff"}
         >
           <ModalHeader>Create stack</ModalHeader>
           <ModalCloseButton />
@@ -110,11 +115,12 @@ export function CreateStackModal({
               size={"sm"}
               isDisabled={newStack.stackName.length < 4}
               isLoading={loading}
+              variant={"white"}
             >
               Add
             </Button>
             <Button
-              variant="outline"
+              variant="whiteOutline"
               onClick={() => {
                 onClose();
               }}

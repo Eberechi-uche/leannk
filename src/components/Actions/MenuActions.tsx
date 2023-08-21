@@ -12,6 +12,7 @@ import { HiOutlineShare } from "react-icons/hi";
 import { IoMdRemoveCircle } from "react-icons/io";
 import { PiCommandBold, PiGlobeBold, PiHouseBold } from "react-icons/pi";
 import { useRouter } from "next/navigation";
+import { StackType } from "@/chakra/Modals/CreateStackModal";
 
 export function Delete() {
   return (
@@ -29,7 +30,8 @@ export function Delete() {
   );
 }
 
-export function MakePublic() {
+export function MakePublic(props: StackType) {
+  const { stackColor, stackId, stackName } = props;
   return (
     <>
       <MenuItem
@@ -38,8 +40,8 @@ export function MakePublic() {
         alignItems={"center"}
         fontWeight={"inherit"}
       >
-        <Icon as={PiCommandBold} mr={"4"} />
-        Post on weaves
+        <Icon as={PiGlobeBold} mr={"4"} />
+        Post on community
       </MenuItem>
     </>
   );

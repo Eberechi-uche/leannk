@@ -78,13 +78,18 @@ export function AddlinkModal({
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} size={{ base: "sm", lg: "md" }}>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size={{ base: "sm", lg: "md" }}
+        motionPreset="slideInBottom"
+      >
         {/* <ModalOverlay /> */}
         <ModalContent
           borderRadius={"none"}
           boxShadow={"none"}
-          border={"1px solid"}
-          borderColor={"brand.gray"}
+          bg={"#000"}
+          color={"#fff"}
         >
           <ModalHeader>Add Link</ModalHeader>
           <ModalCloseButton />
@@ -120,7 +125,7 @@ export function AddlinkModal({
             {addLinkView === 0 ? (
               <>
                 <Button
-                  variant="outline"
+                  variant="whiteOutline"
                   size={"sm"}
                   onClick={() => {
                     onClose();
@@ -138,6 +143,7 @@ export function AddlinkModal({
                     newLinkDetails.desc.length < 8
                   }
                   size={"sm"}
+                  variant={"white"}
                 >
                   Next
                 </Button>
@@ -145,7 +151,7 @@ export function AddlinkModal({
             ) : (
               <>
                 <Button
-                  variant="outline"
+                  variant="whiteOutline"
                   size={"sm"}
                   onClick={() => {
                     setAddLinkView(0);
@@ -163,6 +169,7 @@ export function AddlinkModal({
                   size={"sm"}
                   isDisabled={newLinkDetails.metaDomain === ""}
                   isLoading={loading}
+                  variant={"white"}
                 >
                   Add
                 </Button>

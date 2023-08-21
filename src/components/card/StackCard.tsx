@@ -20,7 +20,7 @@ export default function StackCard(props: StackType) {
       >
         <Flex justify={"flex-end"} px={"5"} align={"center"} pt={"4"}>
           <MoreIcon>
-            <MakePublic />
+            <MakePublic {...props} />
             <MenuDivider borderColor={"gray.700"} borderWidth={"2px"} />
             <ShareToWeave />
           </MoreIcon>
