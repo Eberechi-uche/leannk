@@ -80,7 +80,7 @@ export function CreateStackModal({
           color={"#fff"}
         >
           <ModalHeader>Create stack</ModalHeader>
-          <ModalCloseButton />
+
           <ModalBody>
             <ColorPicker
               value={newStack.stackColor}

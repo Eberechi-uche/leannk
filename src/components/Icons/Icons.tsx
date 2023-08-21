@@ -11,7 +11,7 @@ import { IoMdRemoveCircleOutline } from "react-icons/io";
 
 import { FaCircleCheck } from "react-icons/fa6";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
-import { BsGlobeAsiaAustralia, BsThreeDots } from "react-icons/bs";
+import { BsThreeDots } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { CiMenuBurger } from "react-icons/ci";
 import { VscClose } from "react-icons/vsc";
@@ -20,8 +20,8 @@ import { AddlinkModal, LinkType } from "@/chakra/Modals/AddLinkModal";
 import { useDisclosure } from "@chakra-ui/react";
 import { CreateStackModal, StackType } from "@/chakra/Modals/CreateStackModal";
 import { TbPinned } from "react-icons/tb";
-import { PiDotsSix } from "react-icons/pi";
-import { ProfileCard } from "../card/ProfileCard";
+import { LuReplaceAll } from "react-icons/lu";
+
 import { auth } from "@/firebase/clientApp";
 import { useSignOut } from "react-firebase-hooks/auth";
 import { useRouter } from "next/navigation";
@@ -90,7 +90,7 @@ export function MoreIcon({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Flex cursor={"pointer"} p={"1.5"}>
-        <Menu isLazy id={"sbs89"} size={"xs"}>
+        <Menu isLazy id={"sbs89"} size={"xs"} closeOnBlur={false}>
           <MenuButton>
             <Flex color={"blackAlpha.600"} align={"center"} justify={"center"}>
               <Icon as={BsThreeDots} fontSize={"2xl"} />
@@ -380,6 +380,27 @@ export function Community() {
               fontSize={"25px"}
               fontWeight={"bold"}
             />
+          </Flex>
+        </Flex>
+      </Flex>
+    </>
+  );
+}
+
+export function SaveStack() {
+  return (
+    <>
+      <Flex flexDir={"column"} align={"center"}>
+        <Flex
+          // _hover={{
+          //   bg: "#F9F9F9",
+          // }}
+          cursor={"pointer"}
+          px={"3"}
+          mx={"1"}
+        >
+          <Flex align={"center"} justify={"center"}>
+            <Icon as={LuReplaceAll} fontSize={"2xl"} fontWeight={"bold"} />
           </Flex>
         </Flex>
       </Flex>

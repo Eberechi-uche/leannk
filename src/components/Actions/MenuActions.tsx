@@ -5,14 +5,21 @@ import {
   ListIcon,
   ListItem,
   MenuItem,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 import { LuSettings2 } from "react-icons/lu";
 import { HiOutlineShare } from "react-icons/hi";
 import { IoMdRemoveCircle } from "react-icons/io";
-import { PiCommandBold, PiGlobeBold, PiHouseBold } from "react-icons/pi";
+import {
+  PiCommandBold,
+  PiGlobeBold,
+  PiHouseBold,
+  PiPencilSimpleLineBold,
+} from "react-icons/pi";
 import { useRouter } from "next/navigation";
 import { StackType } from "@/chakra/Modals/CreateStackModal";
+import PostStackModal from "@/chakra/Modals/PostStackModal";
 
 export function Delete() {
   return (
@@ -31,7 +38,8 @@ export function Delete() {
 }
 
 export function MakePublic(props: StackType) {
-  const { stackColor, stackId, stackName } = props;
+  const { stackColor, stackId, stackName, note } = props;
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <MenuItem
@@ -39,10 +47,22 @@ export function MakePublic(props: StackType) {
         display={"flex"}
         alignItems={"center"}
         fontWeight={"inherit"}
+        onClick={onOpen}
+        closeOnSelect={false}
       >
         <Icon as={PiGlobeBold} mr={"4"} />
         Post on community
       </MenuItem>
+      {isOpen && (
+        <PostStackModal
+          isOpen={isOpen}
+          onClose={onClose}
+          stackColor={stackColor}
+          stackId={stackId}
+          stackName={stackName}
+          note={note}
+        />
+      )}
     </>
   );
 }
@@ -61,6 +81,22 @@ export function ShareToWeave() {
     </>
   );
 }
+export function EditStack() {
+  return (
+    <>
+      <MenuItem
+        bg={"inherit"}
+        display={"flex"}
+        alignItems={"center"}
+        fontWeight={"inherit"}
+      >
+        <Icon as={PiPencilSimpleLineBold} mr={"4"} />
+        Edit Stack
+      </MenuItem>
+    </>
+  );
+}
+
 export function GivePermisions() {
   return (
     <>

@@ -17,7 +17,7 @@ export default function UserInputText(props: {
           }}
           borderColor={"brand.dark"}
           outline={"1px"}
-          border={"1.5px solid"}
+          border={"0.5px solid"}
           borderRadius={"none"}
           focusBorderColor="brand.yellow"
           placeholder={props.placeHolder}

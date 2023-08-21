@@ -92,7 +92,7 @@ export function AddlinkModal({
           color={"#fff"}
         >
           <ModalHeader>Add Link</ModalHeader>
-          <ModalCloseButton />
+
           <ModalBody>
             {addLinkView === 0 ? (
               <>

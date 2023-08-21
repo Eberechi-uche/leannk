@@ -1,6 +1,11 @@
 import { Flex, MenuDivider, Text } from "@chakra-ui/react";
 
-import { Delete, MakePublic, ShareToWeave } from "../Actions/MenuActions";
+import {
+  Delete,
+  EditStack,
+  MakePublic,
+  ShareToWeave,
+} from "../Actions/MenuActions";
 import { MoreIcon } from "../Icons/Icons";
 import Link from "next/link";
 import { StackType } from "@/chakra/Modals/CreateStackModal";
@@ -22,7 +27,7 @@ export default function StackCard(props: StackType) {
           <MoreIcon>
             <MakePublic {...props} />
             <MenuDivider borderColor={"gray.700"} borderWidth={"2px"} />
-            <ShareToWeave />
+            <EditStack />
           </MoreIcon>
         </Flex>
         <Link href={`/stack/${props.stackId}`}>
