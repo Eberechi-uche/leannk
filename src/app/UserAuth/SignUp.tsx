@@ -5,11 +5,12 @@ import { Flex, Heading, Button, Text, Icon } from "@chakra-ui/react";
 import { useState } from "react";
 import Link from "next/link";
 import { GoDot, GoDotFill } from "react-icons/go";
-import { auth } from "@/firebase/clientApp";
+import { auth, storage } from "@/firebase/clientApp";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { FIREBASE_ERROR } from "@/firebase/firebase-error";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 import { useRouter } from "next/navigation";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 export default function SignUp() {
   const [userDetails, setUserDetails] = useState({
@@ -52,7 +53,19 @@ export default function SignUp() {
   async function handleProfileUpdate() {
     const { displayName, Email } = userDetails;
     const profileId = extractUserId(Email);
-    const profileUpdateStatus = await updateProfile({ displayName });
+    const imageData = await fetch(
+      `https://api.dicebear.com/6.x/initials/svg?seed=${userDetails.Email}`
+    );
+    const imageBlob = await imageData.blob();
+    const profileRef = ref(storage, `profilePhotos/${profileId}`);
+    await uploadBytes(profileRef, imageBlob);
+    const profileUrl = await getDownloadURL(profileRef);
+
+    const profileUpdateStatus = await updateProfile({
+      displayName,
+      photoURL: profileUrl,
+    });
+
     if (profileUpdateStatus) {
       route.push(`/`);
     }
@@ -150,7 +163,7 @@ export default function SignUp() {
           <Flex w={"100%"} align={"center"} flexDir={"column"}>
             <AuthCard
               name={extractUserId(userDetails.Email)}
-              image={`https://api.dicebear.com/6.x/thumbs/svg?seed=${userDetails.Email}`}
+              image={`https://api.dicebear.com/6.x/initials/svg?seed=${userDetails.Email}`}
             />
             <Text my={"4"}>Almost done.</Text>
             <AuthInput
