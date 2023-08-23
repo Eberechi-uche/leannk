@@ -3,11 +3,15 @@
 import { Flex, ChakraProvider } from "@chakra-ui/react";
 import Navbar, { AuthNavbar } from "@/components/Navbar";
 import { theme } from "../chakra/theme";
+import { auth } from "@/firebase/clientApp";
+import { useIdToken } from "react-firebase-hooks/auth";
+import Loadscreen from "@/components/Animations/Loadscreen";
 export default function BaseLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [user, loading, error] = useIdToken(auth);
   return (
     <>
       <ChakraProvider theme={theme}>
@@ -17,7 +21,10 @@ export default function BaseLayout({
           flexDir={"column"}
           h={"fit-content"}
         >
-          <Navbar />
+          {user && <AuthNavbar />}
+          {!user && !loading && <Navbar />}
+          {loading && <Loadscreen />}
+
           {children}
         </Flex>
       </ChakraProvider>
