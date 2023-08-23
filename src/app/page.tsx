@@ -1,5 +1,6 @@
 "use client";
 
+import Loadscreen from "@/components/Animations/Loadscreen";
 import AuthHomePage from "@/components/Home/AuthHomePage";
 import HomePage from "@/components/Home/HomePage";
 
@@ -13,8 +14,9 @@ export default function Home() {
 
   return (
     <>
-      {user && <AuthHomePage />}
-      {!user && <HomePage />}
+      {!loading && user && <AuthHomePage />}
+      {loading && <Loadscreen />}
+      {!loading && !user && <HomePage />}
     </>
   );
 }

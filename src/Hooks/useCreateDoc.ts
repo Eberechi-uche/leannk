@@ -1,11 +1,6 @@
 import { auth, firestore } from "@/firebase/clientApp";
 import extractUserId from "@/utility/extractUserId";
-import {
-  DocumentData,
-  DocumentReference,
-  addDoc,
-  collection,
-} from "firebase/firestore";
+import { DocumentData, addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 
 export function useCreateDoc(path?: string[]) {

@@ -22,8 +22,7 @@ export default function BaseLayout({
           h={"fit-content"}
         >
           {user && <AuthNavbar />}
-          {!user && !loading && <Navbar />}
-          {loading && <Loadscreen />}
+          {!loading && !user && <Navbar />}
 
           {children}
         </Flex>

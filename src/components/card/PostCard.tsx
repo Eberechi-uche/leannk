@@ -1,6 +1,8 @@
 import { StackType } from "@/chakra/Modals/CreateStackModal";
 import { Flex, Text, Image } from "@chakra-ui/react";
 
+import { Timestamp } from "firebase/firestore/lite";
+
 export type PostType = StackType & {
   profileId: string;
   profileDN: string;
@@ -8,6 +10,7 @@ export type PostType = StackType & {
   postDesc: string;
   tag?: string[];
   stackItemRef: string;
+  timeStamp: Timestamp;
 };
 export default function Postcard(props: PostType) {
   return (

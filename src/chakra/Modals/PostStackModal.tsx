@@ -14,6 +14,11 @@ import UserInputText from "@/components/Inputs/UserInputText";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import { HiOutlineGlobeAlt } from "react-icons/hi";
+import { useCreateDoc } from "@/Hooks/useCreateDoc";
+import { Timestamp, collection, doc, writeBatch } from "firebase/firestore";
+import { auth, firestore } from "@/firebase/clientApp";
+import extractUserId from "@/utility/extractUserId";
+import { PostType } from "@/components/card/PostCard";
 
 type PostStack = {
   isOpen: boolean;
@@ -26,8 +31,55 @@ type NewPost<StackType> = {
 };
 function PostStackModal(props: StackType & PostStack) {
   const [newPost, setNewPost] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [hashTags, setHashTags] = useState<string[]>([""]);
   const [flow, setFlow] = useState(0);
+
+  async function handleNewPostCreation() {
+    setLoading(true);
+    const profileId = extractUserId(auth.currentUser?.email!);
+    const batch = writeBatch(firestore);
+    const stackItemsRef = collection(
+      firestore,
+      "profile",
+      profileId,
+      "Stacks",
+      props.stackId,
+      "Links"
+    ).path;
+    const newPostData: PostType = {
+      stackColor: props.stackColor,
+      stackId: props.stackId,
+      stackName: props.stackName,
+      profileDN: auth.currentUser?.displayName!,
+      profileId: profileId,
+      profileImageUrl: auth.currentUser?.photoURL!,
+      postDesc: newPost,
+      note: props.note,
+      stackItemRef: stackItemsRef,
+      tag: hashTags,
+      timeStamp: Timestamp.fromDate(new Date()),
+    };
+    const sharedStacksRef = doc(
+      collection(firestore, "profile", profileId, "posts")
+    );
+    const publicPost = {
+      tag: hashTags,
+      stackRef: sharedStacksRef,
+    };
+    try {
+      batch.set(sharedStacksRef, newPostData);
+      batch.set(doc(firestore, "posts", sharedStacksRef.id), publicPost);
+
+      await batch.commit();
+      props.onClose();
+    } catch (error) {
+      setError("Error while posting");
+    }
+
+    setLoading(false);
+  }
 
   return (
     <>
@@ -51,6 +103,11 @@ function PostStackModal(props: StackType & PostStack) {
           </ModalHeader>
 
           <ModalBody>
+            {error && (
+              <Text color={"red.700"} fontSize={"xs"} fontWeight={"900"}>
+                {error}
+              </Text>
+            )}
             <Flex
               minH={"100px"}
               bg={props.stackColor}
@@ -116,7 +173,12 @@ function PostStackModal(props: StackType & PostStack) {
                 >
                   back
                 </Button>
-                <Button variant="white" size={"sm"}>
+                <Button
+                  variant="white"
+                  size={"sm"}
+                  onClick={handleNewPostCreation}
+                  isLoading={loading}
+                >
                   post
                 </Button>
               </>
