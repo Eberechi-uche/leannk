@@ -16,7 +16,7 @@ export default function StackCard(props: StackType) {
       <Flex
         width={"100%"}
         flexDir={"column"}
-        my={"4"}
+        my={"2"}
         h={"180px"}
         maxH={"230px"}
         bg={props.stackColor}

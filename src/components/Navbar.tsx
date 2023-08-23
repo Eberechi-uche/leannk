@@ -64,6 +64,7 @@ export function AuthNavbar() {
             alt={"profile picture"}
             boxSize={"25px"}
             borderRadius={"full"}
+            fallbackSrc="images/thumbs.svg"
           />
 
           <></>
