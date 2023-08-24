@@ -64,10 +64,7 @@ function PostStackModal(props: StackType & PostStack) {
     const sharedStacksRef = doc(
       collection(firestore, "profile", profileId, "posts")
     );
-    const publicPost = {
-      tag: hashTags,
-      stackRef: sharedStacksRef,
-    };
+
     try {
       batch.set(sharedStacksRef, newPostData);
       batch.set(doc(firestore, "posts", sharedStacksRef.id), newPostData);

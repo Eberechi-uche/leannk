@@ -1,7 +1,7 @@
 import { PostType } from "@/components/card/PostCard";
 import { firestore } from "@/firebase/clientApp";
-import { push } from "firebase/database";
-import { collection, getDoc, getDocs } from "firebase/firestore";
+
+import { collection, getDocs } from "firebase/firestore";
 import { useState } from "react";
 
 export function useGetpost() {
@@ -10,10 +10,11 @@ export function useGetpost() {
   const [error, setError] = useState("");
 
   async function getPosts() {
-    const resolvedPost = [];
     try {
       const postRef = await getDocs(collection(firestore, "posts"));
-      const profilePosts = postRef.docs.map((doc) => ({ ...doc.data() }));
+      const profilePosts = postRef.docs.map(
+        (doc) => ({ postId: doc.id, ...doc.data() } as PostType)
+      );
       setPosts(profilePosts as PostType[]);
     } catch (error) {
       setError("unable to fetch post retry");

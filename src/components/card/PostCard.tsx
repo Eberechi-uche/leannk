@@ -12,6 +12,7 @@ export interface PostType extends StackType {
   tag?: string[];
   stackItemRef: string;
   timeStamp: Timestamp;
+  postId?: string;
 }
 export default function Postcard(props: PostType) {
   return (

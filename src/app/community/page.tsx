@@ -8,15 +8,13 @@ import { useEffect, useState } from "react";
 
 export default function CommunityHome() {
   const { error, loading, getPosts, posts } = useGetpost();
-  console.log(posts);
   useEffect(() => {
     getPosts();
-    console.log("i ran");
   }, []);
   return (
     <>
-      {posts.map((post, index) => (
-        <Postcard {...post} />
+      {posts.map((post) => (
+        <Postcard {...post} key={post.postId} />
       ))}
       {loading && <LoadscreenCommunity />}
     </>
