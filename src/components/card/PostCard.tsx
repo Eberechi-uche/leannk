@@ -1,3 +1,4 @@
+"use client";
 import { StackType } from "@/chakra/Modals/CreateStackModal";
 import { Flex, Text, Image } from "@chakra-ui/react";
 
@@ -15,26 +16,44 @@ export type PostType = StackType & {
 export default function Postcard(props: PostType) {
   return (
     <>
-      <Flex w={"100%"}>
+      <Flex
+        w={"100%"}
+        p={"4"}
+        fontSize={"sm"}
+        borderBottom={"1.5px solid"}
+        borderColor={"brand.gray"}
+        my={"2"}
+      >
         <Flex w={"100%"}>
           <Flex w={"100%"}>
-            <Flex>
-              <Image
-                src={props.profileImageUrl}
-                alt={props.profileDN}
-                fallbackSrc=""
-              />
-            </Flex>
-            <Flex>
-              <Flex>
-                <Text fontWeight={"700"}>{props.profileDN}</Text>
+            <Image
+              src={props.profileImageUrl}
+              alt={props.profileDN}
+              fallbackSrc="images/thumbs.svg"
+              boxSize={"30px"}
+              borderRadius={"full"}
+              mr={"4"}
+            />
+
+            <Flex w={"100%"} flexDir={"column"}>
+              <Flex w={"100%"}>
+                <Text fontWeight={"700"} fontSize={"xs"}>
+                  {props.profileDN}
+                  user profile name
+                </Text>
               </Flex>
 
-              <Text> {props.postDesc}</Text>
+              <Text>
+                {" "}
+                {props.postDesc}e resource was preloaded using link preload but
+                not used within a few seconds from the window's load event.
+                Please make sure it has an appropriate `as` value and it is
+                preloaded intentionally.
+              </Text>
               <PostStack
-                stackColor={props.stackColor}
+                stackColor={props.stackColor || "#2F810A"}
                 stackId={props.stackId}
-                stackName={props.stackName}
+                stackName={props.stackName || "javascript and everthing else"}
                 note={props.note}
               />
             </Flex>
@@ -53,7 +72,7 @@ function PostStack(props: StackType) {
       my={"4"}
       h={"180px"}
       maxH={"230px"}
-      borderRadius={"10px"}
+      borderRadius={"5px"}
     >
       <Flex
         flexDir={"column"}
@@ -64,12 +83,13 @@ function PostStack(props: StackType) {
           lg: "70%",
         }}
         justify={"center"}
+        py={"5"}
       >
         <Text
           fontWeight={"900"}
           fontSize={{
-            base: "sm",
-            lg: "md",
+            base: "2xl",
+            lg: "lg",
           }}
           noOfLines={[4]}
           color={"blackAlpha.600"}
