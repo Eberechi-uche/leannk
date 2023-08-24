@@ -49,6 +49,7 @@ export default function Postcard(props: PostType) {
                 stackId={props.stackId}
                 stackName={props.stackName}
                 note={props.note}
+                status={props.status}
               />
             </Flex>
           </Flex>
