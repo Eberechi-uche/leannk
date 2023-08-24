@@ -39,21 +39,14 @@ export default function Postcard(props: PostType) {
               <Flex w={"100%"}>
                 <Text fontWeight={"700"} fontSize={"xs"}>
                   {props.profileDN}
-                  user profile name
                 </Text>
               </Flex>
 
-              <Text>
-                {" "}
-                {props.postDesc}e resource was preloaded using link preload but
-                not used within a few seconds from the window's load event.
-                Please make sure it has an appropriate `as` value and it is
-                preloaded intentionally.
-              </Text>
+              <Text>{props.postDesc}</Text>
               <PostStack
-                stackColor={props.stackColor || "#2F810A"}
+                stackColor={props.stackColor}
                 stackId={props.stackId}
-                stackName={props.stackName || "javascript and everthing else"}
+                stackName={props.stackName}
                 note={props.note}
               />
             </Flex>
