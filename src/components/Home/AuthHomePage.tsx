@@ -49,7 +49,7 @@ export default function AuthHomePage() {
             borderRadius={"5px"}
             w={"fit-content"}
             borderColor={"blackAlpha.200"}
-            bg={"#000"}
+            bg={"brand.black"}
             color={"#fff"}
           >
             <CreateStackIcon stack={stacks} setStack={setStacks} />
@@ -62,6 +62,7 @@ export default function AuthHomePage() {
                   stackId={stack.stackId}
                   stackName={stack.stackName}
                   note={stack.note}
+                  status={stack.status}
                 />
               </Flex>
             ))}

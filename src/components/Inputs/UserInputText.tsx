@@ -15,14 +15,14 @@ export default function UserInputText(props: {
           onChange={(e) => {
             props.onChange(e);
           }}
-          borderColor={"brand.dark"}
-          outline={"1px"}
-          border={"0.5px solid"}
-          borderRadius={"none"}
+          border={"2px solid"}
+          borderRadius={"3px"}
           focusBorderColor="brand.yellow"
           placeholder={props.placeHolder}
+          borderColor={"brand.gray"}
           my={"5"}
-        ></Textarea>
+          bgColor={"none"}
+        />
       </Flex>
     </>
   );

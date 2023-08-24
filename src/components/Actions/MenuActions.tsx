@@ -49,7 +49,8 @@ export function MakePublic(props: StackType) {
         alignItems={"center"}
         fontWeight={"inherit"}
         onClick={() => {
-          route.push("/share");
+          onOpen();
+          // route.push("/share/stack");
         }}
         closeOnSelect={false}
       >

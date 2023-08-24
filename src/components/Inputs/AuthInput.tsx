@@ -12,11 +12,12 @@ export default function AuthInput(props: {
       <Input
         value={props.value}
         name={props.name}
+        bgColor={"none"}
         onChange={(e) => {
           props.onChange(e);
         }}
-        border={"1.5px solid"}
-        borderColor={"brand.dark"}
+        border={"2px solid"}
+        borderColor={"brand.gray"}
         focusBorderColor="brand.yellow"
         type={props.type}
         borderRadius={"none"}
@@ -43,10 +44,11 @@ export function UserInputs(props: {
         onChange={(e) => {
           props.onChange(e);
         }}
-        borderColor={"brand.dark"}
-        border={"1.5px solid"}
+        // borderColor={"brand.dark"}
+        border={"2px solid"}
+        borderColor={"brand.gray"}
         type={props.type}
-        borderRadius={"none"}
+        borderRadius={"3px"}
         focusBorderColor="brand.yellow"
         placeholder={props.placeHolder}
         my={"5"}

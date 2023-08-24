@@ -23,7 +23,7 @@ export default function StackCard(props: StackType) {
         <Flex justify={"space-between"} px={"5"} align={"center"} pt={"4"}>
           <Icon
             color={"blackAlpha.400"}
-            fontSize={"xs"}
+            fontSize={"sm"}
             as={props.status === "private" ? HiLockClosed : HiOutlineGlobeAlt}
           />
           <MoreIcon>

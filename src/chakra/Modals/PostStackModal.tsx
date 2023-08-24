@@ -8,6 +8,7 @@ import {
   Button,
   Flex,
   Icon,
+  ModalOverlay,
 } from "@chakra-ui/react";
 import { StackType } from "./CreateStackModal";
 import UserInputText from "@/components/Inputs/UserInputText";
@@ -64,17 +65,27 @@ function PostStackModal(props: StackType & PostStack) {
       status: "shared",
     };
     const sharedStacksRef = doc(
-      collection(firestore, "profile", profileId, "posts", props.stackId)
+      firestore,
+      "profile",
+      profileId,
+      "posts",
+      props.stackId
     );
 
     try {
       batch.set(sharedStacksRef, newPostData);
       batch.set(doc(firestore, "posts", sharedStacksRef.id), newPostData);
-
+      batch.update(
+        doc(firestore, "profile", profileId, "Stacks", props.stackId),
+        {
+          status: "public",
+        }
+      );
       await batch.commit();
       props.onClose();
     } catch (error) {
       setError("Error while posting");
+      setLoading(false);
     }
 
     setLoading(false);
@@ -87,17 +98,21 @@ function PostStackModal(props: StackType & PostStack) {
         onClose={props.onClose}
         motionPreset="slideInBottom"
         closeOnOverlayClick={false}
+        size={{ base: "full", lg: "lg" }}
       >
+        <ModalOverlay />
         <ModalContent
-          borderRadius={"none"}
           boxShadow={"none"}
+          borderRadius={"20px"}
+          bg={"#fff"}
+          color={"brand.black"}
           // bg={"#000"}
           // color={"#fff"}
         >
           <ModalHeader fontSize={"sm"}>
             <Flex width={"100%"} align={"center"}>
-              <Icon as={HiOutlineGlobeAlt} mr={"4"} />
-              <Text>Share to Community</Text>
+              <Icon as={HiOutlineGlobeAlt} mr={"4"} fontSize={"xl"} />
+              <Text>Share to community</Text>
             </Flex>
           </ModalHeader>
 
@@ -108,9 +123,9 @@ function PostStackModal(props: StackType & PostStack) {
               </Text>
             )}
             <Flex
-              minH={"100px"}
+              minH={"150px"}
               bg={props.stackColor}
-              borderRadius={"3px"}
+              borderRadius={"10px"}
               px={"7"}
               py={"3"}
             >
@@ -141,7 +156,7 @@ function PostStackModal(props: StackType & PostStack) {
             {flow === 0 && (
               <>
                 <Button
-                  variant={"whiteOutline"}
+                  variant={"outline"}
                   mr={3}
                   onClick={props.onClose}
                   size={"sm"}
@@ -149,7 +164,7 @@ function PostStackModal(props: StackType & PostStack) {
                   Close
                 </Button>
                 <Button
-                  variant="white"
+                  variant="solid"
                   size={"sm"}
                   onClick={() => {
                     setFlow(1);
@@ -163,7 +178,7 @@ function PostStackModal(props: StackType & PostStack) {
             {flow === 1 && (
               <>
                 <Button
-                  variant={"whiteOutline"}
+                  variant={"outline"}
                   mr={3}
                   onClick={() => {
                     setFlow(0);
@@ -173,7 +188,7 @@ function PostStackModal(props: StackType & PostStack) {
                   back
                 </Button>
                 <Button
-                  variant="white"
+                  variant="solid"
                   size={"sm"}
                   onClick={handleNewPostCreation}
                   isLoading={loading}

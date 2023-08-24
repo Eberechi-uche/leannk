@@ -13,6 +13,8 @@ const colors = {
     lightgray: "#F8F8F8",
     dark: "#5F5B48",
     black: "#000",
+    matte: "#28282B",
+    offwhite: "#FAF9F6",
   },
 };
 

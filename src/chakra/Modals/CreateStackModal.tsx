@@ -7,6 +7,7 @@ import {
   ModalCloseButton,
   Button,
   Text,
+  ModalOverlay,
 } from "@chakra-ui/react";
 import { UserInputs } from "@/components/Inputs/AuthInput";
 import UserInputText from "@/components/Inputs/UserInputText";
@@ -33,12 +34,11 @@ export function CreateStackModal({
   stack: StackType[];
   setStacK: Dispatch<SetStateAction<StackType[]>>;
 }) {
-  const [newStack, setNewStackDetails] = useState<StackType>({
+  const [newStack, setNewStackDetails] = useState({
     stackName: "",
     note: "",
     stackColor: "#F6F5F4",
     status: "private",
-    stackId: "",
   });
   const { createDoc, error, loading, doc } = useCreateDoc(["Stacks"]);
 
@@ -64,10 +64,9 @@ export function CreateStackModal({
       ]);
       setNewStackDetails({
         note: "",
-        stackColor: "#fff",
+        stackColor: "#F6F5F4",
         stackName: "",
         status: "private",
-        stackId: "",
       });
       onClose();
     }
@@ -77,15 +76,15 @@ export function CreateStackModal({
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size={{ base: "sm", lg: "md" }}
+        size={{ base: "full", lg: "lg" }}
         motionPreset="slideInBottom"
       >
-        {/* <ModalOverlay /> */}
+        <ModalOverlay />
         <ModalContent
-          borderRadius={"none"}
+          borderRadius={"20px"}
           boxShadow={"none"}
-          bg={"black"}
-          color={"#fff"}
+          bg={"#fff"}
+          color={"brand.black"}
         >
           <ModalHeader>Create stack</ModalHeader>
 
@@ -118,23 +117,23 @@ export function CreateStackModal({
 
           <ModalFooter>
             <Button
-              mr={3}
-              onClick={handleCreateNewStack}
-              size={"sm"}
-              isDisabled={newStack.stackName.length < 4}
-              isLoading={loading}
-              variant={"white"}
-            >
-              Add
-            </Button>
-            <Button
-              variant="whiteOutline"
               onClick={() => {
                 onClose();
               }}
               size={"sm"}
+              variant={"outline"}
             >
               Cancel
+            </Button>
+            <Button
+              ml={3}
+              onClick={handleCreateNewStack}
+              size={"sm"}
+              isDisabled={newStack.stackName.length < 4}
+              isLoading={loading}
+              variant={"solid"}
+            >
+              Add
             </Button>
           </ModalFooter>
         </ModalContent>
