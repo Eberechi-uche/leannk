@@ -70,7 +70,7 @@ function PostStackModal(props: StackType & PostStack) {
     };
     try {
       batch.set(sharedStacksRef, newPostData);
-      batch.set(doc(firestore, "posts", sharedStacksRef.id), publicPost);
+      batch.set(doc(firestore, "posts", sharedStacksRef.id), newPostData);
 
       await batch.commit();
       props.onClose();

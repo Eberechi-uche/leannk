@@ -4,7 +4,7 @@ import { Flex, Text, Image } from "@chakra-ui/react";
 
 import { Timestamp } from "firebase/firestore/lite";
 
-export type PostType = StackType & {
+export interface PostType extends StackType {
   profileId: string;
   profileDN: string;
   profileImageUrl: string;
@@ -12,7 +12,7 @@ export type PostType = StackType & {
   tag?: string[];
   stackItemRef: string;
   timeStamp: Timestamp;
-};
+}
 export default function Postcard(props: PostType) {
   return (
     <>
@@ -21,7 +21,7 @@ export default function Postcard(props: PostType) {
         p={"4"}
         fontSize={"sm"}
         borderBottom={"1.5px solid"}
-        borderColor={"brand.gray"}
+        borderColor={"brand.lightgray"}
         my={"2"}
       >
         <Flex w={"100%"}>

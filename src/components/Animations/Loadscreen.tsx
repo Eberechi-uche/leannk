@@ -7,3 +7,19 @@ export default function Loadscreen() {
     </Flex>
   );
 }
+export function LoadscreenCommunity() {
+  return (
+    <Flex
+      w={"100dvw"}
+      h={"100dvh"}
+      justify={"center"}
+      align={"center"}
+      flexDir={"column"}
+    >
+      <Heading fontWeight={"light"}>LYNNK</Heading>
+      <Text fontSize={"xs"} fontWeight={"900"}>
+        Community
+      </Text>
+    </Flex>
+  );
+}

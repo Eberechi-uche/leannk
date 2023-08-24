@@ -10,15 +10,11 @@ export function useGetpost() {
   const [error, setError] = useState("");
 
   async function getPosts() {
-    const resolvedPosts: PostType[] = [];
+    const resolvedPost = [];
     try {
       const postRef = await getDocs(collection(firestore, "posts"));
-      const postsData = postRef.docs.forEach(async (post) => {
-        let resolvedPost = await getDoc(post.data().stackRef);
-        resolvedPosts.push(resolvedPost.data() as PostType);
-      });
-      setPosts(resolvedPosts as PostType[]);
-      setLoading(false);
+      const profilePosts = postRef.docs.map((doc) => ({ ...doc.data() }));
+      setPosts(profilePosts as PostType[]);
     } catch (error) {
       setError("unable to fetch post retry");
       setLoading(false);

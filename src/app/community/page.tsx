@@ -1,10 +1,9 @@
 "use client";
 
 import { useGetpost } from "@/Hooks/useGetPosts";
-import Postcard, { PostType } from "@/components/card/PostCard";
-import { firestore } from "@/firebase/clientApp";
+import { LoadscreenCommunity } from "@/components/Animations/Loadscreen";
+import Postcard from "@/components/card/PostCard";
 
-import { collection, getDoc, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 export default function CommunityHome() {
@@ -12,10 +11,14 @@ export default function CommunityHome() {
   console.log(posts);
   useEffect(() => {
     getPosts();
+    console.log("i ran");
   }, []);
   return (
     <>
-      {posts && posts.map((post, index) => <Postcard {...post} key={index} />)}
+      {posts.map((post, index) => (
+        <Postcard {...post} />
+      ))}
+      {loading && <LoadscreenCommunity />}
     </>
   );
 }
