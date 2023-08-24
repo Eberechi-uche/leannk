@@ -1,5 +1,5 @@
 import { Button, Flex, Icon } from "@chakra-ui/react";
-import { TbPlaylistAdd } from "react-icons/tb";
+import { TbPlaylistAdd, TbThumbUp } from "react-icons/tb";
 import { RiChat1Line, RiShareForward2Line } from "react-icons/ri";
 import {
   Drawer,
@@ -11,7 +11,7 @@ import { IoMdRemoveCircleOutline } from "react-icons/io";
 
 import { FaCircleCheck } from "react-icons/fa6";
 import { Menu, MenuButton, MenuList, Text } from "@chakra-ui/react";
-import { BsThreeDots } from "react-icons/bs";
+import { BsBookmark, BsThreeDots } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { CiMenuBurger } from "react-icons/ci";
 import { VscClose } from "react-icons/vsc";
@@ -35,9 +35,7 @@ export function ShareIcon() {
           p={"1.5"}
           mx={"1"}
           borderRadius={"full"}
-          px={"3"}
           cursor={"pointer"}
-          borderColor={"brand.black"}
           color={"#fff"}
         >
           <Flex align={"center"} justify={"center"}>
@@ -267,23 +265,47 @@ export function LikeIcon() {
           border={"1.5px solid"}
           p={"1.5"}
           borderRadius={"full"}
-          px={"3"}
-          borderColor={"brand.black"}
+          borderColor={"brand.gray"}
           mx={"1"}
-          bg={"brand.black"}
-          color={"#fff"}
         >
           <Flex align={"center"} justify={"center"}>
-            <Icon as={AiOutlineHeart} fontSize={"lg"} fontWeight={"bold"} />
+            <Icon as={TbThumbUp} fontSize={"lg"} fontWeight={"bold"} />
           </Flex>
         </Flex>
-        <Text fontWeight={"800"} fontSize={"xs"} color={"brand.darkgray"}>
-          Like
-        </Text>
       </Flex>
     </>
   );
 }
+
+export function BookmarkIcon() {
+  return (
+    <>
+      <Flex flexDir={"column"} align={"center"}>
+        <Flex
+          _hover={{
+            bg: "#F9F9F9",
+          }}
+          cursor={"pointer"}
+          border={"1.5px solid"}
+          p={"1.5"}
+          borderRadius={"full"}
+          borderColor={"brand.gray"}
+          mx={"1"}
+        >
+          <Flex align={"center"} justify={"center"}>
+            <Icon
+              as={BsBookmark}
+              fontSize={"lg"}
+              fontWeight={"bold"}
+              color={"brand.dark"}
+            />
+          </Flex>
+        </Flex>
+      </Flex>
+    </>
+  );
+}
+
 export function SaveIcon() {
   return (
     <>

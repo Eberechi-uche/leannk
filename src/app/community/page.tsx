@@ -16,7 +16,7 @@ export default function CommunityHome() {
   return (
     <>
       <SingPageLayout>
-        <SimpleGrid w={{ lg: "50%" }} gap={"2"}>
+        <SimpleGrid gap={"2"} p={"4"} columns={[1, 2, 3]}>
           {posts.map((post) => (
             <Postcard {...post} key={post.postId} />
           ))}

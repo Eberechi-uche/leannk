@@ -1,8 +1,11 @@
 "use client";
 import { StackType } from "@/chakra/Modals/CreateStackModal";
-import { Flex, Text, Image } from "@chakra-ui/react";
+import { Flex, Text, Image, Icon } from "@chakra-ui/react";
 
 import { Timestamp } from "firebase/firestore/lite";
+import { BookmarkIcon, LikeIcon, SaveIcon } from "../Icons/Icons";
+import { BsArrowRight } from "react-icons/bs";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 export interface PostType extends StackType {
   profileId: string;
@@ -19,40 +22,51 @@ export default function Postcard(props: PostType) {
     <>
       <Flex
         w={"100%"}
-        p={"4"}
-        fontSize={"sm"}
-        borderBottom={"1.5px solid"}
-        borderColor={"brand.lightgray"}
-        my={"2"}
+        p={"5"}
+        h={"250px"}
+        maxH={"250px"}
+        flexDir={"column"}
+        bg={"brand.offwhite"}
+        borderRadius={"5px"}
+        justify={"space-evenly"}
       >
-        <Flex w={"100%"}>
-          <Flex w={"100%"}>
-            <Image
-              src={props.profileImageUrl}
-              alt={props.profileDN}
-              fallbackSrc="images/thumbs.svg"
-              boxSize={"30px"}
-              borderRadius={"full"}
-              mr={"4"}
-            />
+        <Flex flexDir={"column"}>
+          <Image
+            src={props.profileImageUrl}
+            alt={props.profileDN}
+            fallbackSrc="images/thumbs.svg"
+            boxSize={"50px"}
+            borderRadius={"full"}
+          />
+          <Text fontWeight={"700"} fontSize={"md"} mt={"4"}>
+            {props.profileDN}
+          </Text>
+        </Flex>
 
-            <Flex w={"100%"} flexDir={"column"}>
-              <Flex w={"100%"}>
-                <Text fontWeight={"700"} fontSize={"xs"}>
-                  {props.profileDN}
-                </Text>
-              </Flex>
+        <Flex w={"100%"} flexDir={"column"}>
+          <Flex w={"100%"}></Flex>
 
-              <Text>{props.postDesc}</Text>
-              <PostStack
-                stackColor={props.stackColor}
-                stackId={props.stackId}
-                stackName={props.stackName}
-                note={props.note}
-                status={props.status}
-              />
-            </Flex>
+          <Text my={"2"} fontSize={"sm"} noOfLines={3}>
+            {props.postDesc}
+          </Text>
+        </Flex>
+        <Flex w={"100%"} cursor={"pointer"}>
+          <Flex
+            bg={props.stackColor}
+            w={"100%"}
+            borderRadius={"full"}
+            px={"4"}
+            h={"fit-content"}
+            align={"center"}
+            py={"1.5"}
+            justify={"space-between"}
+          >
+            <Text fontSize={"sm"} noOfLines={1} fontWeight={"900"}>
+              {props.stackName}
+            </Text>
+            <Icon as={FaArrowRightLong} />
           </Flex>
+          <BookmarkIcon />
         </Flex>
       </Flex>
     </>
