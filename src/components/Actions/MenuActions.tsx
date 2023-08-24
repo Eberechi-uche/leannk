@@ -38,6 +38,7 @@ export function Delete() {
 }
 
 export function MakePublic(props: StackType) {
+  const route = useRouter();
   const { stackColor, stackId, stackName, note } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -47,7 +48,9 @@ export function MakePublic(props: StackType) {
         display={"flex"}
         alignItems={"center"}
         fontWeight={"inherit"}
-        onClick={onOpen}
+        onClick={() => {
+          route.push("/share");
+        }}
         closeOnSelect={false}
       >
         <Icon as={PiGlobeBold} mr={"4"} />
@@ -61,6 +64,7 @@ export function MakePublic(props: StackType) {
           stackId={stackId}
           stackName={stackName}
           note={note}
+          status={"private"}
         />
       )}
     </>

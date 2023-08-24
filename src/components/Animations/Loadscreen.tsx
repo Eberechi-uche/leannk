@@ -1,4 +1,5 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Icon, Text } from "@chakra-ui/react";
+import { HiOutlineGlobeAlt } from "react-icons/hi";
 
 export default function Loadscreen() {
   return (
@@ -17,9 +18,12 @@ export function LoadscreenCommunity() {
       flexDir={"column"}
     >
       <Heading fontWeight={"light"}>LYNNK</Heading>
-      <Text fontSize={"xs"} fontWeight={"900"}>
-        Community
-      </Text>
+      <Flex align={"center"} justify={"center"}>
+        <Text fontSize={"xs"} fontWeight={"900"}>
+          Community
+        </Text>
+        <Icon as={HiOutlineGlobeAlt} fontSize={"md"} ml={"3"} />
+      </Flex>
     </Flex>
   );
 }

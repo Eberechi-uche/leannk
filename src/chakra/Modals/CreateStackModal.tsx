@@ -19,6 +19,7 @@ export type StackType = {
   stackName: string;
   note: string;
   stackColor: string;
+  status: "private" | "shared";
 };
 
 export function CreateStackModal({
@@ -32,10 +33,12 @@ export function CreateStackModal({
   stack: StackType[];
   setStacK: Dispatch<SetStateAction<StackType[]>>;
 }) {
-  const [newStack, setNewStackDetails] = useState({
+  const [newStack, setNewStackDetails] = useState<StackType>({
     stackName: "",
     note: "",
     stackColor: "#F6F5F4",
+    status: "private",
+    stackId: "",
   });
   const { createDoc, error, loading, doc } = useCreateDoc(["Stacks"]);
 
@@ -55,11 +58,16 @@ export function CreateStackModal({
     const Doc = await createDoc(newStack);
     if (error) return;
     if (!loading && Doc) {
-      setStacK((prev) => [{ stackId: Doc.id, ...newStack }, ...prev]);
+      setStacK((prev) => [
+        { ...newStack, stackId: Doc.id, status: "private" } as StackType,
+        ...prev,
+      ]);
       setNewStackDetails({
         note: "",
         stackColor: "#fff",
         stackName: "",
+        status: "private",
+        stackId: "",
       });
       onClose();
     }

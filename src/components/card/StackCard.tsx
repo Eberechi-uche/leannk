@@ -1,13 +1,10 @@
-import { Flex, MenuDivider, Text } from "@chakra-ui/react";
+import { Flex, Icon, MenuDivider, Text } from "@chakra-ui/react";
 
-import {
-  Delete,
-  EditStack,
-  MakePublic,
-  ShareToWeave,
-} from "../Actions/MenuActions";
+import { EditStack, MakePublic } from "../Actions/MenuActions";
 import { MoreIcon } from "../Icons/Icons";
 import Link from "next/link";
+
+import { HiOutlineGlobeAlt, HiLockClosed } from "react-icons/hi";
 import { StackType } from "@/chakra/Modals/CreateStackModal";
 
 export default function StackCard(props: StackType) {
@@ -23,7 +20,12 @@ export default function StackCard(props: StackType) {
         borderRadius={"10px"}
         key={props.stackId}
       >
-        <Flex justify={"flex-end"} px={"5"} align={"center"} pt={"4"}>
+        <Flex justify={"space-between"} px={"5"} align={"center"} pt={"4"}>
+          <Icon
+            color={"blackAlpha.400"}
+            fontSize={"xs"}
+            as={props.status === "private" ? HiLockClosed : HiOutlineGlobeAlt}
+          />
           <MoreIcon>
             <MakePublic {...props} />
             <MenuDivider borderColor={"gray.700"} borderWidth={"2px"} />

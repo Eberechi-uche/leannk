@@ -19,6 +19,7 @@ import { Timestamp, collection, doc, writeBatch } from "firebase/firestore";
 import { auth, firestore } from "@/firebase/clientApp";
 import extractUserId from "@/utility/extractUserId";
 import { PostType } from "@/components/card/PostCard";
+import StackId from "@/app/stack/[stackId]/page";
 
 type PostStack = {
   isOpen: boolean;
@@ -60,9 +61,10 @@ function PostStackModal(props: StackType & PostStack) {
       stackItemRef: stackItemsRef,
       tag: hashTags,
       timeStamp: Timestamp.fromDate(new Date()),
+      status: "shared",
     };
     const sharedStacksRef = doc(
-      collection(firestore, "profile", profileId, "posts")
+      collection(firestore, "profile", profileId, "posts", props.stackId)
     );
 
     try {
@@ -89,8 +91,8 @@ function PostStackModal(props: StackType & PostStack) {
         <ModalContent
           borderRadius={"none"}
           boxShadow={"none"}
-          bg={"#000"}
-          color={"#fff"}
+          // bg={"#000"}
+          // color={"#fff"}
         >
           <ModalHeader fontSize={"sm"}>
             <Flex width={"100%"} align={"center"}>

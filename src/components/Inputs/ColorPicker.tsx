@@ -1,3 +1,4 @@
+import { StackType } from "@/chakra/Modals/CreateStackModal";
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useState } from "react";
 const colors = [
@@ -16,13 +17,7 @@ export default function ColorPicker({
   setValue,
 }: {
   value: string;
-  setValue: Dispatch<
-    SetStateAction<{
-      stackName: string;
-      note: string;
-      stackColor: string;
-    }>
-  >;
+  setValue: Dispatch<SetStateAction<StackType>>;
 }) {
   return (
     <>

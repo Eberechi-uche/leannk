@@ -60,13 +60,13 @@ export default function Postcard(props: PostType) {
 function PostStack(props: StackType) {
   return (
     <Flex
-      bg={props.stackColor}
       width={"100%"}
       flexDir={"column"}
       my={"4"}
       h={"180px"}
       maxH={"230px"}
-      borderRadius={"5px"}
+      borderRadius={"10px"}
+      bg={props.stackColor}
     >
       <Flex
         flexDir={"column"}

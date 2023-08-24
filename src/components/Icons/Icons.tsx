@@ -90,10 +90,10 @@ export function MoreIcon({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Flex cursor={"pointer"} p={"1.5"}>
-        <Menu isLazy id={"sbs89"} size={"xs"} closeOnBlur={false}>
+        <Menu isLazy id={"sbs89"} size={"xs"}>
           <MenuButton>
             <Flex color={"blackAlpha.600"} align={"center"} justify={"center"}>
-              <Icon as={BsThreeDots} fontSize={"2xl"} />
+              <Icon as={BsThreeDots} fontSize={"xl"} />
             </Flex>
           </MenuButton>
           <MenuList
