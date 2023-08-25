@@ -15,14 +15,13 @@ export default function CommunityHome() {
   }, []);
   return (
     <>
+      {loading && <LoadscreenCommunity />}
       <SingPageLayout>
         <SimpleGrid gap={"2"} p={"4"} columns={[1, 2, 3]}>
           {posts.map((post) => (
             <Postcard {...post} key={post.postId} />
           ))}
         </SimpleGrid>
-
-        {loading && <LoadscreenCommunity />}
       </SingPageLayout>
     </>
   );

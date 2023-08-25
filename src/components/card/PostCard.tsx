@@ -23,10 +23,10 @@ export default function Postcard(props: PostType) {
       <Flex
         w={"100%"}
         p={"5"}
-        h={"250px"}
+        h={"300px"}
         maxH={"250px"}
         flexDir={"column"}
-        bg={"brand.offwhite"}
+        bg={"brand.lightgray"}
         borderRadius={"5px"}
         justify={"space-evenly"}
       >
@@ -35,10 +35,10 @@ export default function Postcard(props: PostType) {
             src={props.profileImageUrl}
             alt={props.profileDN}
             fallbackSrc="images/thumbs.svg"
-            boxSize={"50px"}
+            boxSize={"40px"}
             borderRadius={"full"}
           />
-          <Text fontWeight={"700"} fontSize={"md"} mt={"4"}>
+          <Text fontWeight={"500"} fontSize={"md"} mt={"2"}>
             {props.profileDN}
           </Text>
         </Flex>
@@ -50,7 +50,7 @@ export default function Postcard(props: PostType) {
             {props.postDesc}
           </Text>
         </Flex>
-        <Flex w={"100%"} cursor={"pointer"}>
+        <Flex w={"100%"} cursor={"pointer"} align={"center"}>
           <Flex
             bg={props.stackColor}
             w={"100%"}
@@ -58,10 +58,15 @@ export default function Postcard(props: PostType) {
             px={"4"}
             h={"fit-content"}
             align={"center"}
-            py={"1.5"}
+            py={"3"}
             justify={"space-between"}
           >
-            <Text fontSize={"sm"} noOfLines={1} fontWeight={"900"}>
+            <Text
+              fontSize={"md"}
+              noOfLines={1}
+              color={"blackAlpha.600"}
+              fontWeight={"600"}
+            >
               {props.stackName}
             </Text>
             <Icon as={FaArrowRightLong} />
