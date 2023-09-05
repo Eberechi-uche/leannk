@@ -26,9 +26,9 @@ export default function StackItemCard({
         h={"fit-content"}
         bg={"#F6F5F4"}
         w={"100%"}
-        p={"2"}
+        px={"2"}
         flexDir={"column"}
-        borderRadius={"10px"}
+        borderRadius={"16px"}
         cursor={"pointer"}
         my={"2"}
         justifyContent={"space-between"}
@@ -51,7 +51,7 @@ export default function StackItemCard({
             fallbackSrc="/images/image-placeholder.png"
             objectFit={"contain"}
           />
-          <Text mt={"0"} fontWeight={"600"}>
+          <Text mt={"0"} fontWeight={"400"} noOfLines={5}>
             {desc}
           </Text>
         </Flex>
@@ -59,14 +59,15 @@ export default function StackItemCard({
           <Flex
             w={"100%"}
             my={"2"}
-            borderRadius={"6px"}
-            borderColor={colorCode === "#F6F5F4" ? "brand.gray" : colorCode}
             pl={"2"}
+            borderRadius={"8.5px"}
+            borderColor={colorCode === "#F6F5F4" ? "brand.gray" : colorCode}
             bg={colorCode === "#F6F5F4" ? "blackAlpha.200" : colorCode}
             justifyContent={"space-between"}
             fontSize={"xs"}
             align={"center"}
             h={"fit-content"}
+            overflow={"clip"}
           >
             <Text
               textDecor={"underline"}
@@ -80,7 +81,7 @@ export default function StackItemCard({
               ml={"1"}
               src={metaImageLink}
               alt={""}
-              boxSize={"90px"}
+              boxSize={"100px"}
               objectFit={"cover"}
               fallbackSrc="/images/drum.svg"
               borderRightRadius={"3px"}

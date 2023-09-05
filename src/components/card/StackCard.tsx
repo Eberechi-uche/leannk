@@ -14,10 +14,10 @@ export default function StackCard(props: StackType) {
         width={"100%"}
         flexDir={"column"}
         my={"2"}
-        h={"180px"}
+        h={"250px"}
         maxH={"230px"}
         bg={props.stackColor}
-        borderRadius={"10px"}
+        borderRadius={"16px"}
         key={props.stackId}
       >
         <Flex justify={"space-between"} px={"5"} align={"center"} pt={"4"}>
@@ -27,8 +27,8 @@ export default function StackCard(props: StackType) {
             as={props.status === "private" ? HiLockClosed : HiOutlineGlobeAlt}
           />
           <MoreIcon>
-            <MakePublic {...props} />
-            <MenuDivider borderColor={"gray.700"} borderWidth={"2px"} />
+            {/* <MakePublic {...props} />
+            <MenuDivider borderColor={"gray.700"} borderWidth={"2px"} /> */}
             <EditStack />
           </MoreIcon>
         </Flex>
@@ -38,8 +38,8 @@ export default function StackCard(props: StackType) {
             cursor={"pointer"}
             px={"5"}
             w={{
-              base: "90%",
-              lg: "70%",
+              base: "100%",
+              lg: "80%",
             }}
             justify={"center"}
           >
@@ -49,7 +49,7 @@ export default function StackCard(props: StackType) {
                 base: "sm",
                 lg: "md",
               }}
-              noOfLines={[4]}
+              noOfLines={[7]}
               color={"blackAlpha.600"}
             >
               {props.stackName}

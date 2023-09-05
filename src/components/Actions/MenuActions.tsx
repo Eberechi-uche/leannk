@@ -132,15 +132,15 @@ export function NavMenuAction() {
           Profile setting
         </ListItem>
         <Divider />
-        <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
+        {/* <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
           <ListIcon as={PiCommandBold} />
           Your weaves
-        </ListItem>
+        </ListItem> */}
 
-        <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
+        {/* <ListItem display={"flex"} alignItems={"center"} pl={"4"}>
           <ListIcon as={PiGlobeBold} />
           Community
-        </ListItem>
+        </ListItem> */}
       </List>
     </>
   );

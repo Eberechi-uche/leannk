@@ -55,9 +55,9 @@ export function AuthNavbar() {
           <NavDrawer>
             <NavMenuAction />
           </NavDrawer>
-          <Link href={"/community"}>
+          {/* <Link href={"/community"}>
             <Community />
-          </Link>
+          </Link> */}
 
           <Image
             src={user?.photoURL!}
