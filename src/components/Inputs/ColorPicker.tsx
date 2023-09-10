@@ -28,7 +28,7 @@ export default function ColorPicker({
   return (
     <>
       <Flex w={"100%"} flexDir={"column"} py={"4"}>
-        <Text> Pick stack color - default is white</Text>
+        <Text> Pick stack color</Text>
         <Flex
           w={"100%"}
           overflowX={"scroll"}

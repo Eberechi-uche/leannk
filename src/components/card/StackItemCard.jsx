@@ -21,73 +21,74 @@ export default function StackItemCard({
 }) {
   return (
     <>
-      <Flex
-        minH={"150px"}
-        h={"fit-content"}
-        bg={"#F6F5F4"}
-        w={"100%"}
-        px={"2"}
-        flexDir={"column"}
-        borderRadius={"16px"}
-        cursor={"pointer"}
-        my={"2"}
-        justifyContent={"space-between"}
-      >
-        <Flex w={"100%"} justify={"space-between"} py={"1"} align={"center"}>
-          <Text fontSize={"xs"} color={"brand.dark"} fontWeight={"800"}>
-            {metaDomain}
-          </Text>
-          <MoreIcon>
-            <Delete />
-          </MoreIcon>
-        </Flex>
-        <Flex>
-          <Image
-            src={metaFavicon}
-            alt={""}
-            boxSize={"15px"}
-            mr={"4"}
-            mt={"1"}
-            fallbackSrc="/images/image-placeholder.png"
-            objectFit={"contain"}
-          />
-          <Text mt={"0"} fontWeight={"400"} noOfLines={5}>
-            {desc}
-          </Text>
-        </Flex>
-        <a href={link} target="_blank">
-          <Flex
-            w={"100%"}
-            my={"2"}
-            pl={"2"}
-            borderRadius={"8.5px"}
-            borderColor={colorCode === "#F6F5F4" ? "brand.gray" : colorCode}
-            bg={colorCode === "#F6F5F4" ? "blackAlpha.200" : colorCode}
-            justifyContent={"space-between"}
-            fontSize={"xs"}
-            align={"center"}
-            h={"fit-content"}
-            overflow={"clip"}
-          >
-            <Text
-              textDecor={"underline"}
-              color={colorCode === "#F6F5F4" ? "#000" : "#fff"}
-              noOfLines={2}
-              fontWeight={"900"}
-            >
-              {metaLinkDesc || metaTitle}
+      <Flex borderRadius={"16px"} bg={"#F6F5F4"} overflow={"clip"}>
+        <Flex h={"100%"} w={"5px"} bg={colorCode}></Flex>
+        <Flex
+          minH={"150px"}
+          h={"fit-content"}
+          w={"100%"}
+          px={"2"}
+          flexDir={"column"}
+          cursor={"pointer"}
+          my={"2"}
+          justifyContent={"space-between"}
+        >
+          <Flex w={"100%"} justify={"space-between"} py={"1"} align={"center"}>
+            <Text fontSize={"xs"} color={"brand.dark"} fontWeight={"800"}>
+              {metaDomain}
             </Text>
-            <Image
-              ml={"1"}
-              src={metaImageLink}
-              alt={""}
-              boxSize={"100px"}
-              objectFit={"cover"}
-              fallbackSrc="/images/drum.svg"
-              borderRightRadius={"3px"}
-            />
+            <MoreIcon>
+              <Delete />
+            </MoreIcon>
           </Flex>
-        </a>
+          <Flex>
+            <Image
+              src={metaFavicon}
+              alt={""}
+              boxSize={"15px"}
+              mr={"4"}
+              mt={"1"}
+              fallbackSrc="/images/image-placeholder.png"
+              objectFit={"contain"}
+            />
+            <Text mt={"0"} fontWeight={"400"} fontSize={"sm"} noOfLines={5}>
+              {desc}
+            </Text>
+          </Flex>
+          <a href={link} target="_blank">
+            <Flex
+              w={"100%"}
+              my={"2"}
+              pl={"2"}
+              borderRadius={"8.5px"}
+              // borderColor={colorCode === "#F6F5F4" ? "brand.gray" : colorCode}
+              bg={"#fff"}
+              justifyContent={"space-between"}
+              fontSize={"xs"}
+              align={"center"}
+              h={"fit-content"}
+              overflow={"clip"}
+            >
+              <Text
+                textDecor={"underline"}
+                // color={colorCode === "#F6F5F4" ? "#000" : "#fff"}
+                noOfLines={2}
+                fontWeight={"900"}
+              >
+                {metaLinkDesc || metaTitle}
+              </Text>
+              <Image
+                ml={"1"}
+                src={metaImageLink}
+                alt={""}
+                boxSize={"100px"}
+                objectFit={"cover"}
+                fallbackSrc="/images/drum.svg"
+                borderRightRadius={"3px"}
+              />
+            </Flex>
+          </a>
+        </Flex>
       </Flex>
     </>
   );
